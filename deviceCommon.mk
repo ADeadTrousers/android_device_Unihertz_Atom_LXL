@@ -35,9 +35,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
-# FMRadio
+# MTKFMRadio
 PRODUCT_PACKAGES += \
-    FMRadio \
+    MTKFMRadio \
+    libfmjni \
     libfmcust
     
 # fastbootd
