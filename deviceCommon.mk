@@ -35,11 +35,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
-## FMRadio
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmcust
-    
+# FMRadio
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmcust
+   
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
