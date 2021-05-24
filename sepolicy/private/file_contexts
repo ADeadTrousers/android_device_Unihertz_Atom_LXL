@@ -41,3 +41,4 @@
 /system/bin/resize2fs                                                                               u:object_r:fsck_exec:s0
 /eng                                                                                                u:object_r:rootfs:s0
 /system/bin/mmp                                                                                     u:object_r:mmp_exec:s0
+/dev/fm(/.*)?                                                                                       u:object_r:fm_device:s0
