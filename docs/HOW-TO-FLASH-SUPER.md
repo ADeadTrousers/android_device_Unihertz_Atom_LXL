@@ -133,10 +133,10 @@ With these number we are now able to create the `super.img`
  --super-name super \
  --metadata-slots 1 \
  --device super:4831838208 \
- --group main:4432629760 \
- --partition system:readonly:3384295424:main --image system=./system.img \
- --partition vendor:readonly:349093888:main --image vendor=./vendor.img \
- --partition product:readonly:699240448:main --image product=./product.img \
+ --group main:4829741056 \
+ --partition system:readonly:3670016000:main --image system=./system.img \
+ --partition vendor:readonly:367001600:main --image vendor=./vendor.img \
+ --partition product:readonly:681574400:main --image product=./product.img \
  --sparse \
  --output ./super.img
 ```
