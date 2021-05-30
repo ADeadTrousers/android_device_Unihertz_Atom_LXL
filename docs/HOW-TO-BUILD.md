@@ -147,6 +147,7 @@ Add the following
 <manifest>
   <remove-project name="LineageOS/android_packages_apps_FMRadio"/>
   <project name="ADeadTrousers/android_device_Unihertz_Atom_LXL" path="device/Unihertz/Atom_LXL" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_vendor_mediatek_libfmcust" path="vendor/mediatek/libfmcust" remote="github" revision="master" />
   <!-- For the Atom L model add -->  
   <project name="ADeadTrousers/android_device_Unihertz_Atom_L" path="device/Unihertz/Atom_L" remote="github" revision="master" />
   <!-- For the Atom XL model add -->  
