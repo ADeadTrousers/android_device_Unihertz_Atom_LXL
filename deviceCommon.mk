@@ -38,7 +38,8 @@ PRODUCT_PACKAGES += \
 # FMRadio
 PRODUCT_PACKAGES += \
     FMRadio \
-    libfmcust
+    libfmcust \
+    ueventd.mt6771.rc
    
 # fastbootd
 PRODUCT_PACKAGES += \
