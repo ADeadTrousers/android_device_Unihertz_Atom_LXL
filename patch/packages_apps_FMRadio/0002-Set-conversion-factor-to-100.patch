@@ -1,24 +1,33 @@
-From fbb2ef43f388438a7918304a541b12e2a4424df6 Mon Sep 17 00:00:00 2001
+From c2742e9857f62d0de1c4a454fe9a4e2d8144a90d Mon Sep 17 00:00:00 2001
 From: Matthias Leitl <a.dead.trousers@gmail.com>
-Date: Sat, 29 May 2021 19:18:20 +0200
+Date: Sun, 30 May 2021 11:25:04 +0200
 Subject: [PATCH] Set conversion factor to 100
 
-Change-Id: I340bc2a5ef8375114e6a6c09191df491383c1dbe
+Change-Id: I0932b81ccf056ef17d2f6135f37bba06089ed014
 ---
- jni/fmr/libfm_jni.cpp | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ jni/fmr/libfm_jni.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/jni/fmr/libfm_jni.cpp b/jni/fmr/libfm_jni.cpp
-index a906887..6f83ae5 100644
+index 6f83ae5..5524600 100644
 --- a/jni/fmr/libfm_jni.cpp
 +++ b/jni/fmr/libfm_jni.cpp
 @@ -51,7 +51,7 @@ jboolean powerUp(JNIEnv *env, jobject thiz, jfloat freq)
      int tmp_freq;
  
      LOGI("%s, [freq=%d]\n", __func__, (int)freq);
--    tmp_freq = (int)(freq * 10);        //Eg, 87.5 * 10 --> 875
-+    tmp_freq = (int)(freq * 100);       //Eg, 87.5 * 100 --> 8750
+-    tmp_freq = (int)(freq * 100);       //Eg, 87.5 * 100 --> 8750
++    tmp_freq = (int)(freq * 100);        //Eg, 87.5 * 100 --> 8750
      ret = FMR_pwr_up(g_idx, tmp_freq);
+ 
+     LOGD("%s, [ret=%d]\n", __func__, ret);
+@@ -73,7 +73,7 @@ jboolean tune(JNIEnv *env, jobject thiz, jfloat freq)
+     int ret = 0;
+     int tmp_freq;
+ 
+-    tmp_freq = (int)(freq * 10);        //Eg, 87.5 * 10 --> 875
++    tmp_freq = (int)(freq * 100);        //Eg, 87.5 * 100 --> 8750
+     ret = FMR_tune(g_idx, tmp_freq);
  
      LOGD("%s, [ret=%d]\n", __func__, ret);
 -- 
