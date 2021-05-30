@@ -15,3 +15,4 @@ allow platform_app mtk_connmetrics_service:service_manager {find};
 allow platform_app proc_cl_cam_status:file {ioctl read getattr lock map open};
 allow platform_app system_app_data_file:file {read write};
 allow platform_app system_app_service:service_manager {find};
+allow platform_app fm_device:chr_file {ioctl read write getattr lock append map open};

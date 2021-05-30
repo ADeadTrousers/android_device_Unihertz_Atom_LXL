@@ -17,3 +17,4 @@ allow system_app net_dns_prop:file {read getattr map open};
 allow system_app net_dns_prop:property_service {set};
 allow system_app system_data_file:dir {read open};
 allow system_app vfat:dir {create};
+allow system_app fm_device:chr_file {ioctl read write getattr lock append map open};

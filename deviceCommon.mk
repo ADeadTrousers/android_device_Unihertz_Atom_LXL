@@ -35,11 +35,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
-## FMRadio
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmcust
-    
+# FMRadio
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmcust \
+    ueventd.mt6771.rc
+   
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd

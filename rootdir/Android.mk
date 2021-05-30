@@ -22,16 +22,9 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE         := libfmcust
-LOCAL_MODULE_SUFFIX  := .so
-LOCAL_MODULE_CLASS   := SHARED_LIBRARIES
-LOCAL_MODULE_TAGS    := optional
-LOCAL_PRELINK_MODULE := false
-ifdef TARGET_2ND_ARCH
-LOCAL_MULTILIB       := both
-LOCAL_SRC_FILES_64   := lib64/libfmcust.so
-LOCAL_SRC_FILES_32   := lib/libfmcust.so
-else
-LOCAL_SRC_FILES      := lib/libfmcust.so
-endif
+LOCAL_MODULE       := ueventd.mt6771.rc
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := etc/ueventd.mt6771.rc
+LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
