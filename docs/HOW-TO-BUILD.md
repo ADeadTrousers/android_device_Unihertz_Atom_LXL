@@ -162,6 +162,12 @@ Add the following
   <project name="ADeadTrousers/android_device_Unihertz_Atom_XL_TEE" path="device/Unihertz/Atom_XL_TEE" remote="github" revision="master" />
 </manifest>
 ```
+
+If you want to build with NavButtonRemap included add the following to the manifest-tag
+
+```xml
+  <project name="ADeadTrousers/NavButtonRemap" path="vendor/shuhaowu/NavButtonRemap" remote="github" revision="master" />
+```
 	
 If you want to build with GAPPS included add the following to the manifest-tag
 
