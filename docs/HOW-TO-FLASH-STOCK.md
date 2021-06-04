@@ -38,3 +38,7 @@ Since the time Unihertz created their [instructions to flash a ROM](https://driv
 6. Connect your phone to your PC.
 7. Turn on your phone.
 8. The flashing should begin right away.
+
+## Warning ##
+
+Don't use the "Format" options in the SP Flash Tool or you could loose some important parameters of your phone and you cannot restore them.
