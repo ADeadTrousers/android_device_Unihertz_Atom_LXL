@@ -1,6 +1,3 @@
-# APNs
-etc/apns-conf.xml:product/etc/apns-conf.xml
-
 # MTK-IMS
 -framework/mediatek-common.jar
 -framework/mediatek-framework.jar
@@ -96,6 +93,7 @@ bin/move_widevine_data.sh
 bin/notify_traceur.override.sh
 bin/oem-iptables-init.sh
 bin/rtt
+bin/mount.exfat
 
 etc/init/hw/vendor_init_as_system.rc
 etc/init/init.connectivity.rc
@@ -348,15 +346,12 @@ lib64/libnwk_opt_halwrap.so
 lib64/libperfctl.so
 lib64/libpowerhalwrap.so
 lib64/libpowerhalwrap_jni.so
-lib64/libqcs-jni-100.100.103.so
 lib64/libsf_debug.so
 lib64/libteec.so
 lib64/libteeservice_client.trustonic.so
 lib64/libtouchfilter.so
-lib64/libtsf-jni-103.100.101.so
 lib64/libudf.so
 lib64/libui_ext.so
-lib64/libupdate-jni-1.0.1.2002.so
 lib64/libvsync_enhance.so
 lib64/libvsync_hint.so
 lib64/libwapi_cert_jni.so

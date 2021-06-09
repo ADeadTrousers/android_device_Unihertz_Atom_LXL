@@ -1,0 +1,98 @@
+From fc24395858a139098bd63b480d248933a3f3baac Mon Sep 17 00:00:00 2001
+From: Matthias Leitl <a.dead.trousers@gmail.com>
+Date: Wed, 9 Jun 2021 21:50:10 +0200
+Subject: [PATCH 1/1] Update custom_apns.py to use xml library
+
+Change-Id: Ib2784fa1e1719c90ac9c766aa9e640e9ce046bbe
+---
+ tools/custom_apns.py | 64 +++++++++++++++++++++++---------------------
+ 1 file changed, 34 insertions(+), 30 deletions(-)
+
+diff --git a/tools/custom_apns.py b/tools/custom_apns.py
+index b58ece1b..6e18bab8 100644
+--- a/tools/custom_apns.py
++++ b/tools/custom_apns.py
+@@ -16,11 +16,9 @@
+ #
+ 
+ import sys
+-from xml.dom.minidom import parseString
++import xml.etree.ElementTree as etree
+ 
+ def main(argv):
+-    reload(sys)
+-    sys.setdefaultencoding('utf8')
+     original_file = 'vendor/lineage/prebuilt/common/etc/apns-conf.xml'
+ 
+     if len(argv) == 3:
+@@ -29,34 +27,40 @@ def main(argv):
+     else:
+         raise ValueError("Wrong number of arguments %s" % len(argv))
+ 
+-    custom_apn_names = []
+-    with open(custom_override_file, 'r') as f:
+-        for line in f:
+-            xmltree = parseString(line)
+-            carrier = xmltree.getElementsByTagName('apn')[0].getAttribute('carrier')
+-            custom_apn_names.append(carrier)
++    custom_tree = etree.parse(custom_override_file)
++    original_tree = etree.parse(original_file)
++    
++    output_root = etree.Element("apns")
++    output_root.set("version",original_tree.getroot().attrib["version"])
++    output_root.text = "\n"
+ 
+-    with open(original_file, 'r') as input_file:
+-        with open(output_file_path, 'w') as output_file:
+-            for line in input_file:
+-                writeOriginalLine = True
+-                for apn in custom_apn_names:
+-                    if apn in line:
+-                        with open(custom_override_file, 'r') as custom_file:
+-                            for override_line in custom_file:
+-                                if apn in override_line:
+-                                    output_file.write(override_line)
+-                                    writeOriginalLine = False
+-                                    custom_apn_names.remove(apn)
+-                if writeOriginalLine:
+-                    if "</apns>" in line:
+-                        if custom_apn_names:
+-                            for apn in custom_apn_names:
+-                                with open(custom_override_file, 'r') as custom_file:
+-                                    for override_line in custom_file:
+-                                        if apn in override_line:
+-                                            output_file.write(override_line)
+-                    output_file.write(line)
++# Needs lxml lib to work    
++#    for comment_data in original_tree.xpath("preceding-sibling::comment()"):
++#      output_root.addprevious(comment_data)
++      
++    for apn_original in original_tree.findall("apn"):
++      carrier_name = apn_original.attrib["carrier"]
++      apn_custom = custom_tree.findall('apn[@carrier="'+carrier_name+'"]')
++      if not apn_custom:
++        apn_output = apn_original
++      else:
++        apn_output = apn_custom[0]
++      apn_output.tail = "\n  "
++      output_root.append(apn_output)
++      
++    for apn_custom in custom_tree.findall("apn"):
++      carrier_name = apn_custom.attrib["carrier"]
++      apn_original = original_tree.findall('apn[@carrier="'+carrier_name+'"]')
++      if not apn_original:
++        apn_output = apn_custom
++        apn_output.tail = "\n  "
++        output_root.append(apn_output)
++    
++    if apn_output is not None:
++      apn_output.tail = "\n"
++      
++    output_tree = etree.ElementTree(output_root)
++    output_tree.write(output_file_path,encoding="UTF-8",xml_declaration=True)      
+ 
+ if __name__ == '__main__':
+     main(sys.argv)
+-- 
+2.25.1
+

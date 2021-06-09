@@ -106,6 +106,5 @@ BOARD_VNDK_VERSION := current
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_COMMON_PATH)/product.prop
 
-# We need this for apns-conf
-# We would like to override instead of merge
-BUILD_BROKEN_DUP_RULES := true
+# We need this for apns-conf to include more settings
+CUSTOM_APNS_FILE := device/sample/etc/apns-full-conf.xml
