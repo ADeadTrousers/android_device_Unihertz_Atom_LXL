@@ -33,6 +33,7 @@ For the actual releases head on over to the device tree of the individual device
 - [HOW-TO-BUILD.md](docs/HOW-TO-BUILD.md) - Building instructions for LineageOS 17.1.
 - [HOW-TO-INSTALL.md](docs/HOW-TO-INSTALL.md) - Installation instructions for the Atom L/XL.
 - [HOW-TO-UPDATE.md](docs/HOW-TO-UPDATE.md) - Update instructions for the Atom L/XL.
+- [HOW-TO-UPGRADE.md](docs/HOW-TO-UPGRADE.md) - Upgrade instructions for the vendor portion of the Atom L/XL.
 - [HOW-TO-EXTRACT_FILES.md](docs/HOW-TO-EXTRACT_FILES.md) - Instructions to extract files directly from the Atom L/XL stock rom files.
 - [HOW-TO-EXTRACT_SEPOLICY.md](docs/HOW-TO-EXTRACT_SEPOLICY.md) - A little guide to extract sepolicy rules from stock or phone.
 - [HOW-TO-FLASH-STOCK.md](docs/HOW-TO-FLASH-STOCK.md) - Instructions on how to use the SP Flash Tool for MTK based devices.
