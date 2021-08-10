@@ -22,10 +22,6 @@
 /system/bin/vtservice                                                                               u:object_r:vtservice_exec:s0
 /vendor/bin/teed                                                                                    u:object_r:tkcore_exec:s0
 /vendor/app/t6(/.*)?                                                                                u:object_r:tkcore_systa_file:s0
-/dev/stmcu                                                                                          u:object_r:extmodule_device:s0
-/dev/ttyTTCMD                                                                                       u:object_r:extmodule_device:s0
-/system/bin/dfu-util                                                                                u:object_r:extmodule_exec:s0
-/system/bin/extmodule                                                                               u:object_r:extmodule_exec:s0
 /dev/ttyACM0                                                                                        u:object_r:ttyACM_device:s0
 /dev/lepton                                                                                         u:object_r:lepton_device:s0
 /dev/lepton_drv                                                                                     u:object_r:lepton_device:s0
