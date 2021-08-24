@@ -104,6 +104,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_COMMON_PATH)/sepolicy/vendor
 BOARD_VNDK_VERSION := current
 
 # Properties
+TARGET_SYSTEM_PROP += $(DEVICE_COMMON_PATH)/system.prop
 TARGET_PRODUCT_PROP += $(DEVICE_COMMON_PATH)/product.prop
 
 # We need this for apns-conf to include more settings
