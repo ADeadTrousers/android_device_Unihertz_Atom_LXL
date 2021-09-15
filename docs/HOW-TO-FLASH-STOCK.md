@@ -21,7 +21,7 @@ In this guide I'll use Windows cause honestly that's the only way I know of and 
 
 ## Downloading the Stock ROM
 
-1. Download the [latest Stock ROM](https://drive.google.com/drive/folders/1vdpRcZ2aGlpLCPVi3vh3EE6UjVZzSMq8?sort=13&direction=a).
+1. Download the [latest Stock ROM](https://drive.google.com/drive/folders/0By1nhWOmuw2KdDhTUlFOZHpXQjg?sort=13&direction=a&resourcekey=0-KHJPIYVPw2iHL--cceWyaw).
 2. Extract the downloaded zip to a folder of your choosing.
 
 ## Flashing the Stock ROM
