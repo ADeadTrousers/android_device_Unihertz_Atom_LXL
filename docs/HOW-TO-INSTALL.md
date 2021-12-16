@@ -66,9 +66,9 @@ To get LineageOS to boot proberly we also need to disable AVB. Otherwise the boo
 1. Download `vbmeta.img` from the latest release page of your device.
 2. Connect your phone to your PC and open a terminal or a command line window.
 3. Run `adb reboot bootloader` on your PC to put your device in bootloader mode.
-4. Once your device has finished booting run `fastboot flash --disable-verification --disable-verity vbmeta vbmeta.img`.
-5. Then run `fastboot flash --disable-verification --disable-verity vbmeta_system vbmeta.img`.
-6. Also run `fastboot flash --disable-verification --disable-verity vbmeta_vendor vbmeta.img`.
+4. Once your device has finished booting run `fastboot --disable-verification --disable-verity flash vbmeta vbmeta.img`.
+5. Then run `fastboot --disable-verification --disable-verity flash vbmeta_system vbmeta.img`.
+6. Also run `fastboot --disable-verification --disable-verity flash vbmeta_vendor vbmeta.img`.
 
 ## Installing TWRP recovery
 
