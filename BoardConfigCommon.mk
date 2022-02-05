@@ -108,4 +108,5 @@ TARGET_SYSTEM_PROP += $(DEVICE_COMMON_PATH)/system.prop
 TARGET_PRODUCT_PROP += $(DEVICE_COMMON_PATH)/product.prop
 
 # We need this for apns-conf to include more settings
-CUSTOM_APNS_FILE := device/sample/etc/apns-full-conf.xml
+CUSTOM_APNS_FILE := device/sample/etc/apns-full-conf.xml \
+    $(DEVICE_COMMON_PATH)/etc/apns-conf.xml
