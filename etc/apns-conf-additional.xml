@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apns version="8">
+  <apn carrier="FreedomPop"
+      apn="ERESELLER"
+      mcc="310"
+      mnc="410"  
+      mmsc="http://mmsc.mobile.att.net"
+      mmsport="80" 
+      mmsproxy="proxy.mobile.att.net"
+      protocol="IPV4"
+      type="default,mms,supl"  
+  />
+</apns>
