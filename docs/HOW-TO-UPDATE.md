@@ -1,4 +1,4 @@
-How to update LineageOS 17.1 for the Unihertz Atom L and XL
+How to update LineageOS 18.1 for the Unihertz Atom L and XL
 =================================================
 
 Every piece of software should allways kept up-to-date. Therefore even this ROM get updates from time to time and you should allways apply these to your device.
@@ -29,7 +29,7 @@ Every piece of software should allways kept up-to-date. Therefore even this ROM 
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases)
 - [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases)
 
-1. Download `lineage-17.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
+1. Download `lineage-18.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
 2. Connect your phone to your PC and open a terminal or a command line window.
 3. Run `adb reboot recovery` on your PC or simply hold volume up while turning power on to boot your device into the recovery.
 4. (Optional) In TWRP select `Wipe > Advanced Wipe`.
@@ -37,7 +37,7 @@ Every piece of software should allways kept up-to-date. Therefore even this ROM 
 6. (Optional) Swipe the slider on the bottom to the right to confirm. (**THIS WILL WIPE ALL DATA!**)
 7. Go back to the home screen and select `Advanced > ADB Sideload`.
 8. Swipe the slider on the bottom to the right to confirm.
-9. Run `adb sideload lineage-17.1-XXX-UNOFFICIAL-YYY.zip` from your PC.
+9. Run `adb sideload lineage-18.1-XXX-UNOFFICIAL-YYY.zip` from your PC.
 10. Wait for the process to finish. The recovery might prompt something about verification failure, just ignore it and continue anyway.
 11. (Optional) You need to flash all the additional modules that you previously installed. 
 12. Select `Reboot System` to reboot into LineageOS and enjoy. Note that Magisk might cause your device to boot loop once or two but it will eventually boot.
