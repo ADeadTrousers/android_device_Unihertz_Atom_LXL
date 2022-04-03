@@ -1,4 +1,4 @@
-How to install LineageOS 18.1 for the Unihertz Atom L and XL
+How to install LineageOS 17.1 for the Unihertz Atom L and XL
 =================================================
 
 ## Getting adb and fastboot
@@ -91,7 +91,7 @@ To get LineageOS to boot proberly we also need to disable AVB. Otherwise the boo
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases)
 - [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases)
 
-1. Download `lineage-18.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
+1. Download `lineage-17.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
 2. Connect your phone to your PC and open a terminal or a command line window.
 3. Run `adb reboot recovery` on your PC or simply hold volume up while turning power on to boot your device into the recovery.
 4. In TWRP select `Wipe > Advanced Wipe`.
@@ -102,12 +102,12 @@ To get LineageOS to boot proberly we also need to disable AVB. Otherwise the boo
 
 1. From home screen select `Advanced > ADB Sideload`.
 2. Swipe the slider on the bottom to the right to confirm.
-3. Run `adb sideload lineage-18.1-XXX-UNOFFICIAL-YYY.zip` from your PC.
+3. Run `adb sideload lineage-17.1-XXX-UNOFFICIAL-YYY.zip` from your PC.
 4. Wait for the process to finish. The recovery might prompt something about verification failure, just ignore it and continue anyway.
 
 ### Using SD card
 
-1. Run `adb push lineage-18.1-XXX-UNOFFICIAL-YYY.zip /external_sd` on your PC or transfer the file beforehand onto your SD card.
+1. Run `adb push lineage-17.1-XXX-UNOFFICIAL-YYY.zip /external_sd` on your PC or transfer the file beforehand onto your SD card.
 2. From home screen select `Install`.
 3. Use `Select Storage` to switch to your SD card.
 4. Select the previously transfered file.

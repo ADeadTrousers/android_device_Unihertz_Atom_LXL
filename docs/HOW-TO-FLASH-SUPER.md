@@ -90,7 +90,7 @@ Create the folder `~/super` and copy `vendor.img` into it.
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases)
 - [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases)
 
-Download `lineage-18.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
+Download `lineage-17.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
 Extract the files from the zip archive into `~/super`.
 
 Then we need to extract the brotli compressed files
@@ -134,8 +134,8 @@ With these number we are now able to create the `super.img`
  --metadata-slots 1 \
  --device super:4831838208 \
  --group main:4829741056 \
- --partition system:readonly:3470016000:main --image system=./system.img \
- --partition vendor:readonly:567001600:main --image vendor=./vendor.img \
+ --partition system:readonly:3670016000:main --image system=./system.img \
+ --partition vendor:readonly:367001600:main --image vendor=./vendor.img \
  --partition product:readonly:681574400:main --image product=./product.img \
  --sparse \
  --output ./super.img

@@ -1,4 +1,4 @@
-How to build LineageOS 18.1 for the Unihertz Atom L and XL
+How to build LineageOS 17.1 for the Unihertz Atom L and XL
 =================================================
 
 This guide is focused on building the ROM under a Linux host environment.
@@ -131,7 +131,7 @@ Create the project folder and download the source code
 ```bash
 mkdir -p ~/android/lineage
 cd ~/android/lineage
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+repo init -u https://github.com/LineageOS/android.git -b lineage-17.1
 ```
 	
 Now let's add this very device repo to the local_manifest
