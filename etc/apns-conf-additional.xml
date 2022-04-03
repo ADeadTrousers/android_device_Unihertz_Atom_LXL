@@ -10,4 +10,14 @@
       protocol="IPV4"
       type="default,mms,supl"  
   />
+  <apn carrier="FreedomPop"
+      apn="ERESELLER"
+      mcc="310"
+      mnc="170"  
+      mmsc="http://mmsc.mobile.att.net"
+      mmsport="80" 
+      mmsproxy="proxy.mobile.att.net"
+      protocol="IPV4"
+      type="default,mms,supl"  
+  />
 </apns>
