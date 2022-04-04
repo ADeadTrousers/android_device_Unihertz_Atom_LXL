@@ -1,15 +1,15 @@
-From e8817177f31439411b7bed2a680b451b6e6d8f7d Mon Sep 17 00:00:00 2001
+From f10c611e9f4cdecf46d0aa5538527ed0ba3bbf47 Mon Sep 17 00:00:00 2001
 From: Matthias Leitl <a.dead.trousers@gmail.com>
-Date: Sat, 5 Feb 2022 14:56:06 +0100
+Date: Mon, 4 Apr 2022 18:50:48 +0200
 Subject: [PATCH 1/1] Update custom_apns.py to use xml library
 
-Change-Id: I78a0ce08997d672cf01ec6fc393690ba043d7492
+Change-Id: I81efe690102d9b59b4608fe8567f546e515ddc20
 ---
  tools/custom_apns.py | 89 ++++++++++++++++++++++++++------------------
  1 file changed, 53 insertions(+), 36 deletions(-)
 
 diff --git a/tools/custom_apns.py b/tools/custom_apns.py
-index b58ece1b..cc0ba745 100644
+index b58ece1b..bff8ba44 100644
 --- a/tools/custom_apns.py
 +++ b/tools/custom_apns.py
 @@ -16,47 +16,64 @@
@@ -87,7 +87,7 @@ index b58ece1b..cc0ba745 100644
 +#      output_root.addprevious(comment_data)
 +
 +    while apn_trees:
-+        current_tree = apn_trees.pop()
++        current_tree = apn_trees.pop(0)
 +        for apn_current in current_tree.findall("apn"):
 +            apn_query = "apn"
 +            apn_query += queryAttribute(apn_current,"carrier")
