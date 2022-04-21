@@ -72,6 +72,8 @@ To get LineageOS to boot proberly we also need to disable AVB. Otherwise the boo
 
 ## Installing TWRP recovery
 
+**Attention:** Make sure you have the correct stock ROM release to the kernel of the TWRP release. If not use the [upgrade guide](HOW-TO-UPGRADE.md) to switch stock ROM releases. 
+
 - [Atom L Region EEA (european union)](https://github.com/ADeadTrousers/twrp_device_Unihertz_Atom_L_EEA/releases)
 - [Atom XL Region EEA (european union)](https://github.com/ADeadTrousers/twrp_device_Unihertz_Atom_XL_EEA/releases)
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/twrp_device_Unihertz_Atom_L_TEE/releases)
@@ -85,6 +87,8 @@ To get LineageOS to boot proberly we also need to disable AVB. Otherwise the boo
 6. Now you need to install a new ROM because booting into stock ROM will replace TWRP with the stock recovery.
 
 ## Installing LineageOS ROM
+
+**Attention:** Make sure you have the correct stock ROM release to the kernel of the TWRP release. If not use the [upgrade guide](HOW-TO-UPGRADE.md) to switch stock ROM releases. 
 
 - [Atom L Region EEA (european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_EEA/releases)
 - [Atom XL Region EEA (european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_EEA/releases)
