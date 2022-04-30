@@ -36,10 +36,10 @@ PRODUCT_PACKAGES += \
     Snap
 
 # FMRadio
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmcust \
-#    ueventd.mt6771.rc
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmcust \
+    ueventd.mt6771.rc
    
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -63,71 +63,86 @@ PRODUCT_PACKAGES += \
     fstab.mt6771
 
 # Magisk
-#PRODUCT_PACKAGES += \
-#    99-magisk
+PRODUCT_PACKAGES += \
+    99-magisk
     
 # NavButtonRemap
 PRODUCT_PACKAGES += \
     NavButtonRemap    
 
-#PRODUCT_COPY_FILES += \
-#    frameworks/av/services/audiopolicy/config/audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration.xml \
-#    frameworks/av/services/audiopolicy/config/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml \
-#    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_volumes.xml \
-#    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/a2dp_audio_policy_configuration.xml \
-#    frameworks/av/services/audiopolicy/config/audio_policy_configuration_stub.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration_stub.xml \
-#    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/bluetooth_audio_policy_configuration.xml \
-#    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/usb_audio_policy_configuration.xml \
-#    frameworks/av/services/audiopolicy/config/hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/hearing_aid_audio_policy_configuration.xml \
-#    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/r_submix_audio_policy_configuration.xml \
-#    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/default_volume_tables.xml
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/a2dp_in_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_configuration_stub.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration_stub.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/bluetooth_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/hearing_aid_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_engine_configuration.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_default_stream_volumes.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_engine_default_stream_volumes.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_engine_product_strategies.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_engine_stream_volumes.xml
 
-#PRODUCT_PACKAGES += \
-#    libGLES_android \
-#    libaudioprocessing \
-#    libaudioflinger \
-#    libaudio-resampler \
-#    libcameraservice \
-#    libsuspend \
-#    libstatssocket \
-#    libsparse \
-#    libdrm \
-#    libpcap \
-#    libprotobuf-cpp-full \
-#    libbrotli \
-#    libext2_blkid \
-#    libext2_com_err \
-#    libext2_e2p \
-#    libext2_profile \
-#    libext2_uuid \
-#    libext2fs \
-#    libmetricslogger \
-#    com.android.nfc_extras \
-#    android.frameworks.sensorservice@1.0 \
-#    android.hardware.audio.common-util \
-#    android.hardware.audio.common@2.0-util \
-#    android.hardware.audio.common@4.0 \
-#    android.hardware.audio.common@4.0-util \
-#    android.hardware.audio.common@5.0-util \
-#    android.hardware.audio.effect@2.0 \
-#    android.hardware.audio.effect@4.0 \
-#    android.hardware.audio.effect@5.0 \
-#    android.hardware.audio@2.0 \
-#    android.hardware.audio@4.0 \
-#    android.hardware.audio@5.0 \
-#    android.hardware.biometrics.fingerprint@2.1 \
-#    android.hardware.health@1.0 \
-#    android.hardware.health@2.0 \
-#    android.hardware.nfc@1.0 \
-#    android.hardware.nfc@1.1 \
-#    android.hardware.nfc@1.2 \
-#    android.hardware.thermal@1.0 \
-#    android.hardware.radio@1.1 \
-#    android.hardware.radio@1.2 \
-#    android.hardware.radio@1.3 \
-#    android.hardware.radio@1.4 \
-#    android.hardware.vibrator@1.0 \
-#    android.hardware.vibrator@1.3
+PRODUCT_PACKAGES += \
+    libbrotli \
+    BluetoothQtiSymlink \
+    libhwbinder \
+    libhidltransport \
+    libaudioprocessing \
+    libaudioflinger \
+    libaudio-resampler \
+    libaudiopolicyengineconfigurable \
+    libaudiopolicyenginedefault \
+    libsuspend \
+    libsparse \
+    libdrm \
+    libpcap \
+    libext2_blkid \
+    libext2_com_err \
+    libext2_e2p \
+    libext2_uuid \
+    libext2fs \
+    libremote-processor \
+    libparameter \
+    libtextclassifier_hash \
+    com.android.nfc_extras \
+    android.hardware.audio.common-util \
+    android.hardware.audio.common@2.0-util \
+    android.hardware.audio.common@4.0 \
+    android.hardware.audio.common@4.0-util \
+    android.hardware.audio.common@5.0-util \
+    android.hardware.audio.common@6.0 \
+    android.hardware.audio.common@6.0-util \
+    android.hardware.audio.effect@2.0 \
+    android.hardware.audio.effect@4.0 \
+    android.hardware.audio.effect@5.0 \
+    android.hardware.audio.effect@6.0 \
+    android.hardware.audio@2.0 \
+    android.hardware.audio@4.0 \
+    android.hardware.audio@5.0 \
+    android.hardware.audio@6.0 \
+    android.hardware.biometrics.fingerprint@2.1 \
+    android.hardware.health@1.0 \
+    android.hardware.health@2.0 \
+    android.hardware.nfc@1.0 \
+    android.hardware.nfc@1.1 \
+    android.hardware.nfc@1.2 \
+    android.hardware.radio.config@1.0 \
+    android.hardware.radio.config@1.1 \
+    android.hardware.radio.config@1.2 \
+    android.hardware.radio@1.0 \
+    android.hardware.radio@1.1 \
+    android.hardware.radio@1.2 \
+    android.hardware.radio@1.3 \
+    android.hardware.radio@1.4 \
+    android.hardware.radio@1.5 \
+    android.hardware.soundtrigger@2.0 \
+    android.hardware.soundtrigger@2.1 \
+    android.hardware.soundtrigger@2.2
     
 # Additional tools
 PRODUCT_HOST_PACKAGES += \
@@ -137,6 +152,7 @@ PRODUCT_HOST_PACKAGES += \
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/idc/mtk-kpd.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/mtk-kpd.idc \
+    $(DEVICE_PATH)/idc/mtk-pad.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/mtk-pad.idc \
     $(DEVICE_PATH)/keylayout/mtk-kpd.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mtk-kpd.kl \
     $(DEVICE_PATH)/keylayout/mtk-tpd-kpd.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mtk-tpd-kpd.kl \
     $(DEVICE_PATH)/keylayout/fingerprint_key.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/fingerprint_key.kl
