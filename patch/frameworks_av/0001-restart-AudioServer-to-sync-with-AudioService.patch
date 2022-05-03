@@ -1,0 +1,36 @@
+From c7923b859ee44545e3cd3954c357a6e75b609ddc Mon Sep 17 00:00:00 2001
+From: Matthias Leitl <a.dead.trousers@gmail.com>
+Date: Tue, 3 May 2022 19:47:37 +0200
+Subject: [PATCH 1/1] restart AudioServer to sync with AudioService
+
+Change-Id: Ie170a8a9316408f5f652ea13efb3fb7d20937ff6
+---
+ media/audioserver/audioserver.rc | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/media/audioserver/audioserver.rc b/media/audioserver/audioserver.rc
+index f75e4c7a9b..38d2dda0bb 100644
+--- a/media/audioserver/audioserver.rc
++++ b/media/audioserver/audioserver.rc
+@@ -2,7 +2,7 @@ service audioserver /system/bin/audioserver
+     class core
+     user audioserver
+     # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
+-    group audio camera drmrpc media mediadrm net_bt net_bt_admin net_bw_acct wakelock
++    group audio camera drmrpc media mediadrm net_bt net_bt_admin net_bw_acct wakelock system log
+     capabilities BLOCK_SUSPEND
+     ioprio rt 4
+     task_profiles ProcessCapacityHigh HighPerformance
+@@ -16,6 +16,9 @@ on property:vts.native_server.on=1
+     stop audioserver
+ on property:vts.native_server.on=0
+     start audioserver
++#[ALPS04217601] restart AudioServer to sync with AudioService
++on property:vold.decrypt=trigger_reset_main
++    restart audioserver
+ 
+ on property:init.svc.audioserver=stopped
+     stop vendor.audio-hal
+-- 
+2.25.1
+

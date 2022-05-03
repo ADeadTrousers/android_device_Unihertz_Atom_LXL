@@ -1,0 +1,43 @@
+From 3389d808e1e7783c5342515bc63a53afca062ff7 Mon Sep 17 00:00:00 2001
+From: Matthias Leitl <a.dead.trousers@gmail.com>
+Date: Tue, 3 May 2022 20:01:38 +0200
+Subject: [PATCH 1/1] Add freezer to init
+
+Change-Id: Iba1bec36f4111c3cdf85339cd80a1ea6b7223391
+---
+ rootdir/init.rc | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index a9af0b094..510d1e911 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -322,6 +322,16 @@ on init
+     chmod 0664 /dev/cpuset/restricted/tasks
+     chmod 0664 /dev/cpuset/tasks
+ 
++    # freezer cgroup entries
++    mkdir /dev/freezer/frozen
++    write /dev/freezer/frozen/freezer.state FROZEN
++    chown system system /dev/freezer/cgroup.procs
++    chown system system /dev/freezer/frozen
++    chown system system /dev/freezer/frozen/freezer.state
++    chown system system /dev/freezer/frozen/cgroup.procs
++
++    chmod 0664 /dev/freezer/frozen/freezer.state
++
+     # make the PSI monitor accessible to others
+     chown system system /proc/pressure/memory
+     chmod 0664 /proc/pressure/memory
+@@ -336,6 +346,8 @@ on init
+     # This is needed by any process that uses socket tagging.
+     chmod 0644 /dev/xt_qtaguid
+ 
++    chown root root /dev/cg2_bpf
++    chmod 0600 /dev/cg2_bpf
+     mount bpf bpf /sys/fs/bpf nodev noexec nosuid
+ 
+     # Create location for fs_mgr to store abbreviated output from filesystem
+-- 
+2.25.1
+
