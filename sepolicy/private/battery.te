@@ -1,0 +1,4 @@
+type proc_battery_cmd, fs_type, proc_type;
+type sysfs_battery_consumption, fs_type, sysfs_type;
+type sysfs_battery_temp, fs_type, sysfs_type;
+type sysfs_battery_warning, fs_type, sysfs_type;

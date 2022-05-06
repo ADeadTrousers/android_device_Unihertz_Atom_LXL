@@ -1,0 +1,34 @@
+type lbs_dbg, coredomain, domain, halclientdomain, mtk_hal_lbs_client;
+type lbs_dbg_data_file, core_data_file_type, data_file_type, file_type;
+type lbs_dbg_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(lbs_dbg);
+
+get_prop(lbs_dbg, hwservicemanager_prop);
+
+allow lbs_dbg debuglog_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow lbs_dbg debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow lbs_dbg debuglog_data_file:lnk_file {getattr ioctl lock map open read watch watch_reads};
+allow lbs_dbg fuse:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow lbs_dbg fuse:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow lbs_dbg lbs_dbg_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow lbs_dbg media_rw_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow lbs_dbg media_rw_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow lbs_dbg mnt_user_file:dir {search};
+allow lbs_dbg sdcard_type:dir {getattr ioctl lock open read search watch watch_reads};
+allow lbs_dbg sdcard_type:filesystem {unmount};
+allow lbs_dbg sdcardfs:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow lbs_dbg sdcardfs:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow lbs_dbg self:netlink_route_socket {bind create getattr nlmsg_read nlmsg_write read write};
+allow lbs_dbg self:tcp_socket {accept append bind connect create getattr getopt ioctl listen lock map read setattr setopt shutdown write};
+allow lbs_dbg self:udp_socket {append bind connect create getattr getopt ioctl lock map read setattr setopt shutdown write};
+allow lbs_dbg storage_file:dir {add_name create mounton search write};
+allow lbs_dbg storage_file:lnk_file {read};
+allow lbs_dbg sysfs:dir {open read};
+allow lbs_dbg sysfs_leds:dir {search};
+allow lbs_dbg sysfs_leds:lnk_file {read};
+allow lbs_dbg sysfs_vibrator:file {open read write};
+allow lbs_dbg tmpfs:filesystem {unmount};
+allow lbs_dbg vfat:dir {add_name create remove_name write};
+allow lbs_dbg vfat:file {create getattr open rename unlink write};
+

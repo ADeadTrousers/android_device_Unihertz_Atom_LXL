@@ -1,0 +1,2 @@
+type mtk_connmetrics_service, service_manager_type;
+

@@ -1,0 +1,7 @@
+typeattribute power_service app_api_service;
+typeattribute sysfs_nfc_power_writable mlstrustedobject;
+
+type mtk_power_hal_mgr_service, app_api_service, service_manager_type, system_server_service;
+type sysfs_power_off_vol, fs_type, sysfs_type;
+type sysfs_power_on_vol, fs_type, sysfs_type;
+

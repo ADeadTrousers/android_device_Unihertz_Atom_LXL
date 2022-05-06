@@ -11,11 +11,11 @@ class SEPolicyParser:
   def parseFolder(self,folder):                                                          # Parse the whole folder
     sepolicy = SEPolicy(self.__typename,False)
     sefileparser = SEFileParser(sepolicy)
-    sefileparser.parseFolder(folder+"plat_*")
+    sefileparser.parseFolder(folder+"system_ext_*")
     sepolicy.optimize()
-    if not os.path.exists(folder[:-1]+"_plat/"):
-      os.makedirs(folder[:-1]+"_plat/")
-    sepolicy.outputFile(folder[:-1]+"_plat/")
+    if not os.path.exists(folder[:-1]+"_system_ext/"):
+      os.makedirs(folder[:-1]+"_system_ext/")
+    sepolicy.outputFile(folder[:-1]+"_system_ext/")
 
 # END CLASS SEPolicyParser
 

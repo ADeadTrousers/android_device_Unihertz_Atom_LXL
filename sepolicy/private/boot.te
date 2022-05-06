@@ -1,0 +1,42 @@
+typeattribute bootloader_boot_reason_prop system_internal_property_type;
+typeattribute bootloader_boot_reason_prop system_property_type;
+typeattribute cold_boot_done_prop system_internal_property_type;
+typeattribute cold_boot_done_prop system_property_type;
+typeattribute device_config_activity_manager_native_boot_prop system_internal_property_type;
+typeattribute device_config_activity_manager_native_boot_prop system_property_type;
+typeattribute device_config_boot_count_prop system_internal_property_type;
+typeattribute device_config_boot_count_prop system_property_type;
+typeattribute device_config_input_native_boot_prop system_internal_property_type;
+typeattribute device_config_input_native_boot_prop system_property_type;
+typeattribute device_config_runtime_native_boot_prop system_internal_property_type;
+typeattribute device_config_runtime_native_boot_prop system_property_type;
+typeattribute device_config_storage_native_boot_prop system_internal_property_type;
+typeattribute device_config_storage_native_boot_prop system_property_type;
+typeattribute device_config_window_manager_native_boot_prop system_internal_property_type;
+typeattribute device_config_window_manager_native_boot_prop system_property_type;
+typeattribute last_boot_reason_prop system_internal_property_type;
+typeattribute last_boot_reason_prop system_property_type;
+typeattribute system_boot_reason_prop system_property_type;
+typeattribute test_boot_reason_prop system_internal_property_type;
+typeattribute test_boot_reason_prop system_property_type;
+
+type boot_logo_updater, coredomain, domain;
+type boot_logo_updater_exec, exec_type, file_type, system_file_type;
+type sysfs_boot_info, fs_type, sysfs_type;
+
+init_daemon_domain(boot_logo_updater);
+
+set_prop(boot_logo_updater, system_prop);
+
+allow boot_logo_updater block_device:dir {search};
+allow boot_logo_updater graphics_device:chr_file {append getattr ioctl lock map open read watch watch_reads write};
+allow boot_logo_updater graphics_device:dir {search};
+allow boot_logo_updater kmsg_device:chr_file {append lock map open write};
+allow boot_logo_updater mtd_device:blk_file {open};
+allow boot_logo_updater mtd_device:blk_file {read};
+allow boot_logo_updater mtd_device:chr_file {getattr ioctl lock map open read watch watch_reads};
+allow boot_logo_updater mtd_device:dir {search};
+allow boot_logo_updater rootfs:file {getattr ioctl lock map open read watch watch_reads};
+allow boot_logo_updater sysfs:dir {open};
+allow boot_logo_updater sysfs:dir {read};
+

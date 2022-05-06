@@ -1,0 +1,10 @@
+type usp_service, coredomain, domain;
+type usp_service_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(usp_service);
+
+set_prop(usp_service, radio_prop);
+set_prop(usp_service, system_mtk_usp_srv_prop);
+
+allow usp_service block_device:dir {search};
+

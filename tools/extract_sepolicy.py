@@ -20,9 +20,13 @@ class SEPolicy:
     self.__foreigns = []
     self.__remainings = []
     self.__daemon = ""
-    self.__binder = ""
+    self.__binder_use = ""
     self.__hwbinder = ""
-  
+    self.__binder_calls = []
+    self.__get_props = []
+    self.__unix_sockets = []
+    self.__set_props = []
+      
   def parseLine(self,line,context):
     if line.startswith("#"):
       return
@@ -58,18 +62,22 @@ class SEPolicy:
     for key in self.__types:                                                             # Same goes for the typeattributes
       self.__types[key] = sorted(list(dict.fromkeys(self.__types[key])))
     self.__optimize_domain();
-    self.__optimize_binder();
+    self.__optimize_binder_use();
     self.__optimize_hwbinder();
+    self.__optimize_set_props();
+    self.__optimize_binder_calls();
+    self.__optimize_get_props();
+    self.__optimize_unix_sockets();
     
   def __optimize_domain(self):  
     index_foreigns = []
     try:                                                                                 # Try to find all parts of the "init_daemon" macro ...
       index_transition = self.__transitions.index(f"type_transition init {self.__typename}_exec:process {self.__typename};")
-      index_foreigns.append(self.__foreigns.index(f"allow init {self.__typename}_exec:file {{read getattr map execute open}};"))
+      index_foreigns.append(self.__foreigns.index(f"allow init {self.__typename}_exec:file {{execute getattr map open read}};"))
       index_foreigns.append(self.__foreigns.index(f"allow init {self.__typename}:process {{transition}};"))
-      index_rules = self.__rules.index(f"allow {self.__typename} {self.__typename}_exec:file {{read getattr map execute entrypoint open}};")
+      index_rules = self.__rules.index(f"allow {self.__typename} {self.__typename}_exec:file {{entrypoint execute getattr map open read}};")
       index_foreigns.append(self.__foreigns.index(f"dontaudit init {self.__typename}:process {{noatsecure}};"))
-      index_foreigns.append(self.__foreigns.index(f"allow init {self.__typename}:process {{siginh rlimitinh}};"))
+      index_foreigns.append(self.__foreigns.index(f"allow init {self.__typename}:process {{rlimitinh siginh}};"))
       self.__rules.pop(index_rules)                                                      # ... and combine them ...
       self.__transitions.pop(index_transition)
       index_foreigns = sorted(index_foreigns,reverse=True)
@@ -79,7 +87,7 @@ class SEPolicy:
     except ValueError:
       self.__daemon = ""
 
-  def __optimize_binder(self):  
+  def __optimize_binder_use(self):  
     index_foreigns = []
     try:                                                                                 # Try to find all parts of the "binder_use" macro ...
       index_rules = self.__rules.index(f"allow {self.__typename} servicemanager:binder {{call transfer}};")
@@ -88,15 +96,99 @@ class SEPolicy:
       except ValueError:
         pass
       index_foreigns.append(self.__foreigns.index(f"allow servicemanager {self.__typename}:dir {{search}};"))
-      index_foreigns.append(self.__foreigns.index(f"allow servicemanager {self.__typename}:file {{read open}};"))
+      index_foreigns.append(self.__foreigns.index(f"allow servicemanager {self.__typename}:file {{open read}};"))
       index_foreigns.append(self.__foreigns.index(f"allow servicemanager {self.__typename}:process {{getattr}};"))
       self.__rules.pop(index_rules)                                                      # ... and combine them ...
       index_foreigns = sorted(index_foreigns,reverse=True)
       for index in index_foreigns: 
         self.__foreigns.pop(index)                                                  
-      self.__binder = f"binder_use({self.__typename});"                                  # ... into the macro itself
+      self.__binder_use = f"binder_use({self.__typename});"                              # ... into the macro itself
     except ValueError:
-      self.__binder = ""
+      self.__binder_use = ""
+
+  def __optimize_binder_calls(self):  
+    binders = []
+    regex = re.compile(f"allow {self.__typename} ([^:]*):binder {{call transfer}};")
+    for rule in self.__rules:
+      match = regex.search(rule)
+      if match:
+        binders.append(match.group(1))
+    for binder in binders: 
+      try:                                                                               # Try to find all parts of the "binder_call" macro ...
+        index_rules = []
+        index_rules.append(self.__rules.index(f"allow {self.__typename} {binder}:binder {{call transfer}};"))
+        index_rules.append(self.__rules.index(f"allow {self.__typename} {binder}:fd {{use}};"))
+        index_foreigns = self.__foreigns.index(f"allow {binder} {self.__typename}:binder {{transfer}};")
+        self.__foreigns.pop(index_foreigns)                                              # ... and combine them ...
+        index_rules = sorted(index_rules,reverse=True)                                   
+        for index in index_rules: 
+          self.__rules.pop(index)                                                  
+        self.__binder_calls.append(f"binder_call({self.__typename}, {binder});")         # ... into the macro itself
+      except ValueError:
+        continue
+
+  def __optimize_get_props(self):
+    props = []  
+    regex = re.compile(f"allow {self.__typename} ([^:]*):file {{getattr map open read}};")
+    for rule in self.__rules:
+      match = regex.search(rule)
+      if match:
+        props.append(match.group(1))
+    for prop in props: 
+      try:                                                                               # Try to find all parts of the "binder_call" macro ...
+        index_rules = (self.__rules.index(f"allow {self.__typename} {prop}:file {{getattr map open read}};"))
+        self.__rules.pop(index_rules)                                                    # ... and combine them ...
+        self.__get_props.append(f"get_prop({self.__typename}, {prop});")                 # ... into the macro itself
+      except ValueError:
+        continue
+
+  def __optimize_set_props(self):
+    props = []  
+    regex = re.compile(f"allow {self.__typename} ([^:]*):file {{getattr map open read}};")
+    for rule in self.__rules:
+      match = regex.search(rule)
+      if match:
+        props.append(match.group(1))
+    for prop in props: 
+      try:                                                                               # Try to find all parts of the "set_prop" macro ...
+        index_rules = []
+        index_rules.append(self.__rules.index(f"allow {self.__typename} {prop}:file {{getattr map open read}};"))
+        index_rules.append(self.__rules.index(f"allow {self.__typename} {prop}:property_service {{set}};"))
+        if not self.__unix_sockets:
+          index_rules.append(self.__rules.index(f"allow {self.__typename} init:unix_stream_socket {{connectto}};"))
+          index_rules.append(self.__rules.index(f"allow {self.__typename} property_socket:sock_file {{write}};"))
+        index_rules = sorted(index_rules,reverse=True)                                   # ... and combine them ...  
+        for index in index_rules: 
+          self.__rules.pop(index)                                                  
+        self.__unix_sockets.append(f"set_prop({self.__typename}, {prop});")              # ... into the macro itself
+      except ValueError:
+        continue
+
+  def __optimize_unix_sockets(self):  
+    sockets = []
+    servers = []
+    regex_socket = re.compile(f"allow {self.__typename} ([^:]*)_socket:sock_file {{write}};")
+    regex_server = re.compile(f"allow {self.__typename} ([^:]*):unix_stream_socket {{connectto}};")
+    for rule in self.__rules:
+      match_socket = regex_socket.search(rule)
+      if match_socket:
+        sockets.append(match_socket.group(1))
+      else:
+        match_server = regex_server.search(rule)
+        if match_server:
+          servers.append(match_server.group(1))       
+    for socket in sockets: 
+      for server in servers: 
+        try:                                                                             # Try to find all parts of the "unix_socket_connect" macro ...
+          index_rules = []
+          index_rules.append(self.__rules.index(f"allow {self.__typename} {socket}_socket:sock_file {{write}};"))
+          index_rules.append(self.__rules.index(f"allow {self.__typename} {server}:unix_stream_socket {{connectto}};"))
+          index_rules = sorted(index_rules,reverse=True)                                 # ... and combine them ...  
+          for index in index_rules: 
+            self.__rules.pop(index)                                                  
+          self.__unix_sockets.append(f"unix_socket_connect({self.__typename}, {socket}, {server});") # ... into the macro itself
+        except ValueError:
+          continue
 
   def __optimize_hwbinder(self):  
     index_foreigns = []
@@ -108,9 +200,9 @@ class SEPolicy:
         pass
       index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:dir {{search}};"))
       try:
-        index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{read open map}};"))
+        index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{map open read}};"))
       except ValueError:
-        index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{read map open}};"))
+        index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{map open read}};"))
       index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:process {{getattr}};"))
       self.__rules.pop(index_rules)                                                      # ... and combine them ...
       index_foreigns = sorted(index_foreigns,reverse=True)
@@ -224,12 +316,20 @@ class SEPolicy:
       print("Line is in wrong format: "+line)
       self.__rules.append(line)
       return
-    command = f"{result[0][1:]} {result[1]} {result[2]}:{result[3][1:]} {{{result[4][1:]}" # Format the first part of the rule
-    i = 5
-    while i < len(result):                                                               # Add all the remaining parameters
-      command = f"{command} {result[i]}"
-      i += 1
-    command = f"{command[:-3]}}};"                                                       # Close up everything
+    command = f"{result[0][1:]} {result[1]} {result[2]}:{result[3][1:]} {{"              # Format the first part of the rule
+    commands = []
+    if len(result) == 5:
+      commands.append(f"{result[4][1:-3]}")
+    else:
+      i = 5
+      commands.append(f"{result[4][1:]}")
+      while i < len(result) - 1:                                                         # Add all the remaining parameters                               
+        commands.append(f"{result[i]}")
+        i += 1
+      commands.append(f"{result[i][:-3]}")
+    commands = sorted(list(dict.fromkeys(commands)))                                     # sorted!
+    separator = " "
+    command = f"{command}{separator.join(commands)}}};"                                  # Close up everything
     if re.search(self.__search,f" {result[1]} ") == None:                                # Only add this ruls if it targets the current type enforcement
       self.__foreigns.append(command)
     else:
@@ -294,8 +394,8 @@ class SEPolicy:
       if len(self.__daemon) > 0:
         file.write(self.__daemon+'\n')
         special = True
-      if len(self.__binder) > 0:
-        file.write(self.__binder+'\n')
+      if len(self.__binder_use) > 0:
+        file.write(self.__binder_use+'\n')
         special = True
       if len(self.__hwbinder) > 0:
         file.write(self.__hwbinder+'\n')
@@ -303,6 +403,10 @@ class SEPolicy:
       if special:
         file.write('\n')
       self.__outputArray(file,self.__transitions)
+      self.__outputArray(file,self.__binder_calls)
+      self.__outputArray(file,self.__get_props)
+      self.__outputArray(file,self.__set_props)
+      self.__outputArray(file,self.__unix_sockets)
       self.__outputArray(file,self.__rules)
     
 # END CLASS SEPolicy

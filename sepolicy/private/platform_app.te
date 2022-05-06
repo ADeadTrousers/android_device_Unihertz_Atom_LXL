@@ -1,0 +1,43 @@
+typeattribute platform_app hal_gpu_client;
+
+get_prop(platform_app, config_prop);
+get_prop(platform_app, system_mtk_acs_support_prop);
+get_prop(platform_app, system_mtk_acs_url_prop);
+get_prop(platform_app, system_mtk_acs_version_prop);
+get_prop(platform_app, system_mtk_bgdata_disabled_prop);
+get_prop(platform_app, system_mtk_cdma_ecm_prop);
+get_prop(platform_app, system_mtk_clientapi_support_prop);
+get_prop(platform_app, system_mtk_connsysfw_prop);
+get_prop(platform_app, system_mtk_cta_set_prop);
+get_prop(platform_app, system_mtk_ctl_campostalgo_prop);
+get_prop(platform_app, system_mtk_debug_mdlogger_prop);
+get_prop(platform_app, system_mtk_debug_mtklog_prop);
+get_prop(platform_app, system_mtk_em_tel_log_prop);
+get_prop(platform_app, system_mtk_init_svc_md_monitor_prop);
+get_prop(platform_app, system_mtk_mobile_log_prop);
+get_prop(platform_app, system_mtk_persist_vendor_vzw_device_type_prop);
+get_prop(platform_app, system_mtk_rcs_support_prop);
+get_prop(platform_app, system_mtk_rsc_sys_prop);
+get_prop(platform_app, system_mtk_subsidylock_connect_prop);
+get_prop(platform_app, system_mtk_subsidylock_prop);
+get_prop(platform_app, system_mtk_uce_support_prop);
+get_prop(platform_app, system_mtk_vendor_bluetooth_prop);
+get_prop(platform_app, system_mtk_wfc_entitlement_prop);
+
+allow platform_app aal_service:service_manager {find};
+allow platform_app camerapostalgo:binder {transfer};
+allow platform_app camerapostalgo_service:service_manager {find};
+allow platform_app config_prop:property_service {set};
+allow platform_app cta_networkdatacontroller_service:service_manager {find};
+allow platform_app debuglog_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow platform_app debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow platform_app mtk_connmetrics_service:service_manager {find};
+allow platform_app nfc_service:service_manager {find};
+allow platform_app proc_cl_cam_status:file {getattr ioctl lock map open read watch watch_reads};
+allow platform_app system_app_data_file:file {read write};
+allow platform_app system_app_service:service_manager {find};
+allow platform_app system_mtk_bgdata_disabled_prop:property_service {set};
+allow platform_app system_mtk_ctl_campostalgo_prop:property_service {set};
+allow platform_app system_mtk_subsidylock_connect_prop:property_service {set};
+allow platform_app system_mtk_subsidylock_prop:property_service {set};
+

@@ -1,0 +1,2 @@
+type proc_dynamic_debug_control, fs_type, proc_type;
+

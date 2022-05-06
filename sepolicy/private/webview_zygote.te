@@ -1,0 +1,2 @@
+neverallow webview_zygote system_data_file:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+

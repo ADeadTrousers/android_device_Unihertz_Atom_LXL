@@ -1,0 +1,4 @@
+type mtk_plpath_utils_exec, exec_type, file_type, system_file_type;
+
+type_transition init mtk_plpath_utils_exec:process update_engine;
+

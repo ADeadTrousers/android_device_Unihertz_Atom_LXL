@@ -1,0 +1,8 @@
+type modemdbfilter_client, coredomain, domain, halclientdomain, mtk_hal_md_dbfilter_client;
+type modemdbfilter_client_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(modemdbfilter_client);
+
+allow modemdbfilter_client mddb_filter_data_file:dir {ioctl read write create getattr setattr lock relabelto rename open watch watch_reads add_name remove_name reparent search rmdir};
+allow modemdbfilter_client mddb_filter_data_file:file {ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads};
+

@@ -1,0 +1,3 @@
+allow adbd debuglog_data_file:dir {getattr ioctl lock open read search watch watch_reads};
+allow adbd debuglog_data_file:file {getattr ioctl lock map open read watch watch_reads};
+

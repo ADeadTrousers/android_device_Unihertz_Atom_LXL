@@ -1,0 +1,38 @@
+type mdlogger, binderservicedomain, coredomain, domain;
+type mdlogger_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(mdlogger);
+binder_use(mdlogger);
+
+set_prop(mdlogger, debug_prop);
+set_prop(mdlogger, system_mtk_debug_mdlogger_prop);
+set_prop(mdlogger, system_mtk_mdl_prop);
+set_prop(mdlogger, system_mtk_persist_mdlog_prop);
+set_prop(mdlogger, system_mtk_persist_mtklog_prop);
+
+allow mdlogger debuglog_data_file:dir {add_name create getattr ioctl lock open read relabelto remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mdlogger debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mdlogger file_contexts_file:file {getattr open read};
+allow mdlogger mddb_filter_data_file:dir {getattr ioctl lock open read search watch watch_reads};
+allow mdlogger mddb_filter_data_file:file {getattr ioctl lock map open read watch watch_reads};
+allow mdlogger media_rw_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mdlogger media_rw_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mdlogger mnt_user_file:dir {search};
+allow mdlogger mnt_user_file:lnk_file {append getattr ioctl lock map open read watch watch_reads write};
+allow mdlogger node:tcp_socket {node_bind};
+allow mdlogger platform_app:unix_stream_socket {connectto};
+allow mdlogger port:tcp_socket {name_bind};
+allow mdlogger sdcard_type:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mdlogger sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mdlogger self:tcp_socket {accept append bind connect create getattr getopt ioctl listen lock map read setattr setopt shutdown write};
+allow mdlogger shell_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow mdlogger storage_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mdlogger storage_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mdlogger storage_file:lnk_file {append getattr ioctl lock map open read watch watch_reads write};
+allow mdlogger system_file:dir {read};
+allow mdlogger system_file:file {execute execute_no_trans getattr map};
+allow mdlogger tmpfs:lnk_file {read};
+allow mdlogger vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mdlogger vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mdlogger zygote_exec:file {getattr ioctl lock map open read watch watch_reads};
+

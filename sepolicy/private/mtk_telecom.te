@@ -1,0 +1,3 @@
+type mtk_telecom_service, app_api_service, service_manager_type, system_server_service;
+type system_mtk_telecom_vibrate_prop, extended_core_property_type, property_type, system_internal_property_type, system_property_type;
+

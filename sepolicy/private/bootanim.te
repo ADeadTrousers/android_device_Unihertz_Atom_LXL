@@ -1,0 +1,13 @@
+typeattribute bootanim hal_gpu_client;
+
+set_prop(bootanim, debug_prop);
+set_prop(bootanim, system_mtk_bootani_prop);
+
+allow bootanim gpu_device:dir {search};
+allow bootanim mediaserver:binder {call transfer};
+allow bootanim mediaserver_service:service_manager {find};
+allow bootanim resourcecache_data_file:dir {search};
+allow bootanim resourcecache_data_file:file {getattr open read};
+allow bootanim resourcecache_data_file:file {read};
+allow bootanim surfaceflinger:fifo_file {append getattr ioctl lock map open read watch watch_reads write};
+

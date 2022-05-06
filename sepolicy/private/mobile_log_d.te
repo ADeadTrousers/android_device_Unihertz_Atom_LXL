@@ -1,0 +1,56 @@
+type mobile_log_d, coredomain, domain, mlstrustedsubject;
+type mobile_log_d_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(mobile_log_d);
+
+type_transition mobile_log_d logcat_exec:process dumpstate;
+
+get_prop(mobile_log_d, device_logging_prop);
+get_prop(mobile_log_d, mmc_prop);
+get_prop(mobile_log_d, safemode_prop);
+get_prop(mobile_log_d, system_mtk_em_tel_log_prop);
+get_prop(mobile_log_d, system_mtk_logmuch_prop);
+get_prop(mobile_log_d, system_mtk_persist_mtk_aee_prop);
+
+set_prop(mobile_log_d, debug_prop);
+set_prop(mobile_log_d, system_mtk_mobile_log_prop);
+unix_socket_connect(mobile_log_d, logdr, logd);
+
+allow mobile_log_d debugfs_tracing:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d debugfs_tracing_instances:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d debugfs_tracing_instances:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d debuglog_data_file:dir {add_name create getattr ioctl lock open read relabelto remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d dumpstate:process {rlimitinh siginh};
+allow mobile_log_d dumpstate:process {transition};
+allow mobile_log_d kernel:system {syslog_mod};
+allow mobile_log_d logcat_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow mobile_log_d logcat_exec:file {execute getattr map open read};
+allow mobile_log_d mcupm_device:chr_file {getattr ioctl lock map open read watch watch_reads};
+allow mobile_log_d media_rw_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d media_rw_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d mnt_media_rw_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d mnt_media_rw_file:lnk_file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d mnt_user_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d mnt_user_file:lnk_file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d rootfs:file {getattr ioctl lock map open read watch watch_reads};
+allow mobile_log_d sdcard_type:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d self:capability {chown fowner fsetid setgid setuid};
+allow mobile_log_d self:capability {chown setgid setuid};
+allow mobile_log_d self:capability2 {syslog};
+allow mobile_log_d shell_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow mobile_log_d storage_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d storage_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d storage_file:lnk_file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow mobile_log_d sysfs_boot_info:file {getattr ioctl lock map open read watch watch_reads};
+allow mobile_log_d sysfs_mcupm:dir {search};
+allow mobile_log_d sysfs_mcupm:file {append lock map open write};
+allow mobile_log_d system_file:file {execute_no_trans};
+allow mobile_log_d toolbox_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow mobile_log_d vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow mobile_log_d vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+dontaudit mobile_log_d dumpstate:process {noatsecure};
+dontaudit mobile_log_d isolated_app:fd {use};
+dontaudit mobile_log_d untrusted_app:fd {use};
+

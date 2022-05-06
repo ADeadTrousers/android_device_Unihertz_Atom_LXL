@@ -1,0 +1,17 @@
+typeattribute debugfs debugfs_type;
+typeattribute debugfs_kcov debugfs_type;
+typeattribute debugfs_kprobes debugfs_type;
+typeattribute debugfs_mmc debugfs_type;
+typeattribute debugfs_trace_marker debugfs_type;
+typeattribute debugfs_trace_marker mlstrustedobject;
+typeattribute debugfs_tracing debugfs_type;
+typeattribute debugfs_tracing mlstrustedobject;
+typeattribute debugfs_tracing_debug debugfs_type;
+typeattribute debugfs_tracing_debug mlstrustedobject;
+typeattribute debugfs_tracing_instances debugfs_type;
+typeattribute debugfs_wakeup_sources debugfs_type;
+typeattribute debugfs_wifi_tracing debugfs_type;
+
+type debugfs_regmap, debugfs_type, fs_type;
+type debugfs_usb_plat, debugfs_type, fs_type;
+

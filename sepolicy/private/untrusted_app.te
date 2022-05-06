@@ -1,0 +1,6 @@
+get_prop(untrusted_app_all, netflix_bsp_rev_prop);
+
+allow untrusted_app mtk_connmetrics_service:service_manager {find};
+allow untrusted_app_25 mtk_connmetrics_service:service_manager {find};
+allow untrusted_app_27 apexd_prop:file {getattr map open read};
+allow untrusted_app_all mtk_radio_service:service_manager {find};

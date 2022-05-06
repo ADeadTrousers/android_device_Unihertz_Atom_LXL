@@ -1,0 +1,2 @@
+neverallow mediaextractor system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans ioctl link lock map mounton open quotaon relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+

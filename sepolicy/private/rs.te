@@ -1,0 +1,2 @@
+neverallow rs system_data_file:lnk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+

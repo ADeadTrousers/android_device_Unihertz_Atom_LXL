@@ -1,0 +1,12 @@
+type GoogleOtaBinder, binderservicedomain, coredomain, domain;
+type GoogleOtaBinder_exec, exec_type, file_type, system_file_type;
+type ota_agent_service, service_manager_type;
+
+init_daemon_domain(GoogleOtaBinder);
+binder_use(GoogleOtaBinder);
+
+allow GoogleOtaBinder mota_proc_file:file {read};
+allow GoogleOtaBinder ota_package_file:dir {search};
+allow GoogleOtaBinder ota_package_file:file {getattr open read write};
+allow GoogleOtaBinder sysfs_dt_firmware_android:file {read};
+

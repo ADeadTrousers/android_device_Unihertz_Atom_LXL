@@ -1,0 +1,49 @@
+type emdlogger, binderservicedomain, coredomain, domain;
+type emdlogger_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(emdlogger);
+binder_use(emdlogger);
+
+get_prop(emdlogger, system_prop);
+get_prop(emdlogger, vendor_default_prop);
+
+set_prop(emdlogger, debug_prop);
+set_prop(emdlogger, exported_system_radio_prop);
+set_prop(emdlogger, system_mtk_debug_mdlogger_prop);
+set_prop(emdlogger, system_mtk_mdl_prop);
+set_prop(emdlogger, system_mtk_mdl_pulllog_prop);
+set_prop(emdlogger, system_mtk_mdl_start_prop);
+set_prop(emdlogger, system_mtk_persist_mdlog_prop);
+set_prop(emdlogger, system_mtk_persist_mtklog_prop);
+set_prop(emdlogger, system_radio_prop);
+
+allow emdlogger debuglog_data_file:dir {add_name create getattr ioctl lock open read relabelto remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow emdlogger debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow emdlogger mddb_filter_data_file:dir {getattr ioctl lock open read search watch watch_reads};
+allow emdlogger mddb_filter_data_file:file {getattr ioctl lock map open read watch watch_reads};
+allow emdlogger media_rw_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow emdlogger media_rw_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow emdlogger mnt_media_rw_file:dir {search};
+allow emdlogger mnt_user_file:dir {search};
+allow emdlogger mnt_user_file:lnk_file {read};
+allow emdlogger platform_app:unix_stream_socket {connectto};
+allow emdlogger proc_cmdline:file {getattr open read};
+allow emdlogger rootfs:file {getattr ioctl lock map open read watch watch_reads};
+allow emdlogger sdcard_type:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow emdlogger sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow emdlogger shell_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow emdlogger storage_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow emdlogger storage_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow emdlogger storage_file:lnk_file {read};
+allow emdlogger sysfs_dt_firmware_android:dir {open read search};
+allow emdlogger sysfs_dt_firmware_android:file {getattr open read};
+allow emdlogger system_file:dir {open};
+allow emdlogger system_file:dir {read};
+allow emdlogger system_file:file {execute_no_trans};
+allow emdlogger tmpfs:dir {write};
+allow emdlogger tmpfs:lnk_file {read};
+allow emdlogger toolbox_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow emdlogger vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow emdlogger vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow emdlogger zygote_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+

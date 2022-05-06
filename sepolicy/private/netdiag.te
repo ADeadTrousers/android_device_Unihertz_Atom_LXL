@@ -1,0 +1,67 @@
+type netdiag, coredomain, domain, mlstrustedsubject;
+type netdiag_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(netdiag);
+binder_use(netdiag);
+
+get_prop(netdiag, apexd_prop);
+get_prop(netdiag, device_logging_prop);
+get_prop(netdiag, mmc_prop);
+get_prop(netdiag, safemode_prop);
+get_prop(netdiag, vendor_default_prop);
+
+set_prop(netdiag, system_mtk_debug_mtklog_prop);
+set_prop(netdiag, system_mtk_debug_netlog_prop);
+set_prop(netdiag, system_mtk_persist_mtklog_prop);
+unix_socket_connect(netdiag, dnsproxyd, netd);
+
+allow netdiag connectivity_service:service_manager {find};
+allow netdiag connmetrics_service:service_manager {find};
+allow netdiag debuglog_data_file:dir {add_name create getattr ioctl lock open read relabelto remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow netdiag debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow netdiag domain:dir {search};
+allow netdiag domain:file {open read};
+allow netdiag fwmarkd_socket:sock_file {write};
+allow netdiag kernel:system {module_request};
+allow netdiag media_rw_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow netdiag media_rw_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow netdiag mnt_media_rw_file:dir {search};
+allow netdiag mnt_user_file:dir {search};
+allow netdiag mnt_user_file:lnk_file {read};
+allow netdiag net_data_file:dir {search};
+allow netdiag net_data_file:file {getattr ioctl lock map open read watch watch_reads};
+allow netdiag netd:binder {call};
+allow netdiag netpolicy_service:service_manager {find};
+allow netdiag netstats_service:service_manager {find};
+allow netdiag network_management_service:service_manager {find};
+allow netdiag platform_app:dir {search};
+allow netdiag proc_net:dir {open read};
+allow netdiag proc_net:file {getattr ioctl lock map open read watch watch_reads};
+allow netdiag proc_net_tcp_udp:file {getattr ioctl lock map open read watch watch_reads};
+allow netdiag proc_net_tcp_udp:file {getattr};
+allow netdiag proc_qtaguid_stat:dir {open read search};
+allow netdiag proc_qtaguid_stat:file {getattr open read};
+allow netdiag sdcard_type:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow netdiag sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow netdiag self:capability {net_admin net_raw setgid setuid};
+allow netdiag self:netlink_route_socket {bind create getattr nlmsg_read read setopt write};
+allow netdiag self:netlink_xfrm_socket {bind create getattr nlmsg_read read setopt write};
+allow netdiag self:packet_socket {create getopt read setopt};
+allow netdiag self:packet_socket {ioctl map write};
+allow netdiag self:rawip_socket {create getopt};
+allow netdiag self:udp_socket {connect};
+allow netdiag self:udp_socket {create ioctl};
+allow netdiag servicemanager:binder {call};
+allow netdiag settings_service:service_manager {find};
+allow netdiag shell_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow netdiag storage_file:dir {search};
+allow netdiag storage_file:lnk_file {read};
+allow netdiag system_file:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow netdiag system_server:binder {call};
+allow netdiag tmpfs:lnk_file {read};
+allow netdiag toolbox_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow netdiag untrusted_app:dir {search};
+allow netdiag vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow netdiag vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allowxperm netdiag self:packet_socket ioctl {0x8906 0x8933};
+

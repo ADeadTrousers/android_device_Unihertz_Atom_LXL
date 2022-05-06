@@ -1,0 +1,2 @@
+type mtk_hdmi_service, service_manager_type;
+

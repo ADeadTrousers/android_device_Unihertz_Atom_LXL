@@ -1,0 +1,16 @@
+type mtk_advcamserver, binderservicedomain, coredomain, domain;
+type mtk_advcamserver_exec, exec_type, file_type, system_file_type;
+type mtk_advcamserver_service, service_manager_type;
+
+init_daemon_domain(mtk_advcamserver);
+binder_use(mtk_advcamserver);
+hwbinder_use(mtk_advcamserver);
+
+binder_call(mtk_advcamserver, appdomain);
+binder_call(mtk_advcamserver, binderservicedomain);
+binder_call(mtk_advcamserver, mtk_advcamserver);
+
+get_prop(mtk_advcamserver, hwservicemanager_prop);
+
+allow mtk_advcamserver mtk_advcamserver_service:service_manager {add find};
+

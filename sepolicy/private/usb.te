@@ -1,0 +1,7 @@
+typeattribute usb_service app_api_service;
+typeattribute usb_device mlstrustedobject;
+
+type sys_usb_rawbulk, fs_type, sysfs_type;
+type sysfs_android0_usb, fs_type, sysfs_type;
+type sysfs_usb_plat, fs_type, sysfs_type;
+

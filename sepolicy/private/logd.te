@@ -1,0 +1,9 @@
+typeattribute logd_socket mlstrustedobject;
+
+set_prop(logd, log_tag_prop);
+set_prop(logd, logd_prop);
+set_prop(logd, system_mtk_logmuch_prop);
+
+neverallow logd system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow logd system_data_file:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+

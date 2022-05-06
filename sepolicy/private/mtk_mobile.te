@@ -1,0 +1,4 @@
+type mtk_mobile_service, app_api_service, service_manager_type, system_server_service;
+type system_mtk_mobile_log_post_prop, property_type, system_internal_property_type, system_property_type;
+type system_mtk_mobile_log_prop, extended_core_property_type, property_type, system_internal_property_type, system_property_type;
+

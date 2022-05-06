@@ -1,0 +1,3 @@
+allow gpuservice capability_app:binder {transfer};
+allow gpuservice em_app:binder {transfer};
+

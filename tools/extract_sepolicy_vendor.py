@@ -9,13 +9,13 @@ class SEPolicyParser:
     self.__typename = typename
 
   def parseFolder(self,folder):                                                          # Parse the whole folder
-    sepolicy = SEPolicy(self.__typename,False)
+    sepolicy = SEPolicy(self.__typename,True)
     sefileparser = SEFileParser(sepolicy)
-    sefileparser.parseFolder(folder+"plat_*")
+    sefileparser.parseFolder(folder+"v*")
     sepolicy.optimize()
-    if not os.path.exists(folder[:-1]+"_plat/"):
-      os.makedirs(folder[:-1]+"_plat/")
-    sepolicy.outputFile(folder[:-1]+"_plat/")
+    if not os.path.exists(folder[:-1]+"_vendor/"):
+      os.makedirs(folder[:-1]+"_vendor/")
+    sepolicy.outputFile(folder[:-1]+"_vendor/")
 
 # END CLASS SEPolicyParser
 
@@ -25,7 +25,6 @@ def main():
     return
   setypeparser = SEPolicyParser(sys.argv[1])
   setypeparser.parseFolder("./stock/")
-  setypeparser.parseFolder("./lineage/")
 
 if __name__ == '__main__':
     main()
