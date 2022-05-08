@@ -13,9 +13,10 @@ class SEPolicyParser:
     sefileparser = SEFileParser(sepolicy)
     sefileparser.parseFolder(folder+"plat_*")
     sepolicy.optimize()
-    if not os.path.exists(folder[:-1]+"_plat/"):
-      os.makedirs(folder[:-1]+"_plat/")
-    sepolicy.outputFile(folder[:-1]+"_plat/")
+    outputfolder = folder[:-1]+"_plat"+os.path.sep
+    if not os.path.exists(outputfolder):
+      os.makedirs(outputfolder)
+    sepolicy.outputFile(outputfolder)
 
 # END CLASS SEPolicyParser
 
@@ -24,8 +25,8 @@ def main():
     print("Wrong parameter count")
     return
   setypeparser = SEPolicyParser(sys.argv[1])
-  setypeparser.parseFolder("./stock/")
-  setypeparser.parseFolder("./lineage/")
+  setypeparser.parseFolder("."+os.path.sep+"stock"+os.path.sep)
+  setypeparser.parseFolder("."+os.path.sep+"lineage"+os.path.sep)
 
 if __name__ == '__main__':
     main()

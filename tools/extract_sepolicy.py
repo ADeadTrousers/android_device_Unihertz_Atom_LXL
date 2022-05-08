@@ -7,7 +7,7 @@ class SEPolicy:
   def __init__(self,typename,strip):
     self.__typename = typename
     self.__strip = strip
-    self.__search = f"(?<=[(: ])(?:[^(: ]+[-_])?{typename}(?:[-_][^): ]+)?(?=[): ])"     # Searching for the exact typename or with the underscore as the delimiter
+    self.__pattern = re.compile(f"(?<=[(: ])(?:[^(: ]+[-_])?{typename}(?:[-_][^): ]+)?(?=[): ])") # Searching for the exact typename or with the underscore as the delimiter
     self.__attributes = []
     self.__properties = []
     self.__services = []
@@ -29,8 +29,10 @@ class SEPolicy:
       
   def parseLine(self,line,context):
     if line.startswith("#"):
-      return
-    if re.search(self.__search,line) == None:
+     return
+    elif line.startswith(";;"):
+     return
+    if self.__pattern.search(line) == None:
       return
     cleanLine = line.strip()
     if self.__strip: 
@@ -199,10 +201,7 @@ class SEPolicy:
       except ValueError:
         pass
       index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:dir {{search}};"))
-      try:
-        index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{map open read}};"))
-      except ValueError:
-        index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{map open read}};"))
+      index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:file {{map open read}};"))
       index_foreigns.append(self.__foreigns.index(f"allow hwservicemanager {self.__typename}:process {{getattr}};"))
       self.__rules.pop(index_rules)                                                      # ... and combine them ...
       index_foreigns = sorted(index_foreigns,reverse=True)
@@ -278,7 +277,7 @@ class SEPolicy:
       return
     if result[1].startswith("base_typeattr_"):                                           # I don't know how to handle base_typeattr_ (for now) 
       return
-    types = re.findall(self.__search,result[2])
+    types = self.__pattern.findall(result[2])
     i = 0
     while i < len(types):                                                                # We need to find the actual type inside the parameter list of the attribute
       if types[i] in self.__types:
@@ -330,7 +329,7 @@ class SEPolicy:
     commands = sorted(list(dict.fromkeys(commands)))                                     # sorted!
     separator = " "
     command = f"{command}{separator.join(commands)}}};"                                  # Close up everything
-    if re.search(self.__search,f" {result[1]} ") == None:                                # Only add this ruls if it targets the current type enforcement
+    if self.__pattern.search(f" {result[1]} ") == None:                                   # Only add this ruls if it targets the current type enforcement
       self.__foreigns.append(command)
     else:
       self.__rules.append(command)
@@ -358,7 +357,7 @@ class SEPolicy:
         r = False
       i += 1
     command = f"{command[:-4]}}};"                                                       # Close up everything
-    if re.search(self.__search,f" {result[1]} ") == None:                                # Only add this ruls if it targets the current type enforcement
+    if self.__pattern.search(f" {result[1]} ") == None:                                   # Only add this ruls if it targets the current type enforcement
       self.__foreigns.append(command)
     else:
       self.__rules.append(command)
@@ -413,8 +412,8 @@ class SEPolicy:
 
 # BEGIN CLASS SEFileParser
 class SEFileParser:
-  def __init__(self,policy):
-    self.__policy = policy
+  def __init__(self,sepolicy):
+    self.__sepolicy = sepolicy
 
   def parseFile(self,name):                                                              # Parse one file
     if "versioned" in name:
@@ -422,7 +421,7 @@ class SEFileParser:
     context = self.__getContext(name)
     file = open(name,"rt")
     for line in file:
-       self.__policy.parseLine(line,context)
+       self.__sepolicy.parseLine(line,context)
     file.close();
 
   def parseFolder(self,name):                                                            # Parse all files in the folder
@@ -442,5 +441,4 @@ class SEFileParser:
       return "property"
     else:
       return "sepolicy" 
-
 # END CLASS SEFileParser
