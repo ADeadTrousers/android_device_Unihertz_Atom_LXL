@@ -1,9 +1,28 @@
-From 92ac68b1535f34595f2be6d27b5e6614f9dde156 Mon Sep 17 00:00:00 2001
+From a8559ea96f85af73fac6dfd88b5b72694119ed93 Mon Sep 17 00:00:00 2001
 From: Matthias Leitl <a.dead.trousers@gmail.com>
-Date: Fri, 29 Apr 2022 21:10:36 +0200
-Subject: [PATCH 1/1] Update custom_apns.py to use xml library
+Date: Wed, 11 May 2022 22:37:23 +0200
+Subject: [PATCH 1/1] custom_apns: extended functionality (using xml library,
+ combine multiple files)
 
-Change-Id: I4471f3a96e16f7b80896f753adbebafd9dd9d876
+1) Some vendors provide xml files in a "one attribute per line" kind of a format.
+The current logic cannot handle that and therefore this alternate approach was created.
+
+The only real donwside currently is that there is no way to preserve the comment lines from the original file.
+Sadly the current python environment supplied with android/lineage doesn't feature lxml yet (see the commented lines in this patch).
+
+2) To keep any vendor provided xml file unchanged and still be able to add more apn settings this patch will also introduce the handling of multiple files.
+Example:
+CUSTOM_APNS_FILE := device/sample/etc/apns-full-conf.xml \
+    $(DEVICE_COMMON_PATH)/etc/apns-conf.xml \
+    $(DEVICE_COMMON_PATH)/etc/apns-conf-additional.xml
+
+First the entries of apns-full-conf.xml get applied.
+If there is the same entry (comparing carrier, mcc and mnc) in one of the later files it will get picked instead.
+Next the remaining entries of apns-conf.xml get applied.
+Again if the entry exists in a later file this one will get picked instead.
+And so on.
+
+Change-Id: I3c15e62414be0b94cc260f2cb3003f7056ccbbef
 ---
  tools/custom_apns.py | 89 ++++++++++++++++++++++++++------------------
  1 file changed, 53 insertions(+), 36 deletions(-)
