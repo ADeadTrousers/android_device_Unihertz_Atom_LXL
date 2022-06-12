@@ -140,5 +140,3 @@ ro.audio.usb.period_us                                                          
 ro.system.build.fingerprint                                                                         u:object_r:exported_fingerprint_prop:s0 exact string
 persist.vendor.mdmmonitor                                                                           u:object_r:config_prop:s0
 ro.netflix.bsp_rev                                                                                  u:object_r:netflix_bsp_rev_prop:s0
-vendor.trustonic.teeregistryservice.ITeeRegistryService                                             u:object_r:teeregistry_service:s0
-
