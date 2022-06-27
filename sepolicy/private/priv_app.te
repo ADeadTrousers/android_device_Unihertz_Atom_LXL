@@ -5,4 +5,5 @@ get_prop(priv_app, system_mtk_cta_set_prop);
 
 allow priv_app cta_networkdatacontroller_service:service_manager {find};
 allow priv_app system_app_data_file:file {read write};
+allow priv_app fm_device:chr_file {ioctl read write getattr lock append map open};
 

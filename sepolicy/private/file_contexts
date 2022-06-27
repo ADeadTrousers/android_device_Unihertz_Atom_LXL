@@ -44,4 +44,5 @@
 /system/bin/storagemanagerd                                                                         u:object_r:vold_exec:s0
 /eng                                                                                                u:object_r:rootfs:s0
 /system/bin/GoogleOtaBinder                                                                         u:object_r:GoogleOtaBinder_exec:s0
+/dev/fm(/.*)?                                                                                       u:object_r:fm_device:s0
 

@@ -37,7 +37,7 @@ index 0de116ee..bff8ba44 100644
  import sys
 -from xml.dom.minidom import parseString
 +import xml.etree.ElementTree as etree
-+# Using lxml to preserve comments    
++# Using lxml to preserve comments
 +# import lxml.etree as etree
 +
 +def queryAttribute(element, attribute):
@@ -101,7 +101,7 @@ index 0de116ee..bff8ba44 100644
 +    output_root.set("version",apn_trees[0].getroot().attrib["version"])
 +    output_root.text = "\n  "
 +
-+# Needs lxml lib to work    
++# Needs lxml lib to work
 +#    for comment_data in apn_trees[0].xpath("preceding-sibling::comment()"):
 +#      output_root.addprevious(comment_data)
 +
