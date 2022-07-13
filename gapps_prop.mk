@@ -11,28 +11,25 @@ GAPPS_VARIANT := pico
 
 GAPPS_FORCE_PACKAGE_OVERRIDES := true
 GAPPS_FORCE_PIXEL_LAUNCHER := true
-# Workaround for now to get Velvet (Google QuickSearch) to work
-DONT_UNCOMPRESS_PRIV_APPS_DEXS := true
+GAPPS_FORCE_MMS_OVERRIDES := true
+GAPPS_FORCE_DIALER_OVERRIDES := true
+GAPPS_FORCE_BROWSER_OVERRIDES := true
+GAPPS_FORCE_WEBVIEW_OVERRIDES := true
 
 GAPPS_PRODUCT_PACKAGES += \
-    CalculatorGoogle \
-    CalendarGooglePrebuilt \
     GoogleCamera \
-    CarrierServices \
-    Chrome \
-    PrebuiltDeskClockGoogle \
-    GoogleContacts \
-    GoogleDialer \
     PrebuiltExchange3Google \
     PrebuiltGmail \
-    LatinImeGoogle \
     Maps \
-    PrebuiltBugle \
-    PixelLauncher \
     Photos \
     GooglePrintRecommendationService \
-    Velvet \
     StorageManagerGoogle \
     TagGoogle \
-    Wallpapers \
-    WebViewGoogle
+    CalculatorGoogle \
+    CalendarGooglePrebuilt \
+    PrebuiltDeskClockGoogle \
+    GoogleContacts \
+    CarrierServices \
+    LatinImeGoogle \
+    GoogleTTS \
+    Velvet

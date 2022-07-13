@@ -1,0 +1,25 @@
+From ec285f3786b2689a5aa325f3581b120eb0558c9d Mon Sep 17 00:00:00 2001
+From: Matthias Leitl <a.dead.trousers@gmail.com>
+Date: Wed, 13 Jul 2022 22:15:24 +0200
+Subject: [PATCH 1/1] Add missing permissions for Velvet
+
+---
+ etc/permissions/privapp-permissions-google.xml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/etc/permissions/privapp-permissions-google.xml b/etc/permissions/privapp-permissions-google.xml
+index e76b7b5..451de41 100644
+--- a/etc/permissions/privapp-permissions-google.xml
++++ b/etc/permissions/privapp-permissions-google.xml
+@@ -510,6 +510,8 @@ It allows additional grants on top of privapp-permissions-platform.xml
+         <permission name="android.permission.SUBSTITUTE_SHARE_TARGET_APP_NAME_AND_ICON" />
+         <permission name="android.permission.WRITE_APN_SETTINGS" />
+         <permission name="com.google.android.permission.SET_WATCH_FACE_PRIVILEGED" />
++        <permission name="android.permission.READ_DREAM_STATE" />
++        <permission name="android.permission.WRITE_DREAM_STATE" />
+     </privapp-permissions>
+ 
+     <privapp-permissions package="com.google.android.gms">
+-- 
+2.25.1
+
