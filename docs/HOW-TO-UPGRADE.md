@@ -40,10 +40,19 @@ Attention: You need to make sure it is the corresponding release to your stock r
 
 ## Upgrading the vendor partition
 
+For the stock rom release 2021-05:
+
 - [Atom L Region EEA (european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_EEA/releases/download/20210616-alpha/super-2021-05-eea.7z)
 - [Atom XL Region EEA (european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_EEA/releases/download/20210616-alpha/super-2021-05-seea.7z)
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases/download/20210616-alpha/super-2021-05-tee.7z)
 - [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases/download/20210616-alpha/super-2021-05-stee.7z)
+
+For the stock rom release 2021-11:
+
+- [Atom L Region EEA (european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_EEA/releases/download/20220715-alpha/super-2021-11-eea.7z)
+- [Atom XL Region EEA (european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_EEA/releases/download/20220715-alpha/super-2021-11-seea.7z)
+- [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases/download/20220715-alpha/super-2021-11-tee.7z)
+- [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases/download/20220715-alpha/super-2021-11-stee.7z)
 
 1. Download `super-YYYY-MM-XXX.7z` from the release page of your device which corresponds with the latest stock rom release.
 2. Extract the modified copy of `super.img` from the downloaded archive.
