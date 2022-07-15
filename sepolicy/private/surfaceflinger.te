@@ -1,1 +1,17 @@
-allow surfaceflinger file_contexts_file:file {ioctl read getattr lock map open};
+typeattribute surfaceflinger hal_power_client;
+
+get_prop(surfaceflinger, debug_prop);
+get_prop(surfaceflinger, system_mtk_debug_bq_dump_prop);
+get_prop(surfaceflinger, system_mtk_debug_bq_prop);
+get_prop(surfaceflinger, system_mtk_debug_sf_prop);
+get_prop(surfaceflinger, system_mtk_graphics_sf_gll_prop);
+get_prop(surfaceflinger, system_mtk_graphics_sf_gll_ro_prop);
+
+allow surfaceflinger camerapostalgo:binder {transfer};
+allow surfaceflinger debug_prop:property_service {set};
+allow surfaceflinger em_svr:binder {transfer};
+allow surfaceflinger file_contexts_file:file {getattr ioctl lock map open read watch watch_reads};
+allow surfaceflinger mtk_power_hal_mgr_service:service_manager {find};
+allow surfaceflinger mtkbootanimation:binder {transfer};
+allow surfaceflinger system_mtk_graphics_sf_gll_prop:property_service {set};
+

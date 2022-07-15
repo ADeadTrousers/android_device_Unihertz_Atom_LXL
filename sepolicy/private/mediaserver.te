@@ -1,0 +1,7 @@
+get_prop(mediaserver, system_mtk_media_wfd_prop);
+get_prop(mediaserver, system_prop);
+
+allow mediaserver system_prop:property_service {set};
+allow mediaserver vtservice:binder {transfer};
+neverallow mediaserver system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans ioctl link lock map mounton open quotaon relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+

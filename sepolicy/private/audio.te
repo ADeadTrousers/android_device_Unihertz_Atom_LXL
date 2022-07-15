@@ -1,0 +1,2 @@
+type sysfs_HDMI_audio_extcon_state, fs_type, sysfs_type;
+

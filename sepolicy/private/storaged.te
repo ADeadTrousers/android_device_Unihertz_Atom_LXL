@@ -1,0 +1,2 @@
+neverallow storaged system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+

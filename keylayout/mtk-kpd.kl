@@ -96,6 +96,6 @@ key 168   MEDIA_REWIND
 key 159   MEDIA_FAST_FORWARD
 
 # agold add
-key 249   ASSIST
-key 250   SEARCH
+key 249   FUNC1
+key 250   FUNC2
 

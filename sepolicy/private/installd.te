@@ -1,0 +1,8 @@
+neverallow installd system_data_file:blk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow installd system_data_file:chr_file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow installd system_data_file:dir {append audit_access execmod execute link map mounton quotaon relabelto unlink watch_mount watch_sb watch_with_perm};
+neverallow installd system_data_file:fifo_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelto rename setattr watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow installd system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans ioctl link lock map mounton open quotaon read relabelto rename setattr watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow installd system_data_file:lnk_file {append audit_access execmod execute ioctl link lock map mounton open quotaon relabelto rename watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow installd system_data_file:sock_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelto rename setattr watch watch_mount watch_reads watch_sb watch_with_perm write};
+

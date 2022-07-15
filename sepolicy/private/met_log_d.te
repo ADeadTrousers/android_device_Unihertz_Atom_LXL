@@ -1,9 +1,9 @@
-type met_log_d_exec, file_type, exec_type, system_file_type;
+type met_log_d, coredomain, domain;
+type met_log_d_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(met_log_d);
 
-allow met_log_d debug_prop:file {read getattr map open};
-allow met_log_d debug_prop:property_service {set};
-allow met_log_d init:unix_stream_socket {connectto};
-allow met_log_d property_socket:sock_file {write};
-allow met_log_d system_file:file {ioctl read getattr lock map execute execute_no_trans open};
+set_prop(met_log_d, debug_prop);
+
+allow met_log_d system_file:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+

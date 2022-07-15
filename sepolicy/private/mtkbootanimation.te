@@ -1,0 +1,35 @@
+type mtkbootanimation, coredomain, domain, hal_configstore_client, hal_graphics_allocator_client, hal_graphics_composer_client, halclientdomain;
+type mtkbootanimation_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(mtkbootanimation);
+binder_use(mtkbootanimation);
+hwbinder_use(mtkbootanimation);
+
+binder_call(mtkbootanimation, audioserver);
+binder_call(mtkbootanimation, surfaceflinger);
+
+set_prop(mtkbootanimation, debug_prop);
+set_prop(mtkbootanimation, system_mtk_bootani_prop);
+
+allow mtkbootanimation audio_device:chr_file {append getattr ioctl lock map open read watch watch_reads write};
+allow mtkbootanimation audio_device:dir {getattr ioctl lock open read search watch watch_reads};
+allow mtkbootanimation audioserver_service:service_manager {find};
+allow mtkbootanimation cgroup:dir {getattr ioctl lock open read search watch watch_reads};
+allow mtkbootanimation cgroup:file {getattr ioctl lock map open read watch watch_reads};
+allow mtkbootanimation cgroup:lnk_file {getattr ioctl lock map open read watch watch_reads};
+allow mtkbootanimation gpu_device:chr_file {append getattr ioctl lock map open read watch watch_reads write};
+allow mtkbootanimation gpu_device:dir {search};
+allow mtkbootanimation hal_graphics_allocator:fd {use};
+allow mtkbootanimation hal_graphics_composer:fd {use};
+allow mtkbootanimation ion_device:chr_file {append getattr ioctl lock map open read watch watch_reads write};
+allow mtkbootanimation mediaserver:binder {call transfer};
+allow mtkbootanimation mediaserver_service:service_manager {find};
+allow mtkbootanimation oemfs:dir {search};
+allow mtkbootanimation oemfs:file {getattr ioctl lock map open read watch watch_reads};
+allow mtkbootanimation proc_meminfo:file {getattr ioctl lock map open read watch watch_reads};
+allow mtkbootanimation resourcecache_data_file:dir {search};
+allow mtkbootanimation resourcecache_data_file:file {getattr open read};
+allow mtkbootanimation surfaceflinger:fifo_file {append getattr ioctl lock map open read watch watch_reads write};
+allow mtkbootanimation surfaceflinger_service:service_manager {find};
+allow mtkbootanimation system_file:dir {getattr ioctl lock open read search watch watch_reads};
+

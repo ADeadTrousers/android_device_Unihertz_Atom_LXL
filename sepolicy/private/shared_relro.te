@@ -1,0 +1,2 @@
+allow shared_relro system_mtk_amslog_prop:file {getattr map open read};
+

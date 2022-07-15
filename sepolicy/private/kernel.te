@@ -1,0 +1,7 @@
+typeattribute sysfs_kernel_notes mlstrustedobject;
+
+allow kernel aee_core_forwarder:process {rlimitinh siginh};
+allow kernel aee_core_forwarder:process {transition};
+allow kernel aee_core_forwarder_exec:file {execute getattr map open read};
+dontaudit kernel aee_core_forwarder:process {noatsecure};
+

@@ -22,7 +22,9 @@ touch.orientationAware = 1
 keyboard.layout = mtk-kpd
 keyboard.characterMap = qwerty
 keyboard.orientationAware = 1
-keyboard.builtIn = 1
+
+# AGOLD zhangyongjiang modify from 1 to 0 for a66/a83.
+keyboard.builtIn = 0
 
 cursor.mode = navigation
 cursor.orientationAware = 1

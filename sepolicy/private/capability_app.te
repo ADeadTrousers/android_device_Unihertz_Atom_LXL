@@ -1,0 +1,15 @@
+type capability_app, appdomain, coredomain, domain, hal_power_client, halclientdomain, mlstrustedobject;
+
+type_transition capability_app tmpfs:file appdomain_tmpfs;
+
+binder_call(capability_app, gpuservice);
+
+allow capability_app activity_service:service_manager {find};
+allow capability_app activity_task_service:service_manager {find};
+allow capability_app appdomain_tmpfs:file {execute getattr map read write};
+allow capability_app audio_service:service_manager {find};
+allow capability_app autofill_service:service_manager {find};
+allow capability_app gpu_service:service_manager {find};
+allow capability_app surfaceflinger_service:service_manager {find};
+allow capability_app textservices_service:service_manager {find};
+

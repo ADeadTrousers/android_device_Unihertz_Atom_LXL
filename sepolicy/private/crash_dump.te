@@ -1,1 +1,59 @@
-allow crash_dump aee_aed:unix_stream_socket {connectto};
+typeattribute crash_dump mlstrustedsubject;
+
+type_transition crash_dump dumpstate_exec:process dumpstate;
+
+get_prop(crash_dump, system_mtk_mobile_log_prop);
+
+set_prop(crash_dump, ctl_start_prop);
+set_prop(crash_dump, system_mtk_debug_mtk_aee_prop);
+set_prop(crash_dump, system_mtk_persist_aee_prop);
+set_prop(crash_dump, system_mtk_persist_mtk_aee_prop);
+
+allow crash_dump anr_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow crash_dump anr_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow crash_dump appdomain:dir {getattr ioctl lock open read search watch watch_reads};
+allow crash_dump block_device:dir {search};
+allow crash_dump coredomain:dir {getattr ioctl lock open read search watch watch_reads};
+allow crash_dump crash_dump:dir {search};
+allow crash_dump crash_dump:file {getattr ioctl lock map open read watch watch_reads};
+allow crash_dump dalvikcache_data_file:dir {getattr ioctl lock open read search watch watch_reads};
+allow crash_dump debugfs_tracing_instances:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow crash_dump debugfs_tracing_instances:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow crash_dump debuglog_data_file:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow crash_dump debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow crash_dump domain:lnk_file {getattr};
+allow crash_dump domain:process {getattr getsched};
+allow crash_dump dropbox_data_file:file {getattr read};
+allow crash_dump dropbox_service:service_manager {find};
+allow crash_dump dumpstate:dir {search};
+allow crash_dump dumpstate:file {getattr ioctl lock map open read watch watch_reads};
+allow crash_dump dumpstate:process {rlimitinh siginh};
+allow crash_dump dumpstate:process {transition};
+allow crash_dump dumpstate:unix_stream_socket {connectto};
+allow crash_dump dumpstate:unix_stream_socket {ioctl read write};
+allow crash_dump dumpstate_exec:file {execute getattr map open read};
+allow crash_dump dumpstate_socket:sock_file {append lock map open write};
+allow crash_dump init:process {getsched};
+allow crash_dump kernel:process {getsched};
+allow crash_dump mnt_user_file:dir {search};
+allow crash_dump mnt_user_file:lnk_file {read};
+allow crash_dump packages_list_file:file {getattr ioctl lock map open read watch watch_reads};
+allow crash_dump proc_version:file {open read};
+allow crash_dump sdcard_type:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow crash_dump sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow crash_dump self:capability {chown fowner fsetid kill net_admin setgid setuid sys_module sys_nice sys_resource};
+allow crash_dump self:capability {chown fowner kill sys_nice};
+allow crash_dump servicemanager:binder {call};
+allow crash_dump shell_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow crash_dump storage_file:dir {search};
+allow crash_dump storage_file:lnk_file {read};
+allow crash_dump sysfs_vibrator:file {append lock map open write};
+allow crash_dump system_file:file {execute_no_trans};
+allow crash_dump system_file_type:file {getattr ioctl lock map open read watch watch_reads};
+allow crash_dump system_server:binder {call};
+allow crash_dump tombstone_data_file:dir {add_name lock open remove_name search write};
+allow crash_dump tombstone_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow crash_dump toolbox_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
+allow crash_dump usermodehelper:file {getattr ioctl lock map open read watch watch_reads};
+dontaudit crash_dump dumpstate:process {noatsecure};
+

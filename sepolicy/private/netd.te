@@ -1,10 +1,16 @@
-allow netd dhcp_data_file:dir {read write add_name remove_name search};
-allow netd dhcp_data_file:file {read write create getattr unlink open};
-allow netd self:capability {setgid setuid net_bind_service};
+get_prop(netd, system_prop);
+
+allow netd dhcp_data_file:dir {add_name read remove_name search write};
+allow netd dhcp_data_file:file {create getattr open read unlink write};
+allow netd em_app:fd {use};
+allow netd em_app:tcp_socket {append bind connect getattr getopt lock map read setattr setopt shutdown write};
+allow netd mdi_redirector:fd {use};
+allow netd mdi_redirector:tcp_socket {append bind connect getattr getopt lock map read setattr setopt shutdown write};
+allow netd mdmi_redirector:fd {use};
+allow netd mdmi_redirector:tcp_socket {append bind connect getattr getopt lock map read setattr setopt shutdown write};
+allow netd self:capability {net_bind_service setgid setuid};
 allow netd servicemanager:binder {call};
 allow netd system_prop:property_service {set};
 allowxperm netd self:unix_stream_socket ioctl {0x8941 0x89a0 0x89a2 0x89f0};
-allow netd mdi_redirector:fd {use};
-allow netd mdi_redirector:tcp_socket {read write getattr setattr lock append map bind connect getopt setopt shutdown};
-allow netd mdmi_redirector:fd {use};
-allow netd mdmi_redirector:tcp_socket {read write getattr setattr lock append map bind connect getopt setopt shutdown};
+dontaudit netd surfaceflinger:fd {use};
+

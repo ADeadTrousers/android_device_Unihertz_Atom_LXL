@@ -1,3 +1,11 @@
+typeattribute cache_recovery_file mlstrustedobject;
+
+set_prop(recovery, boottime_prop);
+
+allow recovery mtd_device:chr_file {getattr ioctl open read write};
 allow recovery mtd_device:dir {search};
-allow recovery mtd_device:chr_file {ioctl read write getattr open};
 allow recovery self:capability {sys_resource};
+neverallow recovery device:blk_file {audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm};
+neverallow recovery device:dir {add_name append audit_access create execmod execute link map mounton quotaon relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow recovery socket_device:blk_file {audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm};
+

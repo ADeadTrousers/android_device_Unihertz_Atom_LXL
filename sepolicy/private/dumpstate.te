@@ -1,20 +1,41 @@
+typeattribute ctl_dumpstate_prop system_internal_property_type;
+typeattribute ctl_dumpstate_prop system_property_type;
 typeattribute dumpstate hal_camera_client;
+typeattribute dumpstate hal_graphics_allocator_client;
+typeattribute dumpstate mlstrustedsubject;
+typeattribute dumpstate_options_prop system_property_type;
+typeattribute dumpstate_options_prop system_public_property_type;
+typeattribute dumpstate_prop system_property_type;
+typeattribute dumpstate_prop system_restricted_property_type;
+typeattribute exported_dumpstate_prop system_property_type;
+typeattribute exported_dumpstate_prop system_restricted_property_type;
 
-allow dumpstate aee_aed:process {sigchld};
+type_transition crash_dump dumpstate_exec:process dumpstate;
+
+get_prop(dumpstate, system_mtk_debug_bq_dump_prop);
+
+allow dumpstate crash_dump:process {sigchld};
+allow dumpstate debugfs_tracing:file {open read write};
+allow dumpstate fuse:dir {add_name lock open remove_name search write};
+allow dumpstate fuse:file {append create open setattr write};
+allow dumpstate fuse:file {ioctl};
+allow dumpstate gpu_device:dir {search};
+allow dumpstate hal_camera_hwservice:hwservice_manager {find};
+allow dumpstate kmsg_device:chr_file {getattr ioctl lock map open read watch watch_reads};
+allow dumpstate logcat_exec:file {entrypoint execute getattr map open read};
+allow dumpstate mnt_user_file:dir {search};
+allow dumpstate mnt_user_file:lnk_file {read};
 allow dumpstate mobile_log_d:fd {use};
 allow dumpstate mobile_log_d:fifo_file {write};
 allow dumpstate mobile_log_d:process {sigchld};
 allow dumpstate mobile_log_d:unix_stream_socket {read write};
-allow dumpstate kmsg_device:chr_file {ioctl read getattr lock map open};
-allow dumpstate sysfs_vibrator:file {write};
-allow dumpstate fuse:dir {write lock add_name remove_name search open};
-allow dumpstate fuse:file {ioctl};
-allow dumpstate fuse:file {write create setattr append open};
-allow dumpstate debugfs_tracing:file {read write open};
-allow dumpstate gpu_device:dir {search};
-allow dumpstate hal_camera_hwservice:hwservice_manager {find};
-allow dumpstate logcat_exec:file {read getattr map execute entrypoint open};
-allow dumpstate mnt_user_file:dir {search};
-allow dumpstate mnt_user_file:lnk_file {read};
+allow dumpstate self:capability {sys_admin};
 allow dumpstate self:capability {sys_nice};
 allow dumpstate storage_file:lnk_file {read};
+allow dumpstate sysfs_vibrator:file {write};
+allow dumpstate system_mtk_debug_bq_dump_prop:property_service {set};
+neverallow dumpstate debugfs:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow dumpstate device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow dumpstate socket_device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow dumpstate system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+

@@ -1,0 +1,9 @@
+type apmsrv_app, appdomain, coredomain, domain, halclientdomain, mlstrustedsubject, mtk_hal_apm_client;
+
+type_transition apmsrv_app tmpfs:file appdomain_tmpfs;
+
+allow apmsrv_app activity_service:service_manager {find};
+allow apmsrv_app appdomain_tmpfs:file {execute getattr map read write};
+allow apmsrv_app location_service:service_manager {find};
+allow apmsrv_app radio_service:service_manager {find};
+allow apmsrv_app registry_service:service_manager {find};

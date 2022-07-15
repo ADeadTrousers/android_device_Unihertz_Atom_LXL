@@ -1,1 +1,0 @@
-allow shell proc_agold:file {read};

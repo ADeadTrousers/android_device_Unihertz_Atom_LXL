@@ -1,0 +1,5 @@
+neverallow fsck device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow fsck socket_device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow fsck_untrusted device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow fsck_untrusted socket_device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+

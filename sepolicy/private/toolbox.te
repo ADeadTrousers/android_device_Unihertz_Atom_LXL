@@ -1,1 +1,3 @@
-allow toolbox system_data_file:file {getattr unlink};
+neverallow toolbox system_data_file:dir {create setattr relabelfrom relabelto append map unlink link rename execute quotaon mounton audit_access execmod watch_mount watch_sb watch_with_perm reparent};
+neverallow toolbox system_data_file:file {ioctl read write create setattr lock relabelfrom relabelto append map link rename execute quotaon mounton audit_access open execmod watch watch_mount watch_sb watch_with_perm watch_reads execute_no_trans entrypoint};
+

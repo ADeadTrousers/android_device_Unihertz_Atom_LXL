@@ -1,2 +1,3 @@
-allow drmserver mtk_cta_set_prop:file {read getattr map open};
-allow drmserver access_sys_file:file {read open};
+allow drmserver access_sys_file:file {open read};
+allow drmserver system_mtk_cta_set_prop:file {getattr map open read};
+

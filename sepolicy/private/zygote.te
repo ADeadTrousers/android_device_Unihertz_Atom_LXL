@@ -1,1 +1,8 @@
-allow zygote mtk_rsc_sys_prop:file {read getattr map open};
+get_prop(zygote, system_mtk_rsc_sys_prop);
+
+neverallow app_zygote system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans ioctl link lock mounton open quotaon relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow app_zygote system_data_file:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow webview_zygote system_data_file:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow zygote system_data_file:dir {add_name append audit_access create execmod execute link map quotaon relabelfrom remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow zygote system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+

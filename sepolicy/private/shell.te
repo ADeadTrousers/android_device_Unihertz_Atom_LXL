@@ -1,2 +1,15 @@
-allow shell debuglog_data_file:dir {ioctl read getattr lock search open};
-allow shell debuglog_data_file:file {ioctl read getattr lock map open};
+typeattribute shell_data_file mlstrustedobject;
+
+get_prop(shell, system_mtk_debug_mtk_aee_prop);
+get_prop(shell, system_mtk_mobile_log_prop);
+get_prop(shell, system_mtk_persist_aee_prop);
+get_prop(shell, system_mtk_persist_mtk_aee_prop);
+
+allow shell debuglog_data_file:dir {getattr ioctl lock open read search watch watch_reads};
+allow shell debuglog_data_file:file {getattr ioctl lock map open read watch watch_reads};
+neverallow shell device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow shell device:chr_file {append audit_access create entrypoint execmod execute execute_no_trans ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow shell device:dir {add_name append audit_access create execmod execute link map mounton quotaon relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow shell socket_device:blk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow shell socket_device:chr_file {append audit_access create entrypoint execmod execute execute_no_trans ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+

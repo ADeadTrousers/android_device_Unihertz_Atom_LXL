@@ -1,0 +1,2 @@
+allow update_engine mtk_plpath_utils_exec:file {entrypoint execute getattr map open read};
+

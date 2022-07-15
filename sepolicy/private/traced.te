@@ -1,0 +1,2 @@
+neverallow traced_probes system_data_file:dir {add_name append audit_access create execmod execute ioctl link lock map mounton quotaon relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+

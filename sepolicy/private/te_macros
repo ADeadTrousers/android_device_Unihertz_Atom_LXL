@@ -1,2 +1,27 @@
-# Adapted from the "recovery_only" macro
-define(`system_only', ifelse(target_recovery, `true', , $1))
+#####################################
+# mtk_hal_attributes(mtk_hal_name)
+# Add an attribute for hal implementations without restrictions
+define(`mtk_hal_attributes', `
+attribute mtk_hal_$1;
+attribute mtk_hal_$1_client;
+attribute mtk_hal_$1_server;
+')
+
+#####################################
+# attributes_hal(name_hal)
+# Add an attribute for hal implementations without restrictions
+define(`attributes_hal', `
+attribute $1_hal;
+attribute $1_hal_client;
+attribute $1_hal_server;
+')
+
+#####################################
+# hal_attributes(hal_name)
+# Add an attribute for hal implementations without restrictions
+define(`hal_attributes', `
+attribute hal_$1;
+attribute hal_$1_client;
+attribute hal_$1_server;
+')
+

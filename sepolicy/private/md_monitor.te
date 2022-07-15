@@ -1,0 +1,2 @@
+type system_mtk_init_svc_md_monitor_prop, property_type, system_property_type, system_restricted_property_type;
+

@@ -1,0 +1,33 @@
+type aee_core_forwarder, coredomain, domain;
+type aee_core_forwarder_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(aee_core_forwarder);
+
+type_transition kernel aee_core_forwarder_exec:process aee_core_forwarder;
+
+get_prop(aee_core_forwarder, hwservicemanager_prop);
+
+allow aee_core_forwarder crash_dump:unix_stream_socket {connectto};
+allow aee_core_forwarder domain:dir {getattr ioctl lock open read search watch watch_reads};
+allow aee_core_forwarder domain:file {getattr ioctl lock map open read watch watch_reads};
+allow aee_core_forwarder kernel:fd {use};
+allow aee_core_forwarder kernel:fifo_file {read};
+allow aee_core_forwarder kernel:process {sigchld};
+allow aee_core_forwarder media_rw_data_file:dir {add_name lock open remove_name search write};
+allow aee_core_forwarder media_rw_data_file:file {create open write};
+allow aee_core_forwarder mnt_user_file:dir {search};
+allow aee_core_forwarder mnt_user_file:lnk_file {read};
+allow aee_core_forwarder rootfs:file {getattr ioctl lock map open read watch watch_reads};
+allow aee_core_forwarder sdcard_type:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
+allow aee_core_forwarder sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
+allow aee_core_forwarder self:capability {fsetid setgid};
+allow aee_core_forwarder self:capability {sys_admin};
+allow aee_core_forwarder self:capability {sys_nice};
+allow aee_core_forwarder self:capability2 {block_suspend};
+allow aee_core_forwarder storage_file:dir {search};
+allow aee_core_forwarder storage_file:lnk_file {read};
+allow aee_core_forwarder sysfs_wake_lock:file {append getattr ioctl lock map open read watch watch_reads write};
+allow aee_core_forwarder tmpfs:dir {search};
+dontaudit aee_core_forwarder self:capability {sys_ptrace};
+dontaudit aee_core_forwarder untrusted_app:dir {search};
+

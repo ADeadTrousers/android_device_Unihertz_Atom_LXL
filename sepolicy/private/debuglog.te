@@ -1,1 +1,1 @@
-type debuglog_data_file, file_type, data_file_type, core_data_file_type;
+type debuglog_data_file, core_data_file_type, data_file_type, file_type;

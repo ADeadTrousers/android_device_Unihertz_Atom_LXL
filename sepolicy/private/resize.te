@@ -1,0 +1,16 @@
+type resize, coredomain, domain;
+type resize_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(resize);
+
+allow resize block_device:dir {search};
+allow resize devpts:chr_file {ioctl read write getattr lock append map open watch watch_reads};
+allow resize dm_device:blk_file {ioctl read write getattr lock append map open watch watch_reads};
+allow resize metadata_block_device:blk_file {getattr};
+allow resize proc_swaps:file {ioctl read write getattr lock append map open watch watch_reads};
+allow resize resize_exec:file {execute_no_trans};
+allow resize sysfs_fs_ext4_features:dir {search};
+allow resize userdata_block_device:blk_file {ioctl read write getattr lock append map open watch watch_reads};
+allowxperm resize userdata_block_device:blk_file ioctl {0x125e};
+allowxperm resize userdata_block_device:blk_file ioctl {0x127c};
+
