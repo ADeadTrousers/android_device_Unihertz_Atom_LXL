@@ -66,9 +66,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     99-magisk
     
-# NavButtonRemap
+# HardwareKeyMapper
 PRODUCT_PACKAGES += \
-    NavButtonRemap    
+    HardwareKeyMapper    
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration.xml \
