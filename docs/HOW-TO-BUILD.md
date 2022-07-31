@@ -163,10 +163,10 @@ Add the following
 </manifest>
 ```
 
-If you want to build with NavButtonRemap included add the following to the manifest-tag
+If you want to build with HardwareKeyMapper included add the following to the manifest-tag
 
 ```xml
-  <project name="ADeadTrousers/NavButtonRemap" path="vendor/shuhaowu/NavButtonRemap" remote="github" revision="master" />
+  <project name="ADeadTrousers/HardwareKeyMapper" path="vendor/are/HardwareKeyMapper" remote="github" revision="master" />
 ```
 	
 If you want to build with GAPPS included add the following to the manifest-tag
