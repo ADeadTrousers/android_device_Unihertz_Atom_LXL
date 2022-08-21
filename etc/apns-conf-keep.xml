@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apns version="8">
+  <apn carrier="T-Mobile US LTE" 
+       mcc="310" 
+       mnc="260" 
+       apn="fast.t-mobile.com" 
+       type="default,supl,mms" 
+       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc" 
+       protocol="IPV6" 
+       roaming_protocol="IPV4V6" 
+       mtu="1440" 
+  />
+</apns>
