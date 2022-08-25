@@ -1,3 +1,2 @@
-type mtk_duraspeed_service, app_api_service, service_manager_type, system_server_service;
 type system_mtk_duraspeed_drop_caches_prop, extended_core_property_type, property_type, system_internal_property_type, system_property_type;
 

@@ -1,0 +1,2 @@
+type capability_app, appdomain, coredomain, domain, hal_power_client, halclientdomain, mlstrustedobject;
+

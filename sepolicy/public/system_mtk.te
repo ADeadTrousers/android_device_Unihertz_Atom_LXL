@@ -1,0 +1,11 @@
+type system_mtk_heavy_loading_prop, extended_core_property_type, property_type, system_property_type, system_public_property_type;
+type system_mtk_pkm_init_prop, property_type, system_property_type, system_public_property_type;
+type system_mtk_persist_mtk_aee_prop, extended_core_property_type, property_type, system_property_type, system_public_property_type;
+type system_mtk_ctl_emdlogger1_prop, property_type, system_property_type, system_public_property_type;
+type system_mtk_ctl_emdlogger2_prop, property_type, system_property_type, system_public_property_type;
+type system_mtk_ctl_emdlogger3_prop, property_type, system_property_type, system_public_property_type;
+type system_mtk_init_svc_aee_aedv_prop, property_type, system_property_type, system_public_property_type;
+type system_mtk_ctl_mdlogger_prop, property_type, system_property_type, system_public_property_type;
+type system_mtk_init_svc_md_monitor_prop, property_type, system_property_type, system_restricted_property_type;
+type system_mtk_init_svc_emdlogger1_prop, property_type, system_property_type, system_public_property_type;
+

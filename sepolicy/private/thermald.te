@@ -1,4 +1,3 @@
-type thermald, coredomain, domain;
 type thermald_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(thermald);

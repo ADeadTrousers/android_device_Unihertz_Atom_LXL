@@ -1,0 +1,1 @@
+type apmsrv_app, appdomain, coredomain, domain, halclientdomain, mlstrustedsubject;

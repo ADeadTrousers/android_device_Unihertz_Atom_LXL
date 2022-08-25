@@ -1,4 +1,3 @@
-type met_log_d, coredomain, domain;
 type met_log_d_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(met_log_d);

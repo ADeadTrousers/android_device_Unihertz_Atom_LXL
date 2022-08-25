@@ -1,5 +1,4 @@
 type lbs_dbg, coredomain, domain, halclientdomain, mtk_hal_lbs_client;
-type lbs_dbg_data_file, core_data_file_type, data_file_type, file_type;
 type lbs_dbg_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(lbs_dbg);

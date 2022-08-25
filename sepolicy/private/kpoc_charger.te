@@ -1,4 +1,3 @@
-type kpoc_charger, coredomain, domain, hal_health_client, hal_light_client, halclientdomain;
 type kpoc_charger_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(kpoc_charger);
