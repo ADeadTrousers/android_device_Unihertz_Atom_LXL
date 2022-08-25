@@ -1,4 +1,3 @@
-type camerapostalgo, binderservicedomain, coredomain, domain;
 type camerapostalgo_exec, exec_type, file_type, system_file_type;
 type camerapostalgo_service, service_manager_type;
 

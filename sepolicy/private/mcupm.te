@@ -1,2 +1,1 @@
-type mcupm_device, dev_type;
 type sysfs_mcupm, fs_type, sysfs_type;

@@ -1,5 +1,6 @@
-type mdi_redirector, coredomain, domain, halclientdomain, mtk_hal_dmc_client, netdomain;
 type mdi_redirector_exec, exec_type, file_type, system_file_type;
+
+typeattribute mdi_redirector mtk_hal_dmc_client;
 
 init_daemon_domain(mdi_redirector);
 

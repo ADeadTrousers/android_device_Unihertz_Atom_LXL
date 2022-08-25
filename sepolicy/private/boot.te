@@ -20,9 +20,7 @@ typeattribute system_boot_reason_prop system_property_type;
 typeattribute test_boot_reason_prop system_internal_property_type;
 typeattribute test_boot_reason_prop system_property_type;
 
-type boot_logo_updater, coredomain, domain;
 type boot_logo_updater_exec, exec_type, file_type, system_file_type;
-type sysfs_boot_info, fs_type, sysfs_type;
 
 init_daemon_domain(boot_logo_updater);
 

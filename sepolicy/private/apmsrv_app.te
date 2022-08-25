@@ -1,4 +1,4 @@
-type apmsrv_app, appdomain, coredomain, domain, halclientdomain, mlstrustedsubject, mtk_hal_apm_client;
+typeattribute apmsrv_app mtk_hal_apm_client;
 
 type_transition apmsrv_app tmpfs:file appdomain_tmpfs;
 

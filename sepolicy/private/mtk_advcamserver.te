@@ -1,6 +1,4 @@
-type mtk_advcamserver, binderservicedomain, coredomain, domain;
 type mtk_advcamserver_exec, exec_type, file_type, system_file_type;
-type mtk_advcamserver_service, service_manager_type;
 
 init_daemon_domain(mtk_advcamserver);
 binder_use(mtk_advcamserver);

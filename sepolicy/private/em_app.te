@@ -1,4 +1,6 @@
-type em_app, appdomain, coredomain, domain, hal_telephony_client, halclientdomain, md_monitor_hal_client, mlstrustedsubject, mtk_hal_em_client, mtk_hal_netdagent_client;
+typeattribute em_app md_monitor_hal_client;
+typeattribute em_app mtk_hal_em_client;
+typeattribute em_app mtk_hal_netdagent_client;
 
 type_transition em_app tmpfs:file appdomain_tmpfs;
 
