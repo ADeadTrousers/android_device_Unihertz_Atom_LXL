@@ -87,6 +87,10 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_engine_product_strategies.xml \
     frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_engine_stream_volumes.xml
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/permissions/platform_unihertz.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/platform_unihertz.xml \
+    $(DEVICE_PATH)/permissions/privapp-permissions-platform_unihertz.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-platform_unihertz.xml
+
 PRODUCT_PACKAGES += \
     libbrotli \
     BluetoothQtiSymlink \

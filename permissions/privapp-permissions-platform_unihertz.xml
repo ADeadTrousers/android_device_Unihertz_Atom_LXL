@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <!-- zhangyongjiang add -->
+    <privapp-permissions package="com.agui.rotationcontrol">
+        <permission name="android.permission.WRITE_SECURE_SETTINGS" />
+        <permission name="android.permission.REAL_GET_TASKS" />
+        <permission name="android.permission.MANAGE_USERS" />
+    </privapp-permissions>
+    
+    <!-- xuelb add -->
+    <privapp-permissions package="com.agui.nfc">
+        <permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
+    </privapp-permissions>
+</permissions>

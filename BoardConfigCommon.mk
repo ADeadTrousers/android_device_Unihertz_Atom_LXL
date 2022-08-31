@@ -109,7 +109,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_COMMON_PATH)/device_framework_matrix.xml
-    
+
 # Treble
 BOARD_VNDK_VERSION := current
 
