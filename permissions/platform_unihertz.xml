@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 FeliCa Networks, Inc.
+     Copyright (C) 2013 Sony Corporation
+-->
+<permissions>
+    <!-- [AGUI][2020.06.01] [for FeliCa 1.0.0][Req.400][Req.510][Add]Start -->
+    <library name="com.felicanetworks.felicaextra"
+            file="/system/framework/com.felicanetworks.felicaextra.jar" />
+    <library name="com.felicanetworks.felica"
+            file="/system/framework/com.felicanetworks.felica.jar" />
+    <!-- [AGUI][for FeliCa 1.0.0][Req.400][Req.510][Add]End -->
+    
+    <!-- Add by agold xuelb for extmodule -->
+    <allow-in-power-save package="com.agold.intercom" />
+    <allow-in-data-usage-save package="com.agold.intercom" />
+
+<!--  [AGUI][Fengjun][2020.05.29]For sony feilika NFC-->
+    <!-- for felicanetworks' middleware [req.4.11] -->
+    <allow-in-power-save package="com.felicanetworks.mfc" />
+    <allow-in-power-save package="com.felicanetworks.mfs" />
+    <allow-in-power-save package="com.felicanetworks.mfw.a.boot" />
+    <allow-in-power-save package="com.felicanetworks.mfm.main" />
+    <allow-in-data-usage-save package="com.felicanetworks.mfc" />
+    <allow-in-data-usage-save package="com.felicanetworks.mfs" />
+    <allow-in-data-usage-save package="com.felicanetworks.mfw.a.boot" />
+    <allow-in-data-usage-save package="com.felicanetworks.mfm.main" />
+<!-- [AGUI]End -->
+
+
+    <!-- agold linyuan start -->
+    <!-- Android Auto -->
+    <allow-in-power-save package="com.google.android.projection.gearhead" />
+    <!-- agold end -->
+    
+<!-- [AGUI][Fengjun][2021.01.21] 解决音乐播放器不能后台启动服务的问题 -->
+    <allow-in-power-save package="com.android.music" />
+<!-- [AGUI]End -->    
+</permissions>
