@@ -93,7 +93,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libbrotli \
-    BluetoothQtiSymlink \
     libhwbinder \
     libhidltransport \
     libaudioprocessing \
