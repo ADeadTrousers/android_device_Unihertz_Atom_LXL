@@ -1,0 +1,85 @@
+neverallow * {debugfs proc sysfs}:blk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow * {debugfs device proc socket_device sysfs}:fifo_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow * {debugfs device proc socket_device sysfs}:sock_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow * debugfs:chr_file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow * {proc sysfs}:chr_file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow * socket_device:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {domain -coredomain} {system_mtk_amslog_prop system_mtk_init_svc_md_monitor_prop}:property_service {set};
+neverallow {domain -coredomain} {system_mtk_aal_prop system_mtk_acs_support_prop system_mtk_acs_url_prop system_mtk_acs_version_prop system_mtk_amsaal_prop system_mtk_apptoken_required_prop system_mtk_atci_sys_prop system_mtk_bgdata_disabled_prop system_mtk_bluetooth_prop system_mtk_bootani_prop system_mtk_capability_switch_prop system_mtk_capctrl_sys_prop system_mtk_cdma_ecm_prop system_mtk_cdma_prop system_mtk_clientapi_support_prop system_mtk_common_data_prop system_mtk_connsysfw_prop system_mtk_cta_set_prop system_mtk_ctl_atcid_daemon_u_prop system_mtk_ctl_campostalgo_prop system_mtk_ctm_prop system_mtk_ctmslot_prop system_mtk_debug_bq_dump_prop system_mtk_debug_bq_prop system_mtk_debug_mdlogger_prop system_mtk_debug_mtk_aee_prop system_mtk_debug_mtklog_prop system_mtk_debug_netlog_prop system_mtk_debug_sf_prop system_mtk_duraspeed_drop_caches_prop system_mtk_em_tel_log_prop system_mtk_gprs_attach_type_prop system_mtk_graphics_sf_gll_prop system_mtk_imsconfig_prop system_mtk_logmuch_prop system_mtk_mdl_prop system_mtk_mdl_pulllog_prop system_mtk_mdl_start_prop system_mtk_media_wfd_prop system_mtk_mobile_log_post_prop system_mtk_mobile_log_prop system_mtk_opt_in_url_prop system_mtk_permission_control_prop system_mtk_persist_aee_prop system_mtk_persist_mdlog_prop system_mtk_persist_mtklog_prop system_mtk_persist_vendor_vzw_device_type_prop system_mtk_persist_xcap_rawurl_prop system_mtk_power_off_md_prop system_mtk_rcs_support_prop system_mtk_rsc_sys_prop system_mtk_rtt_prop system_mtk_selfreg_prop system_mtk_sim_system_prop system_mtk_subsidylock_connect_prop system_mtk_subsidylock_prop system_mtk_supp_serv_prop system_mtk_telecom_vibrate_prop system_mtk_terservice_prop system_mtk_uce_support_prop system_mtk_update_prop system_mtk_usb_tethering_prop system_mtk_usp_srv_prop system_mtk_vendor_bluetooth_prop system_mtk_vsim_sys_prop system_mtk_wfc_entitlement_prop system_mtk_wfc_opt_in_prop system_mtk_world_phone_prop}: file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {domain -init -vendor_init} {system_mtk_graphics_sf_gll_ro_prop system_mtk_update_support_prop}:property_service {set};
+
+neverallow {domain -radio} mtk_vodata_service:service_manager {add};
+
+#neverallow {coredomain -init -ueventd -vold} sysfs:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {ephemeral_app isolated_app mediaprovider mediaprovider_app untrusted_app} {-mtk_safe_hwservice_manager_type -fwk_bufferhub_hwservice -hal_cas_hwservice -hal_codec2_hwservice -hal_configstore_ISurfaceFlingerConfigs -hal_drm_hwservice -hal_graphics_allocator_hwservice -hal_graphics_mapper_hwservice -hal_neuralnetworks_hwservice -hal_omx_hwservice -hal_renderscript_hwservice -hidl_allocator_hwservice -hidl_manager_hwservice -hidl_memory_hwservice -hidl_token_hwservice}:hwservice_manager {find};
+
+neverallow {ephemeral_app isolated_app mediaprovider mediaprovider_app untrusted_app} {halserverdomain -coredomain -hal_cas_server -hal_codec2_server -hal_configstore_server -hal_drm_server -hal_graphics_allocator_server -hal_neuralnetworks_server -hal_omx_server -mtk_safe_halserverdomain_type}:binder {call transfer};
+
+neverallow {-init -ueventd} sysfs:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+
+neverallow {-init -ueventd -vendor_init} device:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -ueventd -vendor_init} {device socket_device}:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow {-init -ueventd -vendor_init} {sysfs socket_device}:dir {add_name append audit_access create execmod execute link map mounton quotaon relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
+
+neverallow {coredomain -audioserver -bluetooth -init -system_server -vold} proc:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {coredomain -audioserver -bluetooth -init -system_server} proc:lnk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-init -vendor_init} debugfs:dir {add_name append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} proc:dir {add_name append audit_access create execmod execute link mounton quotaon relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} vendor_data_file:blk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} vendor_data_file:chr_file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} vendor_data_file:fifo_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} vendor_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} vendor_data_file:lnk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -vendor_init} vendor_data_file:sock_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-dumpstate -init -vendor_init} debugfs:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-init} debugfs:lnk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-init -installd -system_server} system_data_file:blk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -installd -system_server} system_data_file:chr_file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -installd -system_server} system_data_file:fifo_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+neverallow {-init -installd -system_server} system_data_file:sock_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {coredomain -appdomain -app_zygote -init -installd -iorap_inode2filename -iorap_prefetcherd -system_server -toolbox -vold -vold_prepare_subdirs} system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
+
+neverallow {-appdomain -app_zygote -init -installd -iorap_inode2filename -iorap_prefetcherd -logd -rs -runas -simpleperf_app_runner -system_server -tee -vold -webview_zygote -zygote} system_data_file:lnk_file {append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-apexd -init -installd -iorap_inode2filename -iorap_prefetcherd -system_server -toolbox -traced_probes -vold -vold_prepare_subdirs -zygote} system_data_file:dir {add_name append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-init -vendor_init -vold -vold_prepare_subdirs} vendor_data_file:dir {add_name append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-init -shell -ueventd -vendor_init} {device socket_device}:chr_file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-dumpstate -e2fs -fsck -fsck_untrusted -init -recovery -shell -ueventd -vendor_init} {device socket_device}:blk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {coredomain -hal_camera -cameraserver -fastbootd -init -recovery -shell -slideshow -system_server -ueventd -vendor_init -vold} device:dir {add_name append audit_access create execmod execute ioctl link lock map mounton open quotaon read relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {apmsrv_app -runas_app -shell -simpleperf} {domain -apmsrv_app}:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {appdomain -runas_app -shell -simpleperf -apmsrv_app} apmsrv_app:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {domain -crash_dump -runas_app -simpleperf -apmsrv_app} apmsrv_app:process {ptrace};
+
+neverallow {capability_app -runas_app -shell -simpleperf} {domain -capability_app}:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {appdomain -runas_app -shell -simpleperf -capability_app} capability_app:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {domain -crash_dump -runas_app -simpleperf -capability_app} capability_app:process {ptrace};
+
+neverallow {coredomain -cameraserver -init -logd -system_server -em_app} system_mtk_logmuch_prop:property_service {set};
+
+neverallow {em_app -runas_app -shell -simpleperf} {domain -em_app}:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {appdomain -runas_app -shell -simpleperf -em_app} em_app:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {domain -crash_dump -runas_app -simpleperf -em_app} em_app:process {ptrace};
+
+neverallow {coredomain -appdomain -app_zygote -dumpstate -init -installd -iorap_inode2filename -iorap_prefetcherd -logd -mediadrmserver -mediaextractor -mediaserver -runas -sdcardd -simpleperf_app_runner -system_server -toolbox -vold -vold_prepare_subdirs -zygote -storaged} system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
+
+neverallow {-appdomain -app_zygote -init -installd -iorap_inode2filename -iorap_prefetcherd -logd -rs -runas -simpleperf_app_runner -system_server -tee -vold -webview_zygote -zygote -dexoptanalyzer} system_data_file:lnk_file {append audit_access create execmod execute getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
