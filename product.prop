@@ -15,3 +15,6 @@ ro.other_notifi_ledcolor=Green
 ro.unread_notifi_ledcolor=Red
 ro.incoming_ledcolor=Blue
 ro.scridle_ledcolor=None
+
+persist.bluetooth.a2dp_offload.disabled=true
+persist.bluetooth.bluetooth_audio_hal.disabled=true
