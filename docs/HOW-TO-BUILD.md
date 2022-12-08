@@ -145,7 +145,6 @@ Add the following
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remove-project name="LineageOS/android_packages_apps_FMRadio"/>
   <project name="ADeadTrousers/android_device_Unihertz_Atom_LXL" path="device/Unihertz/Atom_LXL" remote="github" revision="master" />
   <project name="ADeadTrousers/android_vendor_mediatek_libfmcust" path="vendor/mediatek/libfmcust" remote="github" revision="master" />
   <!-- For the Atom L model add -->  
@@ -218,6 +217,7 @@ If you don't want to include GAPPS at all or want to change the apps to be insta
 ### Use imjtool (formerly known as imgtool) to extract from stock rom files
 
 First follow [the instructions to extract and mount the stock rom files](HOW-TO-EXTRACT_FILES.md) 
+(You only need to do the part with super.img)
 
 Then extract all the files we need
 
@@ -232,6 +232,9 @@ Then extract all the files we need
 ~/android/lineage/device/Unihertz/Atom_XL_TEE/extract-files.sh ~/unihertz/extracted
 ```
 
+If you get errors during the extraction it's most certainly because of missing access rights. 
+The fastest way to counter these is to grant the ownership (chown) of the missing files and the containing directories to your user.
+	
 ### Use an allready rooted device
 
 If you were able to root your device this is just a small step. Plug in your device and do the follwing
@@ -246,7 +249,7 @@ If you were able to root your device this is just a small step. Plug in your dev
 # For the Atom XL TEE use
 ~/android/lineage/device/Unihertz/Atom_XL_TEE/extract-files.sh
 ```
-	
+
 ## Building the rom
 
 Prepare the build	
