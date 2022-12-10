@@ -20,7 +20,7 @@ sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-
 For Ubuntu versions older than 16.04 (xenial), you’ll need
 
 ```bash
-sudo apt-get install libwxgtk2.8-dev	
+sudo apt-get install libwxgtk2.8-dev
 ```
 
 For Ubuntu versions older than 20.04 (focal), you’ll also need
@@ -43,14 +43,14 @@ Update your PATH variable for your environment
 ```bash
 gedit ~/.profile
 ```
-	
+
 Add the following
-	
+
 ```bash
 # add Android SDK platform tools to path
 if [ -d "$HOME/platform-tools" ] ; then
   PATH="$HOME/platform-tools:$PATH"
-fi	
+fi
 ```
 
 Then update your environment
@@ -58,7 +58,7 @@ Then update your environment
 ```bash
 source ~/.profile
 ```
-	
+
 ### Install the repo command
 
 Download the binary and make it executable
@@ -68,20 +68,20 @@ mkdir -p ~/bin
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 ```
-	
+
 Update your PATH variable for your environment
 
 ```bash
 gedit ~/.profile
 ```
-	
+
 Add the following
-	
+
 ```bash
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
-fi	
+fi
 ```
 
 Then update your environment
@@ -89,7 +89,7 @@ Then update your environment
 ```bash
 source ~/.profile
 ```
-	
+
 ### (optional) Install git-lfs for GAPPS support during build
 
 If you want to include GAPPS in the build you need [git-lfs](https://git-lfs.github.com/) otherwise the apk's can't be downloaded.
@@ -98,7 +98,7 @@ If you want to include GAPPS in the build you need [git-lfs](https://git-lfs.git
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt-get install git-lfs
 ```
-	
+
 ### Configure git
 
 repo requires you to identify yourself to sync Android
@@ -107,7 +107,7 @@ repo requires you to identify yourself to sync Android
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
-	
+
 ### (optional) Turn on caching to speed up build
 
 Update your build environment
@@ -117,13 +117,13 @@ gedit ~/.bashrc
 ```
 
 Add the following
-	
+
 ```bash
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 export CCACHE_COMPRESS=1
 ```
-	
+
 ### Initialize the LineageOS source repository
 
 Create the project folder and download the source code
@@ -133,13 +133,13 @@ mkdir -p ~/android/lineage
 cd ~/android/lineage
 repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
 ```
-	
+
 Now let's add this very device repo to the local_manifest
 
 ```bash
 gedit cd ~/android/lineage/.repo/local_manifests/roomservice.xml
 ```
-	
+
 Add the following
 
 ```xml
@@ -167,7 +167,7 @@ If you want to build with HardwareKeyMapper included add the following to the ma
 ```xml
   <project name="ADeadTrousers/HardwareKeyMapper" path="vendor/are/HardwareKeyMapper" remote="github" revision="master" />
 ```
-	
+
 If you want to build with GAPPS included add the following to the manifest-tag
 
 ```xml
@@ -187,7 +187,7 @@ If you want to build with Magisk included add the following to the manifest-tag
 ```xml
   <project name="ADeadTrousers/android_vendor_magisk" path="vendor/magisk" remote="github" revision="master" />
 ```
-	
+
 To finish everything up sync the repo
 
 ```bash
@@ -195,11 +195,16 @@ cd ~/android/lineage
 repo sync --force-sync
 ```
 
+Apply all the patches that are needed for this deivce
+
+```bash
+./device/Unihertz/Atom_LXL/patch/apply.sh
+```
+
 If you included GAPPS you also need to sync git-lfs
 
 ```bash
-cd vendor/opengapps/sources
-for d in ./*/ ; do (cd "$d" && git lfs pull); done
+repo forall -c git lfs pull
 ```
 
 ## (optional) Configure GAPPS for the device
@@ -207,7 +212,7 @@ for d in ./*/ ; do (cd "$d" && git lfs pull); done
 If you don't want to include GAPPS at all or want to change the apps to be installed
 
 ```bash
-	gedit ~/android/lineage/device/Unihertz/Atom_LXL/gapps_prop.mk
+gedit ~/android/lineage/device/Unihertz/Atom_LXL/gapps_prop.mk
 ```
 
 [Documentation of the possible settings](https://github.com/opengapps/aosp_build/blob/master/README.md)
@@ -249,10 +254,10 @@ If you were able to root your device this is just a small step. Plug in your dev
 # For the Atom XL TEE use
 ~/android/lineage/device/Unihertz/Atom_XL_TEE/extract-files.sh
 ```
-	
+
 ## Building the rom
 
-Prepare the build	
+Prepare the build
 
 ```bash
 cd ~/android/lineage
@@ -266,19 +271,19 @@ breakfast Atom_L_TEE
 # For the Atom XL TEE use
 breakfast Atom_XL_TEE
 ```
-	
+
 Do the actual build
-	
+
 ```bash
 cd ~/android/lineage
 ccache -M 50G
 croot
 # For the Atom L EEA use
-brunch Atom_L_EEA	
+brunch Atom_L_EEA
 # For the Atom XL EEA use
 brunch Atom_XL_EEA
 # For the Atom L TEE use
-brunch Atom_L_TEE	
+brunch Atom_L_TEE
 # For the Atom XL TEE use
 brunch Atom_XL_TEE
 ```
@@ -292,11 +297,16 @@ cd ~/android/lineage
 repo sync --force-sync
 ```
 
+Re-apply all the patches that are needed for this deivce
+
+```bash
+./device/Unihertz/Atom_LXL/patch/apply.sh
+```
+
 If you changed the settings of TWRP and GAPPS sadly you need to redo them now.
 
 Also don't forget to sync git-lfs if you included GAPPS
 
 ```bash
-cd vendor/opengapps/sources
-for d in ./*/ ; do (cd "$d" && git lfs pull); done
+repo forall -c git lfs pull
 ```
