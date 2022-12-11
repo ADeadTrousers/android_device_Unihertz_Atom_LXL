@@ -21,7 +21,7 @@ for i in $(find "$PATCHBASE"/* -type d); do
 
     echo
     echo applying $PATCHNAME to $PATCHTARGET
-    cd "$CMBASE/$PATCHTARGET" || exit 1
+    cd "$CMBASE/$PATCHTARGET" 2>/dev/null || { echo $PATCHTARGET not found && continue; }
 
     suffix=".patch"
     if [ $PATCHNAME = "bootable_recovery" -a $TWRP = true ]; then suffix=".twrp.patch"; fi
