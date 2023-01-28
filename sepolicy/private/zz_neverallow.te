@@ -64,21 +64,15 @@ neverallow {apmsrv_app -runas_app -shell -simpleperf} {domain -apmsrv_app}:file 
 
 neverallow {appdomain -runas_app -shell -simpleperf -apmsrv_app} apmsrv_app:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
 
-neverallow {domain -crash_dump -runas_app -simpleperf -apmsrv_app} apmsrv_app:process {ptrace};
-
 neverallow {capability_app -runas_app -shell -simpleperf} {domain -capability_app}:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
 
 neverallow {appdomain -runas_app -shell -simpleperf -capability_app} capability_app:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
-
-neverallow {domain -crash_dump -runas_app -simpleperf -capability_app} capability_app:process {ptrace};
 
 neverallow {coredomain -cameraserver -init -logd -system_server -em_app} system_mtk_logmuch_prop:property_service {set};
 
 neverallow {em_app -runas_app -shell -simpleperf} {domain -em_app}:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
 
 neverallow {appdomain -runas_app -shell -simpleperf -em_app} em_app:file {append create ioctl link lock open read relabelfrom rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
-
-neverallow {domain -crash_dump -runas_app -simpleperf -em_app} em_app:process {ptrace};
 
 neverallow {coredomain -appdomain -app_zygote -dumpstate -init -installd -iorap_inode2filename -iorap_prefetcherd -logd -mediadrmserver -mediaextractor -mediaserver -runas -sdcardd -simpleperf_app_runner -system_server -toolbox -vold -vold_prepare_subdirs -zygote -storaged} system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write};
 
