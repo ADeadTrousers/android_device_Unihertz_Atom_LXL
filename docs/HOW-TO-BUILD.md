@@ -131,7 +131,7 @@ Create the project folder and download the source code
 ```bash
 mkdir -p ~/android/lineage
 cd ~/android/lineage
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+repo init -u https://github.com/LineageOS/android.git -b lineage-18.1 --git-lfs
 ```
 
 Now let's add this very device repo to the local_manifest
@@ -199,12 +199,6 @@ Apply all the patches that are needed for this deivce
 
 ```bash
 ./device/Unihertz/Atom_LXL/patch/apply.sh
-```
-
-If you included GAPPS you also need to sync git-lfs
-
-```bash
-repo forall -c git lfs pull
 ```
 
 ## (optional) Configure GAPPS for the device
