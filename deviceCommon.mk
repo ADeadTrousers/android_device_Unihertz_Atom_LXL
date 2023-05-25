@@ -70,10 +70,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     HardwareKeyMapper    
 
-# Symbols
-PRODUCT_PACKAGES += \
-    libshim_vtservice
-
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_volumes.xml \
