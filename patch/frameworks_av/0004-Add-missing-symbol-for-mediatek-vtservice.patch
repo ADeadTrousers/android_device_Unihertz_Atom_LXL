@@ -1,0 +1,51 @@
+From e4fb90145b98e490250897983ddc7ac692f433ab Mon Sep 17 00:00:00 2001
+From: Matthias Leitl <a.dead.trousers@gmail.com>
+Date: Thu, 25 May 2023 22:01:23 +0200
+Subject: [PATCH] Add missing symbol for mediatek vtservice
+
+Change-Id: I904cf3009505bf490ee530d23342ad0c9711b15b
+---
+ media/libaudioclient/AudioTrack.cpp | 30 +++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/media/libaudioclient/AudioTrack.cpp b/media/libaudioclient/AudioTrack.cpp
+index 68d11d45ca..ed3b310ac8 100644
+--- a/media/libaudioclient/AudioTrack.cpp
++++ b/media/libaudioclient/AudioTrack.cpp
+@@ -3434,3 +3434,33 @@ void AudioTrack::AudioTrackCallback::setAudioTrackCallback(
+ }
+ 
+ } // namespace android
++
++extern "C" {
++// Old constructor without opPackageName
++void _ZN7android10AudioTrackC1E19audio_stream_type_tj14audio_format_tjj20audio_output_flags_tPFviPvS4_ES4_i15audio_session_tNS0_13transfer_typeEPK20audio_offload_info_tjiPK18audio_attributes_tbfi(
++        void* thisptr,
++        audio_stream_type_t streamType,
++        uint32_t sampleRate,
++        audio_format_t format,
++        audio_channel_mask_t channelMask,
++        size_t frameCount,
++        audio_output_flags_t flags,
++        android::AudioTrack::callback_t cbf,
++        void* user,
++        int32_t notificationFrames,
++        audio_session_t sessionId,
++        android::AudioTrack::transfer_type transferType,
++        const audio_offload_info_t *offloadInfo,
++        uid_t uid,
++        pid_t pid,
++        const audio_attributes_t* pAttributes,
++        bool doNotReconnect,
++        float maxRequiredSpeed,
++        audio_port_handle_t selectedDeviceId) {
++                const std::string& opPackageName = "com.mediatek.ims";
++                thisptr = new android::AudioTrack(streamType, sampleRate, format, channelMask, frameCount, flags, cbf,
++                        user, notificationFrames, sessionId, transferType, offloadInfo, uid,
++                        pid, pAttributes, doNotReconnect, maxRequiredSpeed, selectedDeviceId,
++                        opPackageName);
++        }
++}
+-- 
+2.34.1
+
