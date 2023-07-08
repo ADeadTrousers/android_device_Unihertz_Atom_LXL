@@ -173,6 +173,7 @@
        mmsproxy="192.168.80.134"
        mmsport="8080"
        type="mms"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="IMS"
@@ -182,6 +183,7 @@
        type="ims"
        protocol="IPV6"
        roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="HOS"
@@ -189,6 +191,7 @@
        mnc="09"
        apn="hos"
        type="xcap"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="Wind Internet"
@@ -206,6 +209,7 @@
        mmsproxy="192.168.200.11"
        mmsport="9401"
        type="mms"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="IMS"
@@ -215,6 +219,7 @@
        type="ims"
        protocol="IPV6"
        roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="HOS"
@@ -222,6 +227,7 @@
        mnc="10"
        apn="hos"
        type="xcap"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="Tele2 internet"
@@ -1062,6 +1068,7 @@
        apn="ims"
        type="ims"
        protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="BouyguesGPRS ISP"
@@ -1748,6 +1755,40 @@
        type="xcap"
   />
 
+  <apn carrier="Internet"
+       mcc="219"
+       mnc="20"
+       apn="internet.ht.hr"
+       type="default,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IP"
+       authtype="1"
+  />
+
+  <apn carrier="IMS"
+       mcc="219"
+       mnc="20"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="219"
+       mnc="20"
+       apn="hos"
+       mmsc="http://mms.t-mobile.hr/servlets/mms"
+       mmsproxy="10.12.0.4"
+       mmsport="8080"
+       type="mms,xcap"
+       protocol="IPV4V6"
+       authtype="1"
+       user_visible="false"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
   <apn carrier="Telenor Internet"
        mcc="220"
        mnc="01"
@@ -2095,6 +2136,22 @@
        type="xcap"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="Plintron Internet"
+       mcc="222"
+       mnc="54"
+       apn="data.plintron.it"
+       type="default"
+       protocol="IPV4V6"
+  />
+
+  <apn carrier="Plintron IMS"
+       mcc="222"
+       mnc="54"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
   />
 
   <apn carrier="WIND Internet"
@@ -5866,20 +5923,13 @@
        type="mms"
   />
 
-  <apn carrier="TELE2"
+  <apn carrier="TELE2 Internet"
        mcc="250"
        mnc="20"
        apn="internet.tele2.ru"
-       type="default,supl"
-  />
-
-  <apn carrier="TELE2 Wap"
-       mcc="250"
-       mnc="20"
-       apn="wap.tele2.ru"
-       proxy="130.244.196.90"
-       port="8080"
-       type="default,supl"
+       type="default"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
   />
 
   <apn carrier="TELE2 MMS"
@@ -5890,24 +5940,29 @@
        mmsproxy="193.12.40.65"
        mmsport="8080"
        type="mms"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
-  <apn carrier="IMS"
+  <apn carrier="TELE2 IMS"
        mcc="250"
        mnc="20"
        apn="ims.tele2.ru"
        type="ims"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
-  <apn carrier="XCAP"
+  <apn carrier="HOS"
        mcc="250"
        mnc="20"
-       apn="hos"
+       apn="hos.tele2.ru"
        type="xcap"
-       protocol="IP"
-       roaming_protocol="IP"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="МТС-интернет"
@@ -6212,11 +6267,13 @@
        user_visible="false"
   />
 
-  <apn carrier="Moldcell WAP"
+  <apn carrier="Moldcell"
        mcc="259"
        mnc="02"
        apn="internet"
        type="default,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Moldcell MMS"
@@ -6227,6 +6284,26 @@
        mmsproxy="10.0.10.10"
        mmsport="9201"
        type="mms"
+  />
+
+  <apn carrier="IMS"
+       mcc="259"
+       mnc="02"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="259"
+       mnc="02"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="Eventis WAP"
@@ -7182,6 +7259,36 @@
 
   <apn carrier="Internet"
        mcc="268"
+       mnc="93"
+       apn="umts"
+       type="default,supl,mms"
+       mmsc="http://mmsc:10021/mmsc"
+       mmsproxy="62.169.66.5"
+       mmsport="8799"
+  />
+
+  <apn carrier="IMS"
+       mcc="268"
+       mnc="93"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="268"
+       mnc="93"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="Internet"
+       mcc="268"
        mnc="97"
        apn="umts"
        type="default,supl,mms"
@@ -7203,6 +7310,36 @@
   <apn carrier="HOS"
        mcc="268"
        mnc="97"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="Internet"
+       mcc="268"
+       mnc="98"
+       apn="umts"
+       type="default,supl,mms"
+       mmsc="http://mmsc:10021/mmsc"
+       mmsproxy="62.169.66.5"
+       mmsport="8799"
+  />
+
+  <apn carrier="IMS"
+       mcc="268"
+       mnc="98"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="268"
+       mnc="98"
        apn="hos"
        type="xcap"
        protocol="IPV4V6"
@@ -7394,6 +7531,26 @@
        type="default,supl,mms"
   />
 
+  <apn carrier="IMS"
+       mcc="272"
+       mnc="02"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="272"
+       mnc="02"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
   <apn carrier="Internet"
        mcc="272"
        mnc="03"
@@ -7429,6 +7586,26 @@
        mmsproxy="mms.3ireland.ie"
        mmsport="8799"
        type="default,supl,mms"
+  />
+
+  <apn carrier="IMS"
+       mcc="272"
+       mnc="05"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="272"
+       mnc="05"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="Tesco Mobile"
@@ -8916,8 +9093,10 @@
   <apn carrier="Rogers Tethering"
        mcc="302"
        mnc="720"
-       apn="isp.apn"
+       apn="ltedata.apn"
        type="dun"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -8925,8 +9104,8 @@
        mnc="720"
        apn="ims"
        type="ims"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
        user_visible="false"
   />
@@ -8949,6 +9128,86 @@
        type="emergency"
        protocol="IPV4V6"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+       user_visible="false"
+  />
+
+  <apn carrier="Rogers Internet"
+       mcc="302"
+       mnc="720"
+       apn="mobile.apn"
+       mmsc="http://mms.gprs.rogers.com"
+       mmsproxy="mmsproxy.rogers.com"
+       mmsport="80"
+       protocol="IPV6"
+       roaming_protocol="IPV4V6"
+       type="default,supl,mms"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|19|20"
+       mvno_type="gid"
+       mvno_match_data="A4"
+  />
+
+  <apn carrier="Rogers MMS"
+       mcc="302"
+       mnc="720"
+       apn="netsvcs"
+       type="mms"
+       mmsc="http://mms.gprs.rogers.com"
+       mmsproxy="mmsproxy.rogers.com"
+       mmsport="80"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="18"
+       mvno_type="gid"
+       mvno_match_data="A4"
+  />
+
+  <apn carrier="Rogers Tethering"
+       mcc="302"
+       mnc="720"
+       apn="data.apn"
+       type="dun"
+       protocol="IPV6"
+       roaming_protocol="IPV4V6"
+       mvno_type="gid"
+       mvno_match_data="A4"
+  />
+
+  <apn carrier="IMS"
+       mcc="302"
+       mnc="720"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+       user_visible="false"
+       mvno_type="gid"
+       mvno_match_data="A4"
+  />
+
+  <apn carrier="Netsvcs"
+       mcc="302"
+       mnc="720"
+       apn="netsvcs"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+       user_visible="false"
+       mvno_type="gid"
+       mvno_match_data="A4"
+  />
+
+  <apn carrier="SOS"
+       mcc="302"
+       mnc="720"
+       apn="sos"
+       type="emergency"
+       protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+       user_visible="false"
+       mvno_type="gid"
+       mvno_match_data="A4"
   />
 
   <apn carrier="Chatr Internet"
@@ -9203,6 +9462,58 @@
        network_type_bitmask="18"
        user_visible="false"
        mtu="1300"
+  />
+
+  <apn carrier="GCI WEB"
+       mcc="310"
+       mnc="050"
+       apn="Web.gci"
+       type="default"
+  />
+
+  <apn carrier="GCI MMS"
+       mcc="310"
+       mnc="050"
+       apn="mms.gci"
+       type="mms"
+       mmsc="http://mmsc.gci.net"
+       mmsproxy="24.237.158.34"
+       mmsport="9201"
+  />
+
+  <apn carrier="IMS"
+       mcc="310"
+       mnc="050"
+       apn="ims"
+       type="ims"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="Emergency"
+       mcc="310"
+       mnc="050"
+       apn="sos"
+       type="emergency"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="HOS"
+       mcc="310"
+       mnc="050"
+       apn="hos.gci"
+       type="xcap"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|19|20"
+  />
+
+  <apn carrier="HOS(wifi)"
+       mcc="310"
+       mnc="050"
+       apn="hos.gci"
+       type="mms,xcap"
+       mmsc="http://mmsc.gci.net"
+       mmsproxy="24.237.158.34"
+       mmsport="9201"
+       network_type_bitmask="18"
   />
 
   <apn carrier="CorrMMS"
@@ -9765,54 +10076,26 @@
   <apn carrier="internet"
        mcc="310"
        mnc="150"
-       apn="ndo"
-       mmsc="http://mmsc.aiowireless.net"
-       mmsproxy="proxy.aiowireless.net"
-       mmsport="80"
-       type="default,mms,fota,supl,xcap"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
-       mtu="1430"
-       user_editable="false"
-  />
-
-  <apn carrier="IMS"
-       mcc="310"
-       mnc="150"
-       apn="ims"
-       type="ims"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
-       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
-       user_visible="false"
-       mtu="1430"
-  />
-
-  <apn carrier="mht"
-       mcc="310"
-       mnc="150"
-       apn="mht"
-       type="dun"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
-       mtu="1430"
-  />
-
-  <!-- for 5G devices -->
-  <apn carrier="internet plus"
-       mcc="310"
-       mnc="150"
        apn="endo"
        mmsc="http://mmsc.aiowireless.net"
        mmsproxy="proxy.aiowireless.net"
        mmsport="80"
-       type="default,mms,fota,supl,xcap"
+       type="default,mms,fota,supl"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
        mtu="1430"
-       mvno_type="gid"
-       mvno_match_data="53FF"
        user_editable="false"
+  />
+
+  <apn carrier="XCAP"
+       mcc="310"
+       mnc="150"
+       apn="endo"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       mtu="1430"
+       user_visible="false"
   />
 
   <apn carrier="IMS"
@@ -9824,8 +10107,6 @@
        roaming_protocol="IPV4V6"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
        user_visible="false"
-       mvno_type="gid"
-       mvno_match_data="53FF"
        mtu="1430"
   />
 
@@ -9836,9 +10117,8 @@
        type="dun"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
-       mvno_type="gid"
-       mvno_match_data="53FF"
        mtu="1430"
+       user_visible="false"
   />
 
   <apn carrier="T-Mobile US LTE"
@@ -11131,10 +11411,10 @@
        type="mms"
   />
 
-  <apn carrier="Viaero Connect"
+  <apn carrier="Viaero Internet"
        mcc="310"
        mnc="450"
-       apn="internet.vedge"
+       apn="internet.vedge.com"
        type="default,supl"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
@@ -11152,7 +11432,7 @@
        roaming_protocol="IPV4V6"
   />
 
-  <apn carrier="IMS"
+  <apn carrier="Viaero IMS"
        mcc="310"
        mnc="450"
        apn="ims"
@@ -11940,6 +12220,33 @@
        mvno_type="gid"
        mvno_match_data="52FF"
        mtu="1300"
+  />
+
+  <apn carrier="Internet"
+       mcc="311"
+       mnc="040"
+       apn="phone.mychoicewireless.net"
+       type="default"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="IMS"
+       mcc="311"
+       mnc="040"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="hos"
+       mcc="311"
+       mnc="040"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
   />
 
   <apn carrier="ATT Nxtgenphone"
@@ -13427,6 +13734,49 @@
        user_editable="false"
   />
 
+  <apn carrier="Internet"
+       mcc="312"
+       mnc="420"
+       apn="internet.lte.ntwls.com"
+       mmsc="http://mms.ntwls.net/nex-tech/mms.php"
+       type="default,mms"
+       protocol="IPV4V6"
+  />
+
+  <apn carrier="OTA"
+       mcc="312"
+       mnc="420"
+       apn="admin.lte.ntwls.com"
+       type="fota"
+       protocol="IPV4V6"
+  />
+
+  <apn carrier="Tethering"
+       mcc="312"
+       mnc="420"
+       apn="modem.lte.ntwls.com"
+       type="dun"
+       protocol="IPV4V6"
+  />
+
+  <apn carrier="IMS"
+       mcc="312"
+       mnc="420"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="hos"
+       mcc="312"
+       mnc="420"
+       apn="hos"
+       type="xcap"
+       protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
   <!-- ota apn used before activated, without gid -->
   <apn carrier="ota"
        mcc="312"
@@ -14578,6 +14928,26 @@
        mmsproxy="10.0.0.10"
        mmsport="8082"
        type="mms"
+  />
+
+  <apn carrier="IMS"
+       mcc="340"
+       mnc="01"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="UT"
+       mcc="340"
+       mnc="01"
+       apn="orangeut"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="Internet"
@@ -21673,8 +22043,8 @@
        mcc="425"
        mnc="02"
        apn="mms"
-       mmsc="http://vwapm2.ain.co.il"
-       mmsproxy="10.19.18.4"
+       mmsc="http://mms.cellcom.co.il"
+       mmsproxy="vwapm2.ain.co.il"
        mmsport="8080"
        type="mms"
   />
@@ -22956,7 +23326,16 @@
        mcc="454"
        mnc="07"
        apn="3gnet"
-       type="default,supl"
+       type="default,supl,xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="IMS"
+       mcc="454"
+       mnc="07"
+       apn="ims"
+       type="ims"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
   />
@@ -22965,7 +23344,18 @@
        mcc="454"
        mnc="07"
        apn="hkw"
-       type="default,supl"
+       type="default,supl,xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       mvno_type="imsi"
+       mvno_match_data="454078"
+  />
+
+  <apn carrier="IMS"
+       mcc="454"
+       mnc="07"
+       apn="ims"
+       type="ims"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
        mvno_type="imsi"
@@ -22976,7 +23366,18 @@
        mcc="454"
        mnc="07"
        apn="cuhkiot"
-       type="default,supl"
+       type="default,supl,xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       mvno_type="imsi"
+       mvno_match_data="454079"
+  />
+
+  <apn carrier="IMS"
+       mcc="454"
+       mnc="07"
+       apn="ims"
+       type="ims"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
        mvno_type="imsi"
@@ -25674,6 +26075,7 @@
        type="ims"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="TRUE-H Internet"
@@ -25795,6 +26197,16 @@
        mnc="04"
        apn="ims"
        type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="TRUE-H UT"
+       mcc="520"
+       mnc="04"
+       apn="XCAP"
+       type="xcap"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
@@ -26093,6 +26505,8 @@
        mnc="01"
        apn="vodafone"
        type="default,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
   />
 
   <apn carrier="VFNZ Gateway"
@@ -26112,6 +26526,7 @@
        type="ims"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="xcap"
@@ -26121,6 +26536,7 @@
        type="xcap"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="VFNZ PXT"
@@ -26362,7 +26778,15 @@
        mcc="547"
        mnc="05"
        apn="ims"
-       type="ims"
+       type="ims,xcap"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="SOS"
+       mcc="547"
+       mnc="05"
+       apn="sos"
+       type="emergency"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
@@ -26888,6 +27312,28 @@
        type="default,supl"
   />
 
+  <apn carrier="Internet"
+       mcc="621"
+       mnc="04"
+       apn="internet"
+       type="default"
+  />
+
+  <apn carrier="IMS"
+       mcc="621"
+       mnc="04"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+  />
+
+  <apn carrier="XCAP"
+       mcc="621"
+       mnc="04"
+       apn="xcap"
+       type="xcap"
+  />
+
   <apn carrier="Airtel NG"
        mcc="621"
        mnc="20"
@@ -27096,6 +27542,13 @@
        user="guest"
        password="guest"
        type="default,supl"
+  />
+
+  <apn carrier="IMS"
+       mcc="631"
+       mnc="02"
+       apn="ims"
+       type="ims"
   />
 
   <apn carrier="Orange Bissau"
@@ -27399,6 +27852,17 @@
        mmsproxy="192.168.10.200"
        mmsport="8080"
        type="mms"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="IMS"
+       mcc="647"
+       mnc="00"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
   <apn carrier="Onlymms-GPRS"
@@ -28078,6 +28542,17 @@
        roaming_protocol="IPV4V6"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
        user_visible="false"
+  />
+
+  <apn carrier="Tigo Internet"
+       mcc="710"
+       mnc="300"
+       apn="internet.tigo.ni"
+       user="tigoni"
+       password="tigoni"
+       type="default"
+       authtype="0"
+       protocol="IPV4V6"
   />
 
   <apn carrier="INTERNET"
@@ -29410,14 +29885,14 @@
   <apn carrier="HOS"
        mcc="732"
        mnc="103"
-       apn="hos"
+       apn="web.colombiamovil.com.co"
        type="xcap"
        protocol="IP"
        roaming_protocol="IP"
        network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
   />
 
-  <apn carrier="TIGO WEB"
+  <apn carrier="TIGO Internet"
        mcc="732"
        mnc="111"
        apn="web.colombiamovil.com.co"
@@ -29449,7 +29924,7 @@
   <apn carrier="HOS"
        mcc="732"
        mnc="111"
-       apn="hos"
+       apn="web.colombiamovil.com.co"
        type="xcap"
        protocol="IP"
        roaming_protocol="IP"
@@ -29552,7 +30027,7 @@
   <apn carrier="XCAP"
        mcc="732"
        mnc="360"
-       apn="ut"
+       apn="xcap"
        type="xcap"
        protocol="IPV4V6"
        roaming_protocol="IPV4V6"
@@ -29915,6 +30390,26 @@
        type="mms"
   />
 
+  <apn carrier="IMS"
+       mcc="748"
+       mnc="01"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
+  <apn carrier="XCAP"
+       mcc="748"
+       mnc="01"
+       apn="xcap"
+       type="xcap"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"
+  />
+
   <apn carrier="Movistar INTERNET"
        mcc="748"
        mnc="07"
@@ -30060,5 +30555,30 @@
       bearer_bitmask="14"
   />
   <!-- AGold zhengzhibin 2020.04.27 end -->
+
+  <!-- AGold zhengzhibin 2022.03.03 add US T-Mobile -->
+  <apn carrier="T-Mobile"
+       mcc="310"
+       mnc="260"
+       apn="fast.t-mobile.com"
+       authtype="1"
+       type="default"
+       protocol="IP"
+       roaming_protocol="IP"
+  />
+  <!-- AGold zhengzhibin 2022.03.03 end -->
+
+  <!-- AGold zhengzhibin 2022.10.14 add -->
+  <apn carrier="Public Mobile"
+       apn="sp.mb.com"
+       mmsproxy="74.49.0.18"
+       mmsc="http://aliasredirect.net/proxy/mb/mmsc"
+       mmsport="80"
+       mcc="302"
+       mnc="220"
+       type="default,mms,supl,dun,hipri,fota,cbs,xcap"
+       proxy="74.49.0.18"
+  />
+  <!-- AGold zhengzhibin 2022.10.14 end -->
 
 </apns>
