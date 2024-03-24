@@ -27,4 +27,3 @@ allow audioserver storage_file:lnk_file {read write};
 allow audioserver untrusted_app:dir {search};
 neverallow audioserver proc:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
 neverallow audioserver proc:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
-

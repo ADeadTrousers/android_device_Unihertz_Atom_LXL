@@ -10,4 +10,3 @@ allow capability_app autofill_service:service_manager {find};
 allow capability_app gpu_service:service_manager {find};
 allow capability_app surfaceflinger_service:service_manager {find};
 allow capability_app textservices_service:service_manager {find};
-

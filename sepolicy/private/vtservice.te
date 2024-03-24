@@ -7,5 +7,4 @@ binder_call(vtservice, mediaserver);
 
 get_prop(vtservice, hwservicemanager_prop);
 get_prop(vtservice, system_mtk_debug_bq_dump_prop);
-get_prop(vtservice, vendor_default_prop);
-
+get_prop(vtservice, vendor_public_property_type);

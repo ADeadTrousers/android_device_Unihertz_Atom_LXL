@@ -4,4 +4,3 @@ init_daemon_domain(loghidlsysservice);
 
 allow loghidlsysservice emdlogger:unix_stream_socket {connectto};
 allow loghidlsysservice mobile_log_d:unix_stream_socket {connectto};
-

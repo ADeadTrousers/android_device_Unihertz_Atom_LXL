@@ -7,4 +7,3 @@ allow GoogleOtaBinder mota_proc_file:file {read};
 allow GoogleOtaBinder ota_package_file:dir {search};
 allow GoogleOtaBinder ota_package_file:file {getattr open read write};
 allow GoogleOtaBinder sysfs_dt_firmware_android:file {read};
-

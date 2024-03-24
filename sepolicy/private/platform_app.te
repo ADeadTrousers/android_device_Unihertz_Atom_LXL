@@ -41,4 +41,3 @@ allow platform_app system_mtk_ctl_campostalgo_prop:property_service {set};
 allow platform_app system_mtk_subsidylock_connect_prop:property_service {set};
 allow platform_app system_mtk_subsidylock_prop:property_service {set};
 allow platform_app fm_device:chr_file {ioctl read write getattr lock append map open};
-

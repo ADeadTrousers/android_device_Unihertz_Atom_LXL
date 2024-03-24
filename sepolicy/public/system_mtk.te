@@ -8,4 +8,3 @@ type system_mtk_init_svc_aee_aedv_prop, property_type, system_property_type, sys
 type system_mtk_ctl_mdlogger_prop, property_type, system_property_type, system_public_property_type;
 type system_mtk_init_svc_md_monitor_prop, property_type, system_property_type, system_restricted_property_type;
 type system_mtk_init_svc_emdlogger1_prop, property_type, system_property_type, system_public_property_type;
-

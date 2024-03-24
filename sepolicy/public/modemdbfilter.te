@@ -1,2 +1,1 @@
 type modemdbfilter_client, coredomain, domain, halclientdomain;
-

@@ -14,4 +14,3 @@ typeattribute debugfs_wifi_tracing debugfs_type;
 
 type debugfs_regmap, debugfs_type, fs_type;
 type debugfs_usb_plat, debugfs_type, fs_type;
-

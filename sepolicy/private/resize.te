@@ -13,4 +13,3 @@ allow resize sysfs_fs_ext4_features:dir {search};
 allow resize userdata_block_device:blk_file {ioctl read write getattr lock append map open watch watch_reads};
 allowxperm resize userdata_block_device:blk_file ioctl {0x125e};
 allowxperm resize userdata_block_device:blk_file ioctl {0x127c};
-

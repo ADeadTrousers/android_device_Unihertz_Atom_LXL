@@ -31,7 +31,7 @@ get_prop(radio, system_mtk_uce_support_prop);
 get_prop(radio, system_mtk_vsim_sys_prop);
 get_prop(radio, system_mtk_wfc_entitlement_prop);
 get_prop(radio, system_mtk_world_phone_prop);
-get_prop(radio, vendor_default_prop);
+get_prop(radio, vendor_public_property_type);
 
 allow radio aal_service:service_manager {find};
 allow radio config_prop:property_service {set};
@@ -59,4 +59,3 @@ allow radio system_mtk_uce_support_prop:property_service {set};
 allow radio system_mtk_vsim_sys_prop:property_service {set};
 allow radio system_mtk_wfc_entitlement_prop:property_service {set};
 allow radio system_mtk_world_phone_prop:property_service {set};
-

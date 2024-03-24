@@ -52,4 +52,3 @@ allow mobile_log_d vfat:file {append create getattr ioctl lock map open read ren
 dontaudit mobile_log_d dumpstate:process {noatsecure};
 dontaudit mobile_log_d isolated_app:fd {use};
 dontaudit mobile_log_d untrusted_app:fd {use};
-

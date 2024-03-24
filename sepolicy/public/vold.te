@@ -1,0 +1,2 @@
+type exported2_vold_prop, property_type, system_property_type, system_public_property_type;
+type exported_vold_prop, property_type, system_property_type, system_public_property_type;

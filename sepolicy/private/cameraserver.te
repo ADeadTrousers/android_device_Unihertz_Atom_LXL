@@ -5,4 +5,3 @@ set_prop(cameraserver, system_mtk_logmuch_prop);
 set_prop(cameraserver, system_prop);
 
 neverallow cameraserver device:dir {add_name append audit_access create execmod execute link map mounton quotaon relabelfrom relabelto remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
-

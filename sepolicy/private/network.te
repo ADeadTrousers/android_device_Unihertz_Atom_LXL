@@ -1,1 +1,1 @@
-type agui_network_manager_prop, extended_core_property_type, property_type;
+type agui_network_manager_prop, extended_core_property_type, property_type, system_property_type;

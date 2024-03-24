@@ -41,4 +41,3 @@ allow em_svr sysfs_pmu:lnk_file {getattr ioctl lock map open read watch watch_re
 allow em_svr sysfs_power_off_vol:file {getattr ioctl lock map open read watch watch_reads};
 allow em_svr sysfs_power_on_vol:file {getattr ioctl lock map open read watch watch_reads};
 allow em_svr toolbox_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
-

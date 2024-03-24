@@ -15,4 +15,3 @@ allow aal graphics_device:dir {search};
 allow aal permission_service:service_manager {find};
 allow aal sensorservice_service:service_manager {find};
 allow aal system_server:unix_stream_socket {read write};
-

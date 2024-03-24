@@ -34,4 +34,3 @@ allow mdlogger tmpfs:lnk_file {read};
 allow mdlogger vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
 allow mdlogger vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
 allow mdlogger zygote_exec:file {getattr ioctl lock map open read watch watch_reads};
-

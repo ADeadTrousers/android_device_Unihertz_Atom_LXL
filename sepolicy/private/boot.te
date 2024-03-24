@@ -37,4 +37,3 @@ allow boot_logo_updater mtd_device:dir {search};
 allow boot_logo_updater rootfs:file {getattr ioctl lock map open read watch watch_reads};
 allow boot_logo_updater sysfs:dir {open};
 allow boot_logo_updater sysfs:dir {read};
-

@@ -4,7 +4,7 @@ init_daemon_domain(emdlogger);
 binder_use(emdlogger);
 
 get_prop(emdlogger, system_prop);
-get_prop(emdlogger, vendor_default_prop);
+get_prop(emdlogger, vendor_public_property_type);
 
 set_prop(emdlogger, debug_prop);
 set_prop(emdlogger, exported_system_radio_prop);
@@ -45,4 +45,3 @@ allow emdlogger toolbox_exec:file {execute execute_no_trans getattr ioctl lock m
 allow emdlogger vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
 allow emdlogger vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
 allow emdlogger zygote_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
-

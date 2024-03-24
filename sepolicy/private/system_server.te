@@ -24,7 +24,7 @@ get_prop(system_server, system_mtk_rsc_sys_prop);
 get_prop(system_server, system_mtk_rtt_prop);
 get_prop(system_server, system_mtk_telecom_vibrate_prop);
 get_prop(system_server, system_mtk_usb_tethering_prop);
-get_prop(system_server, vendor_default_prop);
+get_prop(system_server, vendor_public_property_type);
 
 allow system_server aal_service:service_manager {find};
 allow system_server app_zygote:process {getpgid};
@@ -67,4 +67,3 @@ neverallow system_server system_data_file:fifo_file {audit_access execmod execut
 neverallow system_server system_data_file:file {audit_access entrypoint execmod execute execute_no_trans mounton quotaon relabelto watch_mount watch_sb watch_with_perm};
 neverallow system_server system_data_file:lnk_file {audit_access execmod execute link mounton quotaon relabelfrom relabelto watch_mount watch_sb watch_with_perm};
 neverallow system_server system_data_file:sock_file {audit_access execmod execute link mounton quotaon relabelfrom relabelto watch_mount watch_sb watch_with_perm};
-

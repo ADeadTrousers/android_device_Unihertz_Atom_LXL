@@ -1,1 +1,2 @@
 type emdlogger, binderservicedomain, coredomain, domain;
+type system_radio_prop, property_type, system_property_type, system_restricted_property_type;

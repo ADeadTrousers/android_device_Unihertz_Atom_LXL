@@ -6,4 +6,3 @@ init_daemon_domain(modemdbfilter_client);
 
 allow modemdbfilter_client mddb_filter_data_file:dir {ioctl read write create getattr setattr lock relabelto rename open watch watch_reads add_name remove_name reparent search rmdir};
 allow modemdbfilter_client mddb_filter_data_file:file {ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads};
-

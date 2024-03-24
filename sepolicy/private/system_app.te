@@ -48,4 +48,3 @@ allow system_app system_server:unix_stream_socket {connectto};
 allow system_app uce_service:service_manager {add};
 allow system_app vfat:dir {create};
 allow system_app fm_device:chr_file {ioctl read write getattr lock append map open};
-

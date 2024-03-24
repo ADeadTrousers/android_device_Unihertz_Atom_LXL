@@ -1,3 +1,2 @@
 type GoogleOtaBinder, binderservicedomain, coredomain, domain;
 type ota_agent_service, service_manager_type;
-

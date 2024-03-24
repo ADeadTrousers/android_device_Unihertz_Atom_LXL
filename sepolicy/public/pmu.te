@@ -1,2 +1,1 @@
 type sysfs_pmu, fs_type, sysfs_type;
-

@@ -31,4 +31,3 @@ allow mtkbootanimation resourcecache_data_file:file {getattr open read};
 allow mtkbootanimation surfaceflinger:fifo_file {append getattr ioctl lock map open read watch watch_reads write};
 allow mtkbootanimation surfaceflinger_service:service_manager {find};
 allow mtkbootanimation system_file:dir {getattr ioctl lock open read search watch watch_reads};
-

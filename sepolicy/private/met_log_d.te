@@ -5,4 +5,3 @@ init_daemon_domain(met_log_d);
 set_prop(met_log_d, debug_prop);
 
 allow met_log_d system_file:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
-

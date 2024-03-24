@@ -56,4 +56,3 @@ allow crash_dump tombstone_data_file:file {append create getattr ioctl lock map 
 allow crash_dump toolbox_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
 allow crash_dump usermodehelper:file {getattr ioctl lock map open read watch watch_reads};
 dontaudit crash_dump dumpstate:process {noatsecure};
-

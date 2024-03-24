@@ -10,4 +10,3 @@ allow bootanim resourcecache_data_file:dir {search};
 allow bootanim resourcecache_data_file:file {getattr open read};
 allow bootanim resourcecache_data_file:file {read};
 allow bootanim surfaceflinger:fifo_file {append getattr ioctl lock map open read watch watch_reads write};
-

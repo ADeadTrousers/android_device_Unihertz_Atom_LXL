@@ -3,4 +3,3 @@ typeattribute sysfs_nfc_power_writable mlstrustedobject;
 
 type sysfs_power_off_vol, fs_type, sysfs_type;
 type sysfs_power_on_vol, fs_type, sysfs_type;
-

@@ -11,7 +11,7 @@ get_prop(em_app, exported_default_prop);
 get_prop(em_app, radio_prop);
 get_prop(em_app, system_mtk_init_svc_md_monitor_prop);
 get_prop(em_app, system_mtk_persist_mtk_aee_prop);
-get_prop(em_app, vendor_default_prop);
+get_prop(em_app, vendor_public_property_type);
 
 set_prop(em_app, config_prop);
 set_prop(em_app, ctl_start_prop);
@@ -92,4 +92,3 @@ allow em_app usb_service:service_manager {find};
 allow em_app wifi_service:service_manager {find};
 allowxperm em_app self:udp_socket ioctl {0x89f2};
 allowxperm em_app self:udp_socket ioctl {0x8b06 0x8be1 0x8be9 0x8beb 0x8bef};
-

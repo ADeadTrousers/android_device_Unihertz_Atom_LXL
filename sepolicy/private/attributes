@@ -43,4 +43,3 @@ attribute mtk_safe_hwservice_manager_type;
 attribute trustkernel_hal_soter;
 attribute trustkernel_hal_soter_client;
 attribute trustkernel_hal_soter_server;
-

@@ -6,4 +6,3 @@ set_prop(connsyslogger, system_mtk_connsysfw_prop);
 
 allow connsyslogger debuglog_data_file:dir {add_name create getattr ioctl lock open read relabelto remove_name rename reparent rmdir search setattr watch watch_reads write};
 allow connsyslogger debuglog_data_file:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
-

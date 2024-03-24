@@ -54,4 +54,3 @@ vodata                                                                          
 ctanetworkdatacontroller                                                                            u:object_r:cta_networkdatacontroller_service:s0
 mtk_telecom                                                                                         u:object_r:mtk_telecom_service:s0
 AService                                                                                            u:object_r:agold_service:s0
-

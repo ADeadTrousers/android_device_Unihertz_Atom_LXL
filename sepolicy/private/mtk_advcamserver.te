@@ -11,4 +11,3 @@ binder_call(mtk_advcamserver, mtk_advcamserver);
 get_prop(mtk_advcamserver, hwservicemanager_prop);
 
 allow mtk_advcamserver mtk_advcamserver_service:service_manager {add find};
-

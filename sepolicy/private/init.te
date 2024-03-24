@@ -43,4 +43,3 @@ neverallow init vendor_data_file:fifo_file {append audit_access execmod execute 
 neverallow init vendor_data_file:file {append audit_access entrypoint execmod execute execute_no_trans ioctl link lock mounton quotaon rename watch watch_mount watch_reads watch_sb watch_with_perm};
 neverallow init vendor_data_file:lnk_file {append audit_access execmod execute ioctl link lock map mounton open quotaon read rename watch watch_mount watch_reads watch_sb watch_with_perm write};
 neverallow init vendor_data_file:sock_file {append audit_access execmod execute ioctl link lock map mounton quotaon rename watch watch_mount watch_reads watch_sb watch_with_perm write};
-

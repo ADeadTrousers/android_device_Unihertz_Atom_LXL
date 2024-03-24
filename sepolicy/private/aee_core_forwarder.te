@@ -29,4 +29,3 @@ allow aee_core_forwarder sysfs_wake_lock:file {append getattr ioctl lock map ope
 allow aee_core_forwarder tmpfs:dir {search};
 dontaudit aee_core_forwarder self:capability {sys_ptrace};
 dontaudit aee_core_forwarder untrusted_app:dir {search};
-

@@ -7,4 +7,3 @@ binder_use(terservice);
 set_prop(terservice, system_mtk_terservice_prop);
 
 allow terservice terservice_service:service_manager {add};
-

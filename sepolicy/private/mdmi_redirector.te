@@ -10,4 +10,3 @@ allow mdmi_redirector node:tcp_socket {node_bind};
 allow mdmi_redirector port:tcp_socket {name_bind};
 allow mdmi_redirector self:tcp_socket {accept append bind connect create getattr getopt ioctl listen lock map read setattr setopt shutdown write};
 allow mdmi_redirector self:udp_socket {accept append bind connect create getattr getopt ioctl listen lock map read setattr setopt shutdown write};
-

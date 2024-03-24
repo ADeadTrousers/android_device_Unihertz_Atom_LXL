@@ -1,2 +1,3 @@
 type em_app, appdomain, coredomain, domain, hal_telephony_client, halclientdomain, mlstrustedsubject;
-
+type exported2_default_prop, property_type, system_property_type, system_restricted_property_type;
+type exported_system_radio_prop, property_type, system_property_type, system_public_property_type;

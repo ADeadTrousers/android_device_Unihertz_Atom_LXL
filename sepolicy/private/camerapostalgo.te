@@ -22,4 +22,3 @@ allow camerapostalgo mnt_user_file:lnk_file {getattr ioctl lock map open read wa
 allow camerapostalgo sdcardfs:dir {search};
 allow camerapostalgo sdcardfs:file {getattr ioctl lock map open read watch watch_reads};
 allow camerapostalgo storage_file:lnk_file {getattr ioctl lock map open read watch watch_reads};
-

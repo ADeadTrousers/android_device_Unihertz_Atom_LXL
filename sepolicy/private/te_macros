@@ -24,4 +24,3 @@ attribute hal_$1;
 attribute hal_$1_client;
 attribute hal_$1_server;
 ')
-

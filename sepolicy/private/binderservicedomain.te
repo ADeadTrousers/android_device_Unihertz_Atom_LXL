@@ -1,3 +1,2 @@
 allow binderservicedomain aal:binder {transfer};
 allow binderservicedomain mtk_advcamserver:binder {transfer};
-

@@ -35,7 +35,6 @@
 /system/bin/mtk_plpath_utils                                                                        u:object_r:mtk_plpath_utils_exec:s0
 /system/bin/netdiag                                                                                 u:object_r:netdiag_exec:s0
 /system/bin/resize.f2fs                                                                             u:object_r:resize_exec:s0
-/system/bin/resize2fs                                                                               u:object_r:resize_exec:s0
 /system/bin/terservice                                                                              u:object_r:terservice_exec:s0
 /system/bin/thermald                                                                                u:object_r:thermald_exec:s0
 /dev/tll                                                                                            u:object_r:tll_device:s0
@@ -45,4 +44,3 @@
 /eng                                                                                                u:object_r:rootfs:s0
 /system/bin/GoogleOtaBinder                                                                         u:object_r:GoogleOtaBinder_exec:s0
 /dev/fm(/.*)?                                                                                       u:object_r:fm_device:s0
-

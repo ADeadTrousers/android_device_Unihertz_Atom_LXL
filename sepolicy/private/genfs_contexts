@@ -68,4 +68,3 @@ genfscon sysfs      /bus/platform/drivers/pmic-codec-accdet/state               
 genfscon proc       /driver/cl_cam_status                                                           u:object_r:proc_cl_cam_status:s0
 genfscon proc       /dynamic_debug/control                                                          u:object_r:proc_dynamic_debug_control:s0
 genfscon sysfs      /devices/platform/vibrator@0/leds/vibrator                                      u:object_r:sysfs_vibrator:s0
-

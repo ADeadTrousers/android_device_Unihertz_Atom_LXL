@@ -30,4 +30,3 @@ allow lbs_dbg sysfs_vibrator:file {open read write};
 allow lbs_dbg tmpfs:filesystem {unmount};
 allow lbs_dbg vfat:dir {add_name create remove_name write};
 allow lbs_dbg vfat:file {create getattr open rename unlink write};
-

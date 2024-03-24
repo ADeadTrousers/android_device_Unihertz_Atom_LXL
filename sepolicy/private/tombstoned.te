@@ -2,4 +2,3 @@ typeattribute tombstoned_crash_socket mlstrustedobject;
 typeattribute tombstoned_java_trace_socket mlstrustedobject;
 
 allow tombstoned anr_data_file:file {write};
-

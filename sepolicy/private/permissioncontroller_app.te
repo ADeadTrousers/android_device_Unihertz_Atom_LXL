@@ -1,3 +1,2 @@
 allow permissioncontroller_app search_service:service_manager {find};
 allow permissioncontroller_app uimode_service:service_manager {find};
-

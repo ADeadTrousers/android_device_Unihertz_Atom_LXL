@@ -6,4 +6,3 @@ set_prop(usp_service, radio_prop);
 set_prop(usp_service, system_mtk_usp_srv_prop);
 
 allow usp_service block_device:dir {search};
-

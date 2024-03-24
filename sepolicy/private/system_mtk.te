@@ -65,4 +65,3 @@ type system_mtk_vsim_sys_prop, extended_core_property_type, property_type, syste
 type system_mtk_wfc_entitlement_prop, extended_core_property_type, property_type, system_internal_property_type, system_property_type;
 type system_mtk_wfc_opt_in_prop, extended_core_property_type, property_type, system_internal_property_type, system_property_type;
 type system_mtk_world_phone_prop, extended_core_property_type, property_type, system_internal_property_type, system_property_type;
-

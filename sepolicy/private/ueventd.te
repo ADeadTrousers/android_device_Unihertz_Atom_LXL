@@ -10,4 +10,3 @@ neverallow ueventd socket_device:lnk_file {append audit_access execmod execute l
 neverallow ueventd sysfs:dir {add_name append audit_access create execmod execute link map quotaon remove_name rename reparent rmdir unlink watch_mount watch_sb watch_with_perm write};
 neverallow ueventd sysfs:file {audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon rename unlink watch_mount watch_sb watch_with_perm};
 neverallow ueventd sysfs:lnk_file {append audit_access create execmod execute link mounton quotaon rename unlink watch_mount watch_sb watch_with_perm write};
-

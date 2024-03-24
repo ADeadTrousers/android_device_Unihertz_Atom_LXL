@@ -17,4 +17,3 @@ allow cmddumper sdcard_type:dir {add_name create getattr ioctl lock open read re
 allow cmddumper sdcard_type:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
 allow cmddumper shell_exec:file {execute execute_no_trans getattr ioctl lock map open read watch watch_reads};
 allow cmddumper system_file:file {execute execute_no_trans getattr map};
-

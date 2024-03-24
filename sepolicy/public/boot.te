@@ -1,3 +1,2 @@
 type boot_logo_updater, coredomain, domain;
 type sysfs_boot_info, fs_type, sysfs_type;
-

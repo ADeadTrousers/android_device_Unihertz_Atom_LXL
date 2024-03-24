@@ -7,7 +7,7 @@ get_prop(netdiag, apexd_prop);
 get_prop(netdiag, device_logging_prop);
 get_prop(netdiag, mmc_prop);
 get_prop(netdiag, safemode_prop);
-get_prop(netdiag, vendor_default_prop);
+get_prop(netdiag, vendor_public_property_type);
 
 set_prop(netdiag, system_mtk_debug_mtklog_prop);
 set_prop(netdiag, system_mtk_debug_netlog_prop);
@@ -63,4 +63,3 @@ allow netdiag untrusted_app:dir {search};
 allow netdiag vfat:dir {add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr watch watch_reads write};
 allow netdiag vfat:file {append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write};
 allowxperm netdiag self:packet_socket ioctl {0x8906 0x8933};
-

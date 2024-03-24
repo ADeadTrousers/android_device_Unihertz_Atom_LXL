@@ -30,4 +30,3 @@ allow kpoc_charger sysfs_dt_firmware_android:lnk_file {ioctl read getattr lock m
 allow kpoc_charger sysfs_leds:dir {ioctl read getattr lock open watch watch_reads search};
 allow kpoc_charger sysfs_power:file {read write getattr open};
 allow kpoc_charger sysfs_vbus:file {ioctl read getattr lock map open watch watch_reads};
-

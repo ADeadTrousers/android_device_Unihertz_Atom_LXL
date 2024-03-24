@@ -137,6 +137,5 @@ vendor.com.agui.networkmanager.policy.set                                       
 ro.telephony.sim.count                                                                              u:object_r:exported3_default_prop:s0 exact int
 persist.adb.nonblocking_ffs                                                                         u:object_r:exported_default_prop:s0 exact int
 ro.audio.usb.period_us                                                                              u:object_r:exported_default_prop:s0 exact int
-ro.system.build.fingerprint                                                                         u:object_r:exported_fingerprint_prop:s0 exact string
 persist.vendor.mdmmonitor                                                                           u:object_r:config_prop:s0
 ro.netflix.bsp_rev                                                                                  u:object_r:netflix_bsp_rev_prop:s0

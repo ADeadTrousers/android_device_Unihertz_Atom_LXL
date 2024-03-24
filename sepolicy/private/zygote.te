@@ -5,4 +5,3 @@ neverallow app_zygote system_data_file:lnk_file {append audit_access create exec
 neverallow webview_zygote system_data_file:lnk_file {append audit_access create execmod execute link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
 neverallow zygote system_data_file:dir {add_name append audit_access create execmod execute link map quotaon relabelfrom remove_name rename reparent rmdir setattr unlink watch_mount watch_sb watch_with_perm write};
 neverallow zygote system_data_file:file {append audit_access create entrypoint execmod execute execute_no_trans link mounton quotaon relabelfrom relabelto rename setattr unlink watch_mount watch_sb watch_with_perm write};
-
