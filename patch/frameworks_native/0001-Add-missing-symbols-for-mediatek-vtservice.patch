@@ -1,0 +1,140 @@
+From a9ff895680ac81044f0cfdbf875ff79e16da650a Mon Sep 17 00:00:00 2001
+From: Matthias Leitl <a.dead.trousers@gmail.com>
+Date: Sun, 7 Apr 2024 20:20:54 +0200
+Subject: [PATCH 1/1] Add missing symbols for mediatek vtservice
+
+Change-Id: I26c55a7b7c7812676e9d57dc31f50ad02fa407d4
+---
+ libs/gui/Surface.cpp                         | 10 +++++
+ libs/gui/SurfaceComposerClient.cpp           | 18 +++++++++
+ libs/gui/include/gui/SurfaceComposerClient.h |  4 ++
+ libs/ui/include/ui/DisplayConfig.h           | 41 ++++++++++++++++++++
+ 4 files changed, 73 insertions(+)
+ create mode 100644 libs/ui/include/ui/DisplayConfig.h
+
+diff --git a/libs/gui/Surface.cpp b/libs/gui/Surface.cpp
+index 353a91d062..1c17491302 100644
+--- a/libs/gui/Surface.cpp
++++ b/libs/gui/Surface.cpp
+@@ -2633,3 +2633,13 @@ void Surface::destroy() {
+ }
+ 
+ }; // namespace android
++
++extern "C" {
++// Old constructor without surfaceControlHandle
++void _ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEb(
++        void* thisptr,
++        android::sp<android::IGraphicBufferProducer>& bufferProducer,
++        bool controlledByApp) {
++                new (thisptr) android::Surface(bufferProducer,controlledByApp,nullptr);
++        }
++}
+diff --git a/libs/gui/SurfaceComposerClient.cpp b/libs/gui/SurfaceComposerClient.cpp
+index 4bcc9d56c8..4b2df7507d 100644
+--- a/libs/gui/SurfaceComposerClient.cpp
++++ b/libs/gui/SurfaceComposerClient.cpp
+@@ -44,6 +44,7 @@
+ #include <private/gui/ParcelUtils.h>
+ #include <ui/DisplayMode.h>
+ #include <ui/DynamicDisplayInfo.h>
++#include <ui/DisplayConfig.h>
+ 
+ #include <private/gui/ComposerService.h>
+ 
+@@ -2022,6 +2023,23 @@ status_t SurfaceComposerClient::getActiveDisplayMode(const sp<IBinder>& display,
+     return NAME_NOT_FOUND;
+ }
+ 
++status_t SurfaceComposerClient::getActiveDisplayConfig(const sp<IBinder>& display,
++                                                       DisplayConfig* config) {
++    ui::DisplayMode mode;
++    status_t result = getActiveDisplayMode(display, &mode);
++    if (result == NO_ERROR) {
++        config->resolution = mode.resolution;
++        config->xDpi = mode.xDpi;
++        config->yDpi = mode.yDpi;
++        config->refreshRate = mode.refreshRate;
++        config->appVsyncOffset = mode.appVsyncOffset;
++        config->sfVsyncOffset = mode.sfVsyncOffset;
++        config->presentationDeadline = mode.presentationDeadline;
++        config->configGroup = mode.group;
++    }
++    return result;
++}
++
+ status_t SurfaceComposerClient::setDesiredDisplayModeSpecs(
+         const sp<IBinder>& displayToken, ui::DisplayModeId defaultMode, bool allowGroupSwitching,
+         float primaryRefreshRateMin, float primaryRefreshRateMax, float appRequestRefreshRateMin,
+diff --git a/libs/gui/include/gui/SurfaceComposerClient.h b/libs/gui/include/gui/SurfaceComposerClient.h
+index 76b6d44fd2..33365d641e 100644
+--- a/libs/gui/include/gui/SurfaceComposerClient.h
++++ b/libs/gui/include/gui/SurfaceComposerClient.h
+@@ -36,6 +36,7 @@
+ #include <ui/GraphicTypes.h>
+ #include <ui/PixelFormat.h>
+ #include <ui/Rotation.h>
++#include <ui/DisplayConfig.h>
+ 
+ #include <gui/CpuConsumer.h>
+ #include <gui/ISurfaceComposer.h>
+@@ -129,6 +130,9 @@ public:
+     // TODO(b/180391891): Update clients to use getDynamicDisplayInfo and remove this function.
+     static status_t getActiveDisplayMode(const sp<IBinder>& display, ui::DisplayMode*);
+ 
++    // Workaround for missing symbol
++    static status_t getActiveDisplayConfig(const sp<IBinder>& display, DisplayConfig*);
++
+     // Sets the refresh rate boundaries for the display.
+     static status_t setDesiredDisplayModeSpecs(
+             const sp<IBinder>& displayToken, ui::DisplayModeId defaultMode,
+diff --git a/libs/ui/include/ui/DisplayConfig.h b/libs/ui/include/ui/DisplayConfig.h
+new file mode 100644
+index 0000000000..d6fbaab387
+--- /dev/null
++++ b/libs/ui/include/ui/DisplayConfig.h
+@@ -0,0 +1,41 @@
++/*
++ * Copyright 2019 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#pragma once
++
++#include <type_traits>
++
++#include <ui/Size.h>
++#include <utils/Timers.h>
++
++namespace android {
++
++// Configuration supported by physical display.
++struct DisplayConfig {
++    ui::Size resolution;
++    float xDpi = 0;
++    float yDpi = 0;
++
++    float refreshRate = 0;
++    nsecs_t appVsyncOffset = 0;
++    nsecs_t sfVsyncOffset = 0;
++    nsecs_t presentationDeadline = 0;
++    int configGroup = -1;
++};
++
++static_assert(std::is_trivially_copyable_v<DisplayConfig>);
++
++} // namespace android
+-- 
+2.34.1
+
