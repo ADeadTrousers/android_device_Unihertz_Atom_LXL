@@ -1,12 +1,13 @@
-From c335eee4382b6680040a15713c146f40ab0c42f5 Mon Sep 17 00:00:00 2001
+From b7d7292862eb32d88ded8fe15d132ac99720ff5e Mon Sep 17 00:00:00 2001
 From: Matthias Leitl <a.dead.trousers@gmail.com>
-Date: Sun, 7 Apr 2024 20:27:39 +0200
+Date: Sat, 4 May 2024 17:29:55 +0200
 Subject: [PATCH 1/1] Add missing symbol for mediatek vtservice
 
-Change-Id: If021a9821e6c57d588761f7837834aeb9ef6eee7
+Change-Id: I488e8f5a1dec16cde9092b40db88191e5a84fc84
 ---
  media/libaudioclient/AudioTrack.cpp | 33 +++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ media/libstagefright/MediaMuxer.cpp | 10 +++++++++
+ 2 files changed, 43 insertions(+)
 
 diff --git a/media/libaudioclient/AudioTrack.cpp b/media/libaudioclient/AudioTrack.cpp
 index 54d186e3b3..f97d60bbf0 100644
@@ -47,6 +48,24 @@ index 54d186e3b3..f97d60bbf0 100644
 +                new (thisptr) android::AudioTrack(streamType, sampleRate, format, channelMask, frameCount, flags, cbf,
 +                        user, notificationFrames, sessionId, transferType, offloadInfo, attributionSource,
 +                        pAttributes, doNotReconnect, maxRequiredSpeed, selectedDeviceId);
++        }
++}
+diff --git a/media/libstagefright/MediaMuxer.cpp b/media/libstagefright/MediaMuxer.cpp
+index a946f71e9b..1ab235784b 100644
+--- a/media/libstagefright/MediaMuxer.cpp
++++ b/media/libstagefright/MediaMuxer.cpp
+@@ -266,3 +266,13 @@ sp<AMessage> MediaMuxer::getTrackFormat([[maybe_unused]] size_t idx) {
+ }
+ 
+ }  // namespace android
++
++extern "C" {
++// Old constructor with different enum
++void _ZN7android10MediaMuxerC1EiNS0_12OutputFormatE(
++        void* thisptr,
++        int fd,
++        android::MediaMuxerBase::OutputFormat format) {
++                new (thisptr) android::MediaMuxer(fd,format);
 +        }
 +}
 -- 
