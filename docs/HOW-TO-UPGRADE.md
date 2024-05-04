@@ -72,18 +72,18 @@ For the stock rom release 2021-11:
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases)
 - [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases)
 
-1. Download `lineage-18.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
+1. Download `lineage-19.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
 
 ### Using sideload method
 
 1. From home screen in TWRP select `Advanced > ADB Sideload`.
 2. Swipe the slider on the bottom to the right to confirm.
-3. Run `adb sideload lineage-18.1-XXX-UNOFFICIAL-YYY.zip` from your PC.
+3. Run `adb sideload lineage-19.1-XXX-UNOFFICIAL-YYY.zip` from your PC.
 4. Wait for the process to finish. The recovery might prompt something about verification failure, just ignore it and continue anyway.
 
 ### Using SD card
 
-1. Run `adb push lineage-18.1-XXX-UNOFFICIAL-YYY.zip /external_sd` on your PC or transfer the file beforehand onto your SD card.
+1. Run `adb push lineage-19.1-XXX-UNOFFICIAL-YYY.zip /external_sd` on your PC or transfer the file beforehand onto your SD card.
 2. From home screen select `Install`.
 3. Use `Select Storage` to switch to your SD card.
 4. Select the previously transfered file.
