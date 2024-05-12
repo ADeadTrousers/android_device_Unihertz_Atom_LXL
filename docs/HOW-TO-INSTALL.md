@@ -119,7 +119,7 @@ To get LineageOS to boot proberly we also need to disable AVB. Otherwise the boo
 
 ### Finishing up
 
-1. (Optional) At this point, you can then install the latest Magisk and/or OpenGAPPS Nano at your will. Note that the size of the system partition might only be enough for the "nano" variant of OpenGAPPS. If installing Magisk / OpenGAPPS fails, you can try rebooting into recovery again in advanced menus, then try installing them again.
+1. (Optional) At this point, you can then install the latest Magisk and/or NikGAPPS at your will. If installing Magisk / NikGAPPS fails, you can try rebooting into recovery again in advanced menus, then try installing them again.
 2. Select `Reboot System` to reboot into LineageOS and enjoy. Note that Magisk might cause your device to boot loop once or twice but it will eventually boot.
 
 ## Troubleshooting

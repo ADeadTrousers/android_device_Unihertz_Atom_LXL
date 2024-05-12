@@ -5,9 +5,6 @@
 
 DEVICE_PATH := device/Unihertz/Atom_LXL
 
-#Include GAPPS if applicable
--include $(DEVICE_PATH)/gapps_prop.mk
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Enable updating of APEXes
@@ -179,6 +176,3 @@ PRODUCT_BOOT_JARS += \
     mediatek-telecom-common \
     mediatek-telephony-base \
     mediatek-telephony-common
-
-#Include GAPPS if applicable 
-$(call inherit-product-if-exists, vendor/opengapps/build/opengapps-packages.mk)

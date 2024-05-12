@@ -90,15 +90,6 @@ Then update your environment
 source ~/.profile
 ```
 
-### (optional) Install git-lfs for GAPPS support during build
-
-If you want to include GAPPS in the build you need [git-lfs](https://git-lfs.github.com/) otherwise the apk's can't be downloaded.
-
-```bash
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get install git-lfs
-```
-
 ### Configure git
 
 repo requires you to identify yourself to sync Android
@@ -131,7 +122,7 @@ Create the project folder and download the source code
 ```bash
 mkdir -p ~/android/lineage
 cd ~/android/lineage
-repo init -u https://github.com/LineageOS/android.git -b lineage-19.1 --git-lfs
+repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 ```
 
 Now let's add this very device repo to the local_manifest
@@ -168,20 +159,6 @@ If you want to build with HardwareKeyMapper included add the following to the ma
   <project name="ADeadTrousers/HardwareKeyMapper" path="vendor/are/HardwareKeyMapper" remote="github" revision="master" />
 ```
 
-If you want to build with GAPPS included add the following to the manifest-tag
-
-```xml
-  <remote name="opengapps" fetch="https://github.com/opengapps/" />
-  <remote name="opengapps-gitlab" fetch="https://gitlab.opengapps.org/opengapps/" />
-  <project path="vendor/opengapps/build" name="aosp_build" revision="master" remote="opengapps" />
-  <project path="vendor/opengapps/sources/all" name="all" clone-depth="1" revision="master" remote="opengapps-gitlab" />
-  <!-- arm64 depends on arm -->
-  <project path="vendor/opengapps/sources/arm" name="arm" clone-depth="1" revision="master" remote="opengapps-gitlab" />
-  <project path="vendor/opengapps/sources/arm64" name="arm64" clone-depth="1" revision="master" remote="opengapps-gitlab" />
-  <project path="vendor/opengapps/sources/x86" name="x86" clone-depth="1" revision="master" remote="opengapps-gitlab" />
-  <project path="vendor/opengapps/sources/x86_64" name="x86_64" clone-depth="1" revision="master" remote="opengapps-gitlab" />
-```
-
 If you want to build with Magisk included add the following to the manifest-tag
 
 ```xml
@@ -200,16 +177,6 @@ Apply all the patches that are needed for this deivce
 ```bash
 ./device/Unihertz/Atom_LXL/patch/apply.sh
 ```
-
-## (optional) Configure GAPPS for the device
-
-If you don't want to include GAPPS at all or want to change the apps to be installed
-
-```bash
-gedit ~/android/lineage/device/Unihertz/Atom_LXL/gapps_prop.mk
-```
-
-[Documentation of the possible settings](https://github.com/opengapps/aosp_build/blob/master/README.md)
 
 ## Extracting the vendor blobs
 
@@ -295,12 +262,4 @@ Re-apply all the patches that are needed for this deivce
 
 ```bash
 ./device/Unihertz/Atom_LXL/patch/apply.sh
-```
-
-If you changed the settings of TWRP and GAPPS sadly you need to redo them now.
-
-Also don't forget to sync git-lfs if you included GAPPS
-
-```bash
-repo forall -c git lfs pull
 ```

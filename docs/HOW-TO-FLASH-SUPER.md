@@ -123,7 +123,7 @@ stat -c '%n %s' product.img
 ```
 
 Alternativly you could also use the filesizes from the zip archive in `dynamic_partitions_op_list`. 
-Theses sizes are a bit bigger so you are able to add additional components like Gapps or Magisk later on.
+Theses sizes are a bit bigger so you are able to add additional components like NikGapps or Magisk later on.
 
 With these number we are now able to create the `super.img`
 

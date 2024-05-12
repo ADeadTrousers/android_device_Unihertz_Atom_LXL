@@ -91,5 +91,5 @@ For the stock rom release 2021-11:
 
 ### Finishing up
 
-1. (Optional) At this point, you can then install the latest Magisk and/or OpenGAPPS Nano at your will. Note that the size of the system partition might only be enough for the "nano" variant of OpenGAPPS. If installing Magisk / OpenGAPPS fails, you can try rebooting into recovery again in advanced menus, then try installing them again.
+1. (Optional) At this point, you can then install the latest Magisk and/or NikGapps at your will. If installing Magisk / NikGapps fails, you can try rebooting into recovery again in advanced menus, then try installing them again.
 2. Select `Reboot System` to reboot into LineageOS and enjoy. Note that Magisk might cause your device to boot loop once or twice but it will eventually boot.
