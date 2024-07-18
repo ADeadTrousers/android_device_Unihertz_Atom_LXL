@@ -61,8 +61,8 @@ PRODUCT_PACKAGES += \
     fstab.mt6771
 
 # Magisk
-PRODUCT_PACKAGES += \
-    99-magisk
+#PRODUCT_PACKAGES += \
+#    99-magisk
     
 # HardwareKeyMapper
 PRODUCT_PACKAGES += \
