@@ -1,4 +1,4 @@
-How to build LineageOS 19.1 for the Unihertz Atom L and XL
+How to build LineageOS 20.0 for the Unihertz Atom L and XL
 =================================================
 
 This guide is focused on building the ROM under a Linux host environment.
@@ -14,7 +14,7 @@ Here is a short summing up.
 To successfully build LineageOS, you’ll need
 
 ```bash
-sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
+sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32readline-dev lib32z1-dev liblz4-tool libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
 ```
 
 For Ubuntu versions older than 16.04 (xenial), you’ll need
@@ -27,6 +27,19 @@ For Ubuntu versions older than 20.04 (focal), you’ll also need
 
 ```bash
 sudo apt-get install libwxgtk3.0-dev
+```
+
+For Ubuntu versions older than 24.04 (numbat), you’ll also need
+
+```bash
+sudo apt-get install lib32ncurses5-dev libncurses5 libncurses5-dev
+```
+
+For Ubuntu versions starting from 24.04 (numbat), you’ll need
+
+```bash
+sudo apt-get install libncurses6 libncurses-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
 ```
 
 ### Install the platform-tools
@@ -122,7 +135,7 @@ Create the project folder and download the source code
 ```bash
 mkdir -p ~/android/lineage
 cd ~/android/lineage
-repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
+repo init -u https://github.com/LineageOS/android.git -b lineage-20.0
 ```
 
 Now let's add this very device repo to the local_manifest
@@ -136,20 +149,20 @@ Add the following
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_LXL" path="device/Unihertz/Atom_LXL" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_LXL" path="device/Unihertz/Atom_LXL" remote="github" revision="lineage-20.0r" />
   <project name="ADeadTrousers/android_vendor_mediatek_libfmcust" path="vendor/mediatek/libfmcust" remote="github" revision="master" />
   <!-- For the Atom L model add -->  
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_L" path="device/Unihertz/Atom_L" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_L" path="device/Unihertz/Atom_L" remote="github" revision="lineage-20.0" />
   <!-- For the Atom XL model add -->  
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_XL" path="device/Unihertz/Atom_XL" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_XL" path="device/Unihertz/Atom_XL" remote="github" revision="lineage-20.0" />
   <!-- For the Atom L region eea add -->  
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_L_EEA" path="device/Unihertz/Atom_L_EEA" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_L_EEA" path="device/Unihertz/Atom_L_EEA" remote="github" revision="lineage-20.0" />
   <!-- For the Atom XL region eea add -->  
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_XL_EEA" path="device/Unihertz/Atom_XL_EEA" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_XL_EEA" path="device/Unihertz/Atom_XL_EEA" remote="github" revision="lineage-20.0" />
   <!-- For the Atom L region tee add -->  
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_L_TEE" path="device/Unihertz/Atom_L_TEE" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_L_TEE" path="device/Unihertz/Atom_L_TEE" remote="github" revision="lineage-20.0" />
   <!-- For the Atom XL region tee add -->  
-  <project name="ADeadTrousers/android_device_Unihertz_Atom_XL_TEE" path="device/Unihertz/Atom_XL_TEE" remote="github" revision="master" />
+  <project name="ADeadTrousers/android_device_Unihertz_Atom_XL_TEE" path="device/Unihertz/Atom_XL_TEE" remote="github" revision="lineage-20.0" />
 </manifest>
 ```
 

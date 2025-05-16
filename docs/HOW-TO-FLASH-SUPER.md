@@ -52,7 +52,7 @@ Download sdat2img.py
 ```bash
 mkdir -p ~/bin
 cd ~/bin
-wget https://raw.githubusercontent.com/xpirt/sdat2img/master/sdat2img.py
+wget https://raw.githubusercontent.com/xpirt/sdat2img/lineage-20.0/sdat2img.py
 chmod 755 sdat2img.py
 ```
 
@@ -90,7 +90,7 @@ Create the folder `~/super` and copy `vendor.img` into it.
 - [Atom L Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_L_TEE/releases)
 - [Atom XL Region TEE (non-european union)](https://github.com/ADeadTrousers/android_device_Unihertz_Atom_XL_TEE/releases)
 
-Download `lineage-19.1-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
+Download `lineage-20.0-XXX-UNOFFICIAL-YYY-signed.zip` from the latest release page of your device.
 Extract the files from the zip archive into `~/super`.
 
 Then we need to extract the brotli compressed files

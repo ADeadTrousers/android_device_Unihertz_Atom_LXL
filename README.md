@@ -30,7 +30,7 @@ For the actual releases head on over to the device tree of the individual device
 
 ## Documentations
 
-- [HOW-TO-BUILD.md](docs/HOW-TO-BUILD.md) - Building instructions for LineageOS 19.1.
+- [HOW-TO-BUILD.md](docs/HOW-TO-BUILD.md) - Building instructions for LineageOS 20.0.
 - [HOW-TO-INSTALL.md](docs/HOW-TO-INSTALL.md) - Installation instructions for the Atom L/XL.
 - [HOW-TO-UPDATE.md](docs/HOW-TO-UPDATE.md) - Update instructions for the Atom L/XL.
 - [HOW-TO-UPGRADE.md](docs/HOW-TO-UPGRADE.md) - Upgrade instructions for the vendor portion of the Atom L/XL.

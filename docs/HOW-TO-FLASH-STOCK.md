@@ -16,7 +16,7 @@ In this guide I'll use Windows cause honestly that's the only way I know of and 
 
 ## Preparing the SP Flash Tool
 
-1. Download the [latest SP Flash Tool](https://spflashtools.com/category/windows). As of me writing this the latest version was v5.2136. The V6 variant is not compatible with Atom L/XL.
+1. Download the [latest SP Flash Tool](https://spflashtools.com/category/windows). As of me writing this the latest version that worked for me was v5.2216. The V6 variant is not compatible with Atom L/XL.
 2. Extract the downloaded zip to a folder of your choosing.
 
 ## Downloading the Stock ROM

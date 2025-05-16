@@ -5,8 +5,6 @@
 
 DEVICE_PATH := device/Unihertz/Atom_LXL
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
@@ -24,21 +22,16 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 # A/B
 AB_OTA_UPDATER := false
 
-# Audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    libaacwrapper
-
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Aperture
 
 # FMRadio
 PRODUCT_PACKAGES += \
     ueventd.mt6771.rc \
     FMRadio \
     libfmcust
-   
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
@@ -46,7 +39,7 @@ PRODUCT_PACKAGES += \
 # fstab
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/fstab.mt6771:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6771
-    
+
 # NFC stack (AOSP)
 PRODUCT_PACKAGES += \
     NfcNci
@@ -54,7 +47,7 @@ PRODUCT_PACKAGES += \
 # ImsInit hack
 PRODUCT_PACKAGES += \
     ImsInit
-    
+
 # Init
 PRODUCT_PACKAGES += \
     init.mt6771.rc \
@@ -63,7 +56,7 @@ PRODUCT_PACKAGES += \
 # Magisk
 #PRODUCT_PACKAGES += \
 #    99-magisk
-    
+
 # HardwareKeyMapper
 PRODUCT_PACKAGES += \
     HardwareKeyMapper    
@@ -144,7 +137,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0 \
     android.hardware.soundtrigger@2.1 \
     android.hardware.soundtrigger@2.2
-    
+
 # Additional tools
 PRODUCT_HOST_PACKAGES += \
     unpack_bootimg \
@@ -157,7 +150,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/keylayout/mtk-kpd.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mtk-kpd.kl \
     $(DEVICE_PATH)/keylayout/mtk-tpd-kpd.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mtk-tpd-kpd.kl \
     $(DEVICE_PATH)/keylayout/fingerprint_key.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/fingerprint_key.kl
-    
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay \
